@@ -1,0 +1,465 @@
+{
+  "context": {
+    "projectPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Packages",
+    "unityVersion": "6000.0.36f1"
+  },
+  "inputs": [
+    "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Packages/manifest.json",
+    "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Packages/packages-lock.json",
+    "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/BuiltInPackagesCombined.sha1"
+  ],
+  "outputs": {
+    "com.unity.2d.sprite@1.0.0": {
+      "name": "com.unity.2d.sprite",
+      "displayName": "2D Sprite",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.2d.sprite@288185b75ab4",
+      "fingerprint": "288185b75ab4115633459407db6f453f23b39ae9",
+      "editorCompatibility": "2019.2.0a1",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.2d.tilemap@1.0.0": {
+      "name": "com.unity.2d.tilemap",
+      "displayName": "2D Tilemap Editor",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.2d.tilemap@91020cbfae56",
+      "fingerprint": "91020cbfae5609e17fd435cd77f08d0a6b7138fb",
+      "editorCompatibility": "2019.2.0a1",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.ads@4.4.2": {
+      "name": "com.unity.ads",
+      "displayName": "Advertisement Legacy",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.ads@a7b997f68a1d",
+      "fingerprint": "a7b997f68a1d40387ca4d33fc75578709c140a37",
+      "editorCompatibility": "2018.4.18f1",
+      "version": "4.4.2",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.ai.navigation@2.0.5": {
+      "name": "com.unity.ai.navigation",
+      "displayName": "AI Navigation",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.ai.navigation@9f76b145f0a8",
+      "fingerprint": "9f76b145f0a8dd734ff2a4877f7f7edb83b7f62c",
+      "editorCompatibility": "2023.2.0a18",
+      "version": "2.0.5",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.analytics@3.8.1": {
+      "name": "com.unity.analytics",
+      "displayName": "Analytics Library",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.analytics@6cc66d58ac08",
+      "fingerprint": "6cc66d58ac08950316d3b86a26c92187aca1ddb0",
+      "editorCompatibility": "2019.3.0a1",
+      "version": "3.8.1",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.collab-proxy@2.6.0": {
+      "name": "com.unity.collab-proxy",
+      "displayName": "Version Control",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.collab-proxy@001b54a8988a",
+      "fingerprint": "001b54a8988a14785c8e209d6c788bb15f9e58cf",
+      "editorCompatibility": "2021.3.0f1",
+      "version": "2.6.0",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.ide.rider@3.0.31": {
+      "name": "com.unity.ide.rider",
+      "displayName": "JetBrains Rider Editor",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.ide.rider@7921be93db40",
+      "fingerprint": "7921be93db40ec070fcb01ed82d1c3df1bbdddcd",
+      "editorCompatibility": "2019.2.6f1",
+      "version": "3.0.31",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.ide.visualstudio@2.0.22": {
+      "name": "com.unity.ide.visualstudio",
+      "displayName": "Visual Studio Editor",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.ide.visualstudio@8140e851d83e",
+      "fingerprint": "8140e851d83e922ca2021b04a89519de94ebe38c",
+      "editorCompatibility": "2019.4.25f1",
+      "version": "2.0.22",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.multiplayer.center@1.0.0": {
+      "name": "com.unity.multiplayer.center",
+      "displayName": "Multiplayer Center",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.multiplayer.center@f502d8ac613f",
+      "fingerprint": "f502d8ac613fa076192423e73892fbd89eb4049b",
+      "editorCompatibility": "6000.0.0a1",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.purchasing@4.12.2": {
+      "name": "com.unity.purchasing",
+      "displayName": "In App Purchasing",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.purchasing@649c6c7b3b1b",
+      "fingerprint": "649c6c7b3b1b6277839041f4987c0a1e66176678",
+      "editorCompatibility": "2020.3.0a1",
+      "version": "4.12.2",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.test-framework@1.4.5": {
+      "name": "com.unity.test-framework",
+      "displayName": "Test Framework",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.test-framework@0a21eb82d95c",
+      "fingerprint": "0a21eb82d95cd331643a1e0ce4e8e9a5f18954c8",
+      "editorCompatibility": "2019.4.0a10",
+      "version": "1.4.5",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.timeline@1.8.7": {
+      "name": "com.unity.timeline",
+      "displayName": "Timeline",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.timeline@c58b4ee65782",
+      "fingerprint": "c58b4ee65782ad38338e29f7ee67787cb6998f04",
+      "editorCompatibility": "2019.3.0a1",
+      "version": "1.8.7",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.ugui@2.0.0": {
+      "name": "com.unity.ugui",
+      "displayName": "Unity UI",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.ugui@24b10291b18f",
+      "fingerprint": "24b10291b18f65e937b22d041c48712033f29449",
+      "editorCompatibility": "2019.2.0a1",
+      "version": "2.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.xr.legacyinputhelpers@2.1.11": {
+      "name": "com.unity.xr.legacyinputhelpers",
+      "displayName": "XR Legacy Input Helpers",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.xr.legacyinputhelpers@a3936666e068",
+      "fingerprint": "a3936666e06871a5fd0461a69a4d99efb31a21c1",
+      "editorCompatibility": "2019.4.0a1",
+      "version": "2.1.11",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.modules.accessibility@1.0.0": {
+      "name": "com.unity.modules.accessibility",
+      "displayName": "Accessibility",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.accessibility",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.ai@1.0.0": {
+      "name": "com.unity.modules.ai",
+      "displayName": "AI",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.ai",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.androidjni@1.0.0": {
+      "name": "com.unity.modules.androidjni",
+      "displayName": "Android JNI",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.androidjni",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.animation@1.0.0": {
+      "name": "com.unity.modules.animation",
+      "displayName": "Animation",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.animation",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.assetbundle@1.0.0": {
+      "name": "com.unity.modules.assetbundle",
+      "displayName": "Asset Bundle",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.assetbundle",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.audio@1.0.0": {
+      "name": "com.unity.modules.audio",
+      "displayName": "Audio",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.audio",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.cloth@1.0.0": {
+      "name": "com.unity.modules.cloth",
+      "displayName": "Cloth",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.cloth",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.director@1.0.0": {
+      "name": "com.unity.modules.director",
+      "displayName": "Director",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.director",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.imageconversion@1.0.0": {
+      "name": "com.unity.modules.imageconversion",
+      "displayName": "Image Conversion",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.imageconversion",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.imgui@1.0.0": {
+      "name": "com.unity.modules.imgui",
+      "displayName": "IMGUI",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.imgui",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.jsonserialize@1.0.0": {
+      "name": "com.unity.modules.jsonserialize",
+      "displayName": "JSONSerialize",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.jsonserialize",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.particlesystem@1.0.0": {
+      "name": "com.unity.modules.particlesystem",
+      "displayName": "Particle System",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.particlesystem",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.physics@1.0.0": {
+      "name": "com.unity.modules.physics",
+      "displayName": "Physics",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.physics",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.physics2d@1.0.0": {
+      "name": "com.unity.modules.physics2d",
+      "displayName": "Physics 2D",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.physics2d",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.screencapture@1.0.0": {
+      "name": "com.unity.modules.screencapture",
+      "displayName": "Screen Capture",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.screencapture",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.terrain@1.0.0": {
+      "name": "com.unity.modules.terrain",
+      "displayName": "Terrain",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.terrain",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.terrainphysics@1.0.0": {
+      "name": "com.unity.modules.terrainphysics",
+      "displayName": "Terrain Physics",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.terrainphysics",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.tilemap@1.0.0": {
+      "name": "com.unity.modules.tilemap",
+      "displayName": "Tilemap",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.tilemap",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.ui@1.0.0": {
+      "name": "com.unity.modules.ui",
+      "displayName": "UI",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.ui",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.uielements@1.0.0": {
+      "name": "com.unity.modules.uielements",
+      "displayName": "UIElements",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.uielements",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.umbra@1.0.0": {
+      "name": "com.unity.modules.umbra",
+      "displayName": "Umbra",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.umbra",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.unityanalytics@1.0.0": {
+      "name": "com.unity.modules.unityanalytics",
+      "displayName": "Unity Analytics",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unityanalytics",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.unitywebrequest@1.0.0": {
+      "name": "com.unity.modules.unitywebrequest",
+      "displayName": "Unity Web Request",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequest",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.unitywebrequestassetbundle@1.0.0": {
+      "name": "com.unity.modules.unitywebrequestassetbundle",
+      "displayName": "Unity Web Request Asset Bundle",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequestassetbundle",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.unitywebrequestaudio@1.0.0": {
+      "name": "com.unity.modules.unitywebrequestaudio",
+      "displayName": "Unity Web Request Audio",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequestaudio",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.unitywebrequesttexture@1.0.0": {
+      "name": "com.unity.modules.unitywebrequesttexture",
+      "displayName": "Unity Web Request Texture",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequesttexture",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.unitywebrequestwww@1.0.0": {
+      "name": "com.unity.modules.unitywebrequestwww",
+      "displayName": "Unity Web Request WWW",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequestwww",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.vehicles@1.0.0": {
+      "name": "com.unity.modules.vehicles",
+      "displayName": "Vehicles",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.vehicles",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.video@1.0.0": {
+      "name": "com.unity.modules.video",
+      "displayName": "Video",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.video",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.vr@1.0.0": {
+      "name": "com.unity.modules.vr",
+      "displayName": "VR",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.vr",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.wind@1.0.0": {
+      "name": "com.unity.modules.wind",
+      "displayName": "Wind",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.wind",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.xr@1.0.0": {
+      "name": "com.unity.modules.xr",
+      "displayName": "XR",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.xr",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.subsystems@1.0.0": {
+      "name": "com.unity.modules.subsystems",
+      "displayName": "Subsystems",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.subsystems",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.hierarchycore@1.0.0": {
+      "name": "com.unity.modules.hierarchycore",
+      "displayName": "Hierarchy Core",
+      "resolvedPath": "/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.hierarchycore",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.ext.nunit@2.0.5": {
+      "name": "com.unity.ext.nunit",
+      "displayName": "Custom NUnit",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.ext.nunit@60ef35ffd3cd",
+      "fingerprint": "60ef35ffd3cd5e2f5c8887a4a4ca6148854cd092",
+      "editorCompatibility": "2019.4.0a1",
+      "version": "2.0.5",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.services.core@1.14.0": {
+      "name": "com.unity.services.core",
+      "displayName": "Services Core",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.services.core@9e81a5e38245",
+      "fingerprint": "9e81a5e382457b799480b311ce51187be99abbbf",
+      "editorCompatibility": "2021.3.0a1",
+      "version": "1.14.0",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.services.analytics@6.0.1": {
+      "name": "com.unity.services.analytics",
+      "displayName": "Analytics",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.services.analytics@f7e249983920",
+      "fingerprint": "f7e249983920dd67eba8952b09e37a6fe4582dd0",
+      "editorCompatibility": "2021.3.0a1",
+      "version": "6.0.1",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.nuget.newtonsoft-json@3.2.1": {
+      "name": "com.unity.nuget.newtonsoft-json",
+      "displayName": "Newtonsoft Json",
+      "resolvedPath": "/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Trail-Tales-Unity/Library/PackageCache/com.unity.nuget.newtonsoft-json@74deb55db2a0",
+      "fingerprint": "74deb55db2a0c29ddfda576608bcb86abbd13ee6",
+      "editorCompatibility": "2018.4.0a1",
+      "version": "3.2.1",
+      "source": "registry",
+      "testable": false
+    }
+  }
+}
