@@ -1,0 +1,16 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales-shared/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11887819826964051284.xml:2:13-83
+INJECTED from /Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales-shared/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11887819826964051284.xml:2:13-83
+	package
+		INJECTED from /Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales-shared/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11887819826964051284.xml
+	xmlns:android
+		ADDED from /Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales-shared/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11887819826964051284.xml:2:23-81
+uses-sdk
+INJECTED from /Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales-shared/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11887819826964051284.xml reason: use-sdk injection requested
+INJECTED from /Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales-shared/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11887819826964051284.xml
+INJECTED from /Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales-shared/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11887819826964051284.xml
+	android:targetSdkVersion
+		INJECTED from /Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales-shared/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11887819826964051284.xml
+	android:minSdkVersion
+		INJECTED from /Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales-shared/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11887819826964051284.xml

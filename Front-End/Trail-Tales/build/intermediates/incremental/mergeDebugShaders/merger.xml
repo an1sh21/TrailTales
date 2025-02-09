@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales/src/main/shaders"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales/src/debug/shaders"/></dataSet></merger>

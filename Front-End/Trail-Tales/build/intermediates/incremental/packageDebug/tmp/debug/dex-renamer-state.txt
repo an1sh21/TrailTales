@@ -1,0 +1,16 @@
+#Sat Feb 08 21:41:00 IST 2025
+base.0=/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales/build/intermediates/dex/debug/mergeLibDexDebug/10/classes.dex
+base.2=/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.3=/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales/build/intermediates/dex/debug/mergeProjectDexDebug/11/classes.dex
+base.4=/Users/himathdesilva/Desktop/SDGP-SE-78/PROJECT/TrailTales/Front-End/Trail-Tales/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+path.0=classes.dex
+path.1=10/classes.dex
+path.2=0/classes.dex
+path.3=11/classes.dex
+path.4=classes2.dex
+renamed.0=classes.dex
+renamed.1=classes2.dex
+renamed.2=classes3.dex
+renamed.3=classes4.dex
+renamed.4=classes5.dex
