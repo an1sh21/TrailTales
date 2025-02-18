@@ -74,6 +74,13 @@ class AuthManager(private val activity: Activity) {
         }
     }
 
+    fun sendEmailVerification(user: FirebaseUser, callback: (Boolean) -> Unit) {
+        user.sendEmailVerification()
+            .addOnCompleteListener { task ->
+                callback(task.isSuccessful)
+            }
+    }
+
     fun signOut() {
         auth.signOut()
         googleSignInClient.signOut()

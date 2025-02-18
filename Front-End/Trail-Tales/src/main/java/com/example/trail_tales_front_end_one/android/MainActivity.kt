@@ -9,7 +9,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.trail_tales_front_end_one.android.auth.AuthManager
 import com.example.trail_tales_front_end_one.android.auth.UserSession
 import com.example.trail_tales_front_end_one.android.ui.screens.HomeScreen
@@ -26,7 +25,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         authManager = AuthManager(this)
-        
         setContent {
             AppTheme {
                 Surface(
@@ -35,7 +33,6 @@ class MainActivity : ComponentActivity() {
                 ) {
                     var showRegisterScreen by remember { mutableStateOf(false) }
                     val currentUser by UserSession.currentUser.collectAsState()
-                    
                     if (currentUser == null) {
                         if (showRegisterScreen) {
                             RegisterScreen(authManager)
