@@ -1,6 +1,5 @@
 package com.example.trail_tales_front_end_one.android.ui.screens
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -115,7 +114,6 @@ fun LoadingBar() {
                 .height(8.dp)
         )
     }
-
 }
 
 
@@ -125,11 +123,8 @@ fun LandingScreenPreview(){
     LandingScreen(navController = rememberNavController())
 }
 
-@Preview
-@Composable
-fun LoadingBarPreview() {
-    LoadingBar()
-}
-
-
-
+//@Preview
+//@Composable
+//fun LoadingBarPreview() {
+//    LoadingBar()
+//}
