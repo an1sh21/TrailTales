@@ -17,7 +17,11 @@ import com.example.trail_tales_front_end_one.android.ui.screens.RegisterScreen
 import com.example.trail_tales_front_end_one.android.ui.theme.AppTheme
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
     private lateinit var authManager: AuthManager
