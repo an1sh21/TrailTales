@@ -31,21 +31,21 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GameLevelScreen() {
+
     Box(
 
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFFFEB3B)) // Yellow background
+            .background(Color(0xFFFFEB3C)) // Yellow background
             .padding(8.dp),
         contentAlignment = Alignment.BottomCenter   // aligning the content including all the cards
 
     ) {
-
         Column(
 
             modifier = Modifier.fillMaxWidth().padding(25.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(15.dp)    // adding spaces between the cards
+            verticalArrangement = Arrangement.spacedBy(12.dp)    // adding spaces between the cards
 
         ) {
             // Creating the 3 main game level cards
