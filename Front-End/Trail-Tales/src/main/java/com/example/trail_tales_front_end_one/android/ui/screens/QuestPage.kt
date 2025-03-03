@@ -32,91 +32,108 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GameLevelScreen() {
     Box(
+
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFFFEB3B)) // Yellow background
+            .padding(8.dp),
+        contentAlignment = Alignment.BottomCenter   // aligning the content including all the cards
+
     ) {
-        Card(
-            modifier = Modifier
-                .align(Alignment.TopCenter)
-                .padding(16.dp)
-                .fillMaxWidth(),
-            shape = RoundedCornerShape(12.dp),
-            elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+
+        Column(
+
+            modifier = Modifier.fillMaxWidth().padding(25.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(15.dp)    // adding spaces between the cards
+
         ) {
-            Row(
+            // Creating the 3 main game level cards
+
+            LevelCard("Beginner", 5, R.drawable.login)  // Replace image
+            Spacer(modifier = Modifier.height(16.dp))
+            LevelCard("Explorer", 7, R.drawable.login)  // Replace image
+            Spacer(modifier = Modifier.height(16.dp))
+            LevelCard("Expert", 10, R.drawable.login)  // Replace image
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+    }
+}
+
+@Composable
+fun LevelCard(difficulty: String, sites: Int, imageRes: Int) {
+
+    Card(
+
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 8.dp),
+        shape = RoundedCornerShape(12.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+    ) {
+
+        Row(
+
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+
+        ) {
+            //  Adding the Character Image
+
+            Image(
+                painter = painterResource(id = imageRes),
+                contentDescription = "Character Image",
                 modifier = Modifier
-                    .padding(16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                // Character Image
-               Image(
-                   painter = painterResource(id = R.drawable.login), // Replace with actual drawable
-                    contentDescription = "Character Image",
-                    modifier = Modifier
-                       .size(120.dp)
-                        .clip(RoundedCornerShape(8.dp))
+                    .size(100.dp)
+                    .clip(RoundedCornerShape(8.dp))
+            )
+
+            Spacer(modifier = Modifier.width(16.dp))
+
+            Column {
+
+                // Creating Difficulty Level
+
+                Text(
+                    text = "Difficulty: $difficulty",
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Red
                 )
+                Spacer(modifier = Modifier.height(8.dp))
 
-                Spacer(modifier = Modifier.width(16.dp))
+                // Creating Sites
 
-                Column {
-                    // Difficulty Level
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "Sites: ", fontSize = 16.sp, fontWeight = FontWeight.Bold)
                     Text(
-                        text = "Difficulty: Beginner",
-                        fontSize = 18.sp,
+                        text = "$sites sites",
+                        fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color.Red
+                        color = Color(0xFFD4A017) // Gold color
                     )
+                }
 
-                    Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(4.dp))
 
-                    // Sites
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            text = "Sites: ",
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Text(
-                            text = "5 sites",
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color(0xFFD4A017) // Gold color
-                        )
-                    }
+                // Tokens (Commented till corrected  images adding)
 
-                    Spacer(modifier = Modifier.height(4.dp))
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "Tokens: ", fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                    Spacer(modifier = Modifier.width(4.dp))
+//                    Image(painter = painterResource(id = R.drawable.blue_token), contentDescription = "Blue Token", modifier = Modifier.size(24.dp))
+//                    Spacer(modifier = Modifier.width(4.dp))
+//                    Image(painter = painterResource(id = R.drawable.red_token), contentDescription = "Red Token", modifier = Modifier.size(24.dp))
+                }
 
-                    // Tokens
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(text = "Tokens: ", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                        Spacer(modifier = Modifier.width(4.dp))
-//                        Image(
-////                            painter = painterResource(id = R.drawable.blue_token), // Replace with actual drawable
-//                            contentDescription = "Blue Token",
-//                            modifier = Modifier.size(24.dp)
-//                        )
-                        Spacer(modifier = Modifier.width(4.dp))
-//                        Image(
-//                            painter = painterResource(id = R.drawable.red_token), // Replace with actual drawable
-//                            contentDescription = "Red Token",
-//                            modifier = Modifier.size(24.dp)
-//                        )
-                    }
+                Spacer(modifier = Modifier.height(4.dp))
 
-                    Spacer(modifier = Modifier.height(4.dp))
+                // Rewards (Commented till corrected images added )
 
-                    // Rewards
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(text = "Rewards: ", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                        Spacer(modifier = Modifier.width(4.dp))
-//                        Image(
-//                            painter = painterResource(id = R.drawable.reward_icon), // Replace with actual drawable
-//                            contentDescription = "Reward",
-//                            modifier = Modifier.size(24.dp)
-//                        )
-                    }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "Rewards: ", fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                    Spacer(modifier = Modifier.width(4.dp))
+//                    Image(painter = painterResource(id = R.drawable.reward_icon), contentDescription = "Reward", modifier = Modifier.size(24.dp))
                 }
             }
         }
