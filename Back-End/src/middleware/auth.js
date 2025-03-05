@@ -1,20 +1,36 @@
-const { auth } = require('../config/firebase');
+const { admin } = require('../config/firebase');
 const { ERROR_MESSAGES } = require('../config/constants');
 
-const authenticateUser = async (req, res, next) => {
+const verifyToken = async (req, res, next) => {
   try {
+    // Get the token from the Authorization header
     const authHeader = req.headers.authorization;
+    
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return res.status(401).json({ error: ERROR_MESSAGES.UNAUTHORIZED });
+      return res.status(401).json({ 
+        error: 'Unauthorized - No token provided' 
+      });
     }
 
-    const token = authHeader.split(' ')[1];
-    const decodedToken = await auth.verifyIdToken(token);
-    req.user = decodedToken;
+    // Extract the token
+    const token = authHeader.split('Bearer ')[1];
+
+    // Verify the token
+    const decodedToken = await admin.auth().verifyIdToken(token);
+    
+    // Add the user information to the request object
+    req.user = {
+      uid: decodedToken.uid,
+      email: decodedToken.email
+    };
+
     next();
   } catch (error) {
-    res.status(401).json({ error: ERROR_MESSAGES.UNAUTHORIZED });
+    console.error('Auth Error:', error);
+    return res.status(401).json({ 
+      error: 'Unauthorized - Invalid token' 
+    });
   }
 };
 
-module.exports = { authenticateUser }; 
+module.exports = { verifyToken }; 
