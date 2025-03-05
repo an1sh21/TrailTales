@@ -41,13 +41,25 @@ fun GameLevelScreen() {
         contentAlignment = Alignment.BottomCenter   // aligning the content including all the cards
 
     ) {
+
         Column(
 
-            modifier = Modifier.fillMaxWidth().padding(25.dp),
+            modifier = Modifier.fillMaxWidth().padding(5.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(12.dp)    // adding spaces between the cards
 
         ) {
+
+            Text(
+                text = "Quest",
+                fontSize = 50.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.Black
+
+            )
+
+            Spacer(modifier = Modifier.height(30.dp))   // adding the space between first card and the tittle
+
             // Creating the 3 main game level cards
 
             LevelCard("Beginner", 5, R.drawable.login)  // Replace image
@@ -74,7 +86,7 @@ fun LevelCard(difficulty: String, sites: Int, imageRes: Int) {
 
         Row(
 
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.padding(20.dp),
             verticalAlignment = Alignment.CenterVertically
 
         ) {
@@ -84,7 +96,7 @@ fun LevelCard(difficulty: String, sites: Int, imageRes: Int) {
                 painter = painterResource(id = imageRes),
                 contentDescription = "Character Image",
                 modifier = Modifier
-                    .size(100.dp)
+                    .size(120.dp)
                     .clip(RoundedCornerShape(8.dp))
             )
 
@@ -96,7 +108,7 @@ fun LevelCard(difficulty: String, sites: Int, imageRes: Int) {
 
                 Text(
                     text = "Difficulty: $difficulty",
-                    fontSize = 18.sp,
+                    fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Red
                 )
