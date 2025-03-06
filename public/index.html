@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Firebase Auth Test</title>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <h2>Firebase Authentication Test</h2>
+    <button onclick="signInWithGoogle()">Sign in with Google</button>
+    <button onclick="getToken()">Get Token</button>
+    <div id="token"></div>
+
+    <script>
+        // Your Firebase configuration
+        const firebaseConfig = {
+            // Add your Firebase config here
+            apiKey: "",
+            authDomain: "",
+            projectId: "",
+            storageBucket: "",
+            messagingSenderId: "",
+            appId: ""
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        function signInWithGoogle() {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider)
+                .then((result) => {
+                    console.log('Signed in successfully');
+                    getToken();
+                })
+                .catch((error) => {
+                    console.error('Error signing in:', error);
+                });
+        }
+
+        function getToken() {
+            firebase.auth().currentUser.getIdToken(true)
+                .then((token) => {
+                    document.getElementById('token').innerText = token;
+                    console.log('Your token:', token);
+                })
+                .catch((error) => {
+                    console.error('Error getting token:', error);
+                });
+        }
+    </script>
+</body>
+</html> 

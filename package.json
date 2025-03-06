@@ -2,20 +2,21 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Backend for Collectible Legends and Myths",
-  "main": "src/index.js",
+  "main": "src/app.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start": "node src/app.js",
+    "dev": "npx nodemon --exec \"node src/app.js\""
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "firebase-admin": "^13.1.0",
     "geofire-common": "^6.0.0",
     "joi": "^17.11.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.9",
     "nodemon": "^3.0.1"
   }
 }
