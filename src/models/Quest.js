@@ -6,7 +6,7 @@ const questStructure = {
   theme: String,
   locations: [
     {
-      
+
       name: String,
       coordinates: {
         latitude: Number,
@@ -19,4 +19,4 @@ const questStructure = {
   createdAt: Date
 };
 
-module.exports = questStructure; 
+module.exports = questStructure
