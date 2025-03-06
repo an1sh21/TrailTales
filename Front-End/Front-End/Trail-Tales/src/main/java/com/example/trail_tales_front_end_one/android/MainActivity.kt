@@ -18,6 +18,7 @@ import com.example.trail_tales_front_end_one.android.ui.theme.AppTheme
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.dp
+import com.example.trail_tales_front_end_one.android.ui.navigation.AppNavigation
 
 class MainActivity : ComponentActivity() {
     private lateinit var authManager: AuthManager
@@ -45,14 +46,17 @@ class MainActivity : ComponentActivity() {
                             Button(
                                 onClick = { showRegisterScreen = !showRegisterScreen },
                                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
-                                modifier = Modifier.align(Alignment.BottomCenter).fillMaxWidth(),
+                                modifier = Modifier
+                                    .align(Alignment.BottomCenter)
+                                    .fillMaxWidth(),
                                 elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 8.dp, pressedElevation = 12.dp)
                             ) {
                                 Text(if (showRegisterScreen) "Go to Login" else "Go to Register", color = MaterialTheme.colorScheme.onPrimary)
                             }
                         }
                     } else {
-                        HomeScreen(currentUser!!, authManager)
+                        // Use AppNavigation instead of directly showing HomeScreen
+                        AppNavigation(currentUser!!, authManager)
                     }
                 }
             }
