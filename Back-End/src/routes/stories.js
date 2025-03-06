@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { db } = require('../config/firebase');
-const { authenticateUser } = require('../middleware/auth');
+const { db, admin } = require('../config/firebase');
+const { verifyToken } = require('../middleware/auth');
 
-router.get('/:locationId', authenticateUser, async (req, res) => {
+// Get stories for a location
+router.get('/:locationId', verifyToken, async (req, res) => {
   try {
     const { locationId } = req.params;
     const storiesRef = await db.collection('stories')
@@ -20,11 +21,13 @@ router.get('/:locationId', authenticateUser, async (req, res) => {
 
     res.json(stories);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error('Error fetching stories:', error);
+    res.status(500).json({ error: 'Failed to fetch stories' });
   }
 });
 
-router.post('/unlock', authenticateUser, async (req, res) => {
+// Unlock a story
+router.post('/unlock', verifyToken, async (req, res) => {
   try {
     const { storyId } = req.body;
     const userId = req.user.uid;
@@ -45,7 +48,8 @@ router.post('/unlock', authenticateUser, async (req, res) => {
 
     res.json({ message: 'Story unlocked successfully' });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error('Error unlocking story:', error);
+    res.status(500).json({ error: 'Failed to unlock story' });
   }
 });
 
