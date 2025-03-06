@@ -6,6 +6,7 @@ const questStructure = {
   theme: String,
   locations: [
     {
+      
       name: String,
       coordinates: {
         latitude: Number,
