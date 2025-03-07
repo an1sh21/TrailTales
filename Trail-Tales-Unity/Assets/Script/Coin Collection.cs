@@ -24,7 +24,7 @@ public class ARCoinCollectorDirectTouch : MonoBehaviour
         "Westland Sikorsky S-51 Dragonfly"
     };
 
-    private string backendURL = "https://your-backend-api.com/collect-coin";
+    private string backendURL = "https://3000/collectibles";
 
 
     private AudioSource audioSource;
