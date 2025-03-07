@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: Boulton
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5317484108556744161
+  m_GuidHigh: 17370146180418955657
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5725120571120761353
+      m_GuidHigh: 1028606861187089587
+    m_SerializedTextureGuid:
+      m_GuidLow: 17632733841901094347
+      m_GuidHigh: 13587240668112953050
+    m_Size: {x: 0.31, y: 0.30603388}
+    m_SpecifySize: 1
+    m_Name: Boulton
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5503392664033278838
+      m_GuidHigh: 9714596460853831344
+    m_SerializedTextureGuid:
+      m_GuidLow: 12755453517045325460
+      m_GuidHigh: 2650735963901767978
+    m_Size: {x: 0.31, y: 0.31}
+    m_SpecifySize: 1
+    m_Name: AeroSpatiale SA 365 Dauphin
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4787027906813018726
+      m_GuidHigh: 18159675619187680930
+    m_SerializedTextureGuid:
+      m_GuidLow: 9751513885768073399
+      m_GuidHigh: 5244235536861607242
+    m_Size: {x: 0.31, y: 0.30784723}
+    m_SpecifySize: 1
+    m_Name: Douglas DC-3
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5499694038229721262
+      m_GuidHigh: 3543316437017682309
+    m_SerializedTextureGuid:
+      m_GuidLow: 15682834032055305966
+      m_GuidHigh: 17660904673887287368
+    m_Size: {x: 0.31, y: 0.34124783}
+    m_SpecifySize: 1
+    m_Name: 'PAZMANY PL-2 '
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4666819854088144208
+      m_GuidHigh: 15233097614703592865
+    m_SerializedTextureGuid:
+      m_GuidLow: 10976665289575313126
+      m_GuidHigh: 8342070611380597275
+    m_Size: {x: 0.31, y: 0.31389394}
+    m_SpecifySize: 1
+    m_Name: 'PT-6 '
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4891775661120770066
+      m_GuidHigh: 11399368848925786013
+    m_SerializedTextureGuid:
+      m_GuidLow: 16403363818455262612
+      m_GuidHigh: 1629637653018024713
+    m_Size: {x: 0.31, y: 0.31953847}
+    m_SpecifySize: 1
+    m_Name: Westland Sikorsky S-51 Dragonfly
+    m_Texture: {fileID: 0}

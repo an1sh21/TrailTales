@@ -1,8 +1,8 @@
 
-=== Sun Feb  9 17:47:21 2025
+=== Wed Feb 19 00:01:27 2025
 
 Packages were changed.
-Update Mode: resetToDefaultDependencies
+Update Mode: mergeDefaultDependencies
 
 The following packages were added:
   com.unity.modules.ai@1.0.0
@@ -38,23 +38,12 @@ The following packages were added:
   com.unity.modules.xr@1.0.0
   com.unity.modules.accessibility@1.0.0
   com.unity.multiplayer.center@1.0.0
-
-=== Sun Feb  9 17:49:12 2025
-
-Packages were changed.
-Update Mode: updateDependencies
-
-The following packages were added:
-  com.unity.2d.sprite@1.0.0
-  com.unity.2d.tilemap@1.0.0
-  com.unity.ads@4.4.2
-  com.unity.analytics@3.8.1
-  com.unity.collab-proxy@2.6.0
-  com.unity.ide.rider@3.0.31
-  com.unity.ide.visualstudio@2.0.22
-  com.unity.purchasing@4.12.2
-  com.unity.test-framework@1.4.5
-  com.unity.timeline@1.8.7
-  com.unity.ugui@2.0.0
-  com.unity.xr.legacyinputhelpers@2.1.11
-  com.unity.ai.navigation@2.0.5
+The following packages were updated:
+  com.unity.ai.navigation from version 2.0.0 to 2.0.5
+  com.unity.collab-proxy from version 2.2.0 to 2.6.0
+  com.unity.ide.rider from version 3.0.27 to 3.0.31
+  com.unity.inputsystem from version 1.8.1 to 1.11.2
+  com.unity.render-pipelines.universal from version 17.0.1 to 17.0.3
+  com.unity.test-framework from version 1.4.2 to 1.4.5
+  com.unity.timeline from version 1.8.6 to 1.8.7
+  com.unity.visualscripting from version 1.9.1 to 1.9.5
