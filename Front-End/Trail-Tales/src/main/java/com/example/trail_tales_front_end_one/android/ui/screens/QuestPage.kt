@@ -65,9 +65,9 @@ fun GameLevelScreen() {
 
             // Creating the 3 main game level cards
 
-            LevelCard("Beginner", 5, R.drawable.login)  // Replace image
+            LevelCard("Beginner", 5, R.drawable.login )  // Replace image
             Spacer(modifier = Modifier.height(16.dp))
-            LevelCard("Explorer", 7, R.drawable.login)  // Replace image
+            LevelCard("Explorer", 7, R.drawable.login )  // Replace image
             Spacer(modifier = Modifier.height(16.dp))
             LevelCard("Expert", 10, R.drawable.login)  // Replace image
             Spacer(modifier = Modifier.height(16.dp))
@@ -85,7 +85,6 @@ fun LevelCard(difficulty: String, sites: Int, imageRes: Int) {
             .fillMaxWidth()
             .padding(horizontal = 8.dp)
             .clickable{showDialog.value = true},  // showing the popup when it is clicked
-
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {
@@ -156,7 +155,23 @@ fun LevelCard(difficulty: String, sites: Int, imageRes: Int) {
             }
         }
     }
+
+    // pop up dialog
+
+    if (showDialog.value) {
+        AlertDialog(
+            onDismissRequest = { showDialog.value = false },
+            title = { Text(text = "Level Selected") },
+            text = { Text(text = "You selected the $difficulty level with $sites sites.") },
+            confirmButton = {
+                Button(onClick = { showDialog.value = false }) {
+                    Text("OK")
+                }
+            }
+        )
+    }
 }
+
 
 @Preview(showBackground = true)
 @Composable
