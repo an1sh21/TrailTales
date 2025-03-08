@@ -9,9 +9,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -34,69 +32,69 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GameLevelScreen() {
-
     Box(
-
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFFFEB3C)) // Yellow background
             .padding(8.dp),
-        contentAlignment = Alignment.BottomCenter   // aligning the content including all the cards
-
+        contentAlignment = Alignment.BottomCenter
     ) {
-
         Column(
-
-            modifier = Modifier.fillMaxWidth().padding(5.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(12.dp)    // adding spaces between the cards
-
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-
             Text(
                 text = "Quest",
                 fontSize = 50.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black
-
             )
 
-            Spacer(modifier = Modifier.height(30.dp))   // adding the space between first card and the tittle
+            Spacer(modifier = Modifier.height(30.dp)) // Space between the title and first card
 
-            // Creating the 3 main game level cards
+            // Creating the 3 main game level cards with their own descriptions
 
-            LevelCard("Beginner", 5, R.drawable.login )  // Replace image
+            LevelCard(
+                "Beginner", 5, R.drawable.login,
+                "Perfect for newcomers! Explore 5 beginner-friendly sites with simple challenges to get you started on your adventure."
+            )
             Spacer(modifier = Modifier.height(16.dp))
-            LevelCard("Explorer", 7, R.drawable.login )  // Replace image
+
+            LevelCard(
+                "Explorer", 7, R.drawable.login,
+                "Ready for a challenge? This level takes you through 7 exciting locations, testing your skills and strategy."
+            )
             Spacer(modifier = Modifier.height(16.dp))
-            LevelCard("Expert", 10, R.drawable.login)  // Replace image
+
+            LevelCard(
+                "Expert", 10, R.drawable.login,
+                "Only for the brave! Tackle 10 intense locations filled with the toughest obstacles and grand rewards."
+            )
             Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
 
 @Composable
-fun LevelCard(difficulty: String, sites: Int, imageRes: Int) {
-    var showDialog = remember{mutableStateOf(false)}  //  state to track the dialog visibility
+fun LevelCard(difficulty: String, sites: Int, imageRes: Int, description: String) {
+    var showDialog by remember { mutableStateOf(false) } // State to track dialog visibility
 
     Card(
-
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 8.dp)
-            .clickable{showDialog.value = true},  // showing the popup when it is clicked
+            .clickable { showDialog = true },  // Show pop-up when the card is clicked
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {
-
         Row(
-
             modifier = Modifier.padding(20.dp),
             verticalAlignment = Alignment.CenterVertically
-
         ) {
-            //  Adding the Character Image
-
+            // Adding the Character Image
             Image(
                 painter = painterResource(id = imageRes),
                 contentDescription = "Character Image",
@@ -108,9 +106,7 @@ fun LevelCard(difficulty: String, sites: Int, imageRes: Int) {
             Spacer(modifier = Modifier.width(16.dp))
 
             Column {
-
                 // Creating Difficulty Level
-
                 Text(
                     text = "Difficulty: $difficulty",
                     fontSize = 20.sp,
@@ -120,7 +116,6 @@ fun LevelCard(difficulty: String, sites: Int, imageRes: Int) {
                 Spacer(modifier = Modifier.height(8.dp))
 
                 // Creating Sites
-
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(text = "Sites: ", fontSize = 16.sp, fontWeight = FontWeight.Bold)
                     Text(
@@ -130,48 +125,24 @@ fun LevelCard(difficulty: String, sites: Int, imageRes: Int) {
                         color = Color(0xFFD4A017) // Gold color
                     )
                 }
-
-                Spacer(modifier = Modifier.height(4.dp))
-
-                // Tokens (Commented till corrected  images adding)
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "Tokens: ", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                    Spacer(modifier = Modifier.width(4.dp))
-//                    Image(painter = painterResource(id = R.drawable.blue_token), contentDescription = "Blue Token", modifier = Modifier.size(24.dp))
-//                    Spacer(modifier = Modifier.width(4.dp))
-//                    Image(painter = painterResource(id = R.drawable.red_token), contentDescription = "Red Token", modifier = Modifier.size(24.dp))
-                }
-
-                Spacer(modifier = Modifier.height(4.dp))
-
-                // Rewards (Commented till corrected images added )
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "Rewards: ", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                    Spacer(modifier = Modifier.width(4.dp))
-//                    Image(painter = painterResource(id = R.drawable.reward_icon), contentDescription = "Reward", modifier = Modifier.size(24.dp))
-                }
             }
         }
     }
 
-    // pop up dialog
+    // Show pop-up with description when card is clicked
 
-    if (showDialog.value) {
+    if (showDialog) {
         AlertDialog(
-            onDismissRequest = { showDialog.value = false },
-            title = { Text(text = "Level Selected") },
-            text = { Text(text = "You selected the $difficulty level with $sites sites.") },
+            onDismissRequest = { showDialog = false },
+            text = { Text(text = description) },  // Only showing the description
             confirmButton = {
-                Button(onClick = { showDialog.value = false }) {
+                Button(onClick = { showDialog = false }) {
                     Text("OK")
                 }
             }
         )
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable
