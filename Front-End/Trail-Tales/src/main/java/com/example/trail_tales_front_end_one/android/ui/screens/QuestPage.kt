@@ -58,19 +58,19 @@ fun GameLevelScreen() {
             // Creating the 3 main game level cards with their own descriptions
 
             LevelCard(
-                "Beginner", 5, R.drawable.login,
+                "Beginner", 5, R.drawable.login,   // replace the image when crated
                 "Perfect for newcomers! Explore 5 beginner-friendly sites with simple challenges to get you started on your adventure."
             )
             Spacer(modifier = Modifier.height(16.dp))
 
             LevelCard(
-                "Explorer", 7, R.drawable.login,
+                "Explorer", 7, R.drawable.login,    // replace the image when created
                 "Ready for a challenge? This level takes you through 7 exciting locations, testing your skills and strategy."
             )
             Spacer(modifier = Modifier.height(16.dp))
 
             LevelCard(
-                "Expert", 10, R.drawable.login,
+                "Expert", 10, R.drawable.login,    // replace the image when created
                 "Only for the brave! Tackle 10 intense locations filled with the toughest obstacles and grand rewards."
             )
             Spacer(modifier = Modifier.height(16.dp))
