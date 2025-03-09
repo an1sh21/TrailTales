@@ -80,6 +80,11 @@ class AuthManager(private val activity: Activity) {
         UserSession.updateUser(null)
     }
 
+    // Check if user is currently logged in
+    fun isUserLoggedIn(): Boolean {
+        return auth.currentUser != null
+    }
+
     companion object {
         const val RC_SIGN_IN = 9001
     }
