@@ -68,8 +68,83 @@ fun CollectableScreen(
                 color = Color.White
             )
 
+            // Creating Coins Card
+            InfoCard(
+                title = "Total Coins",
+                value = "$totalCoins",
+                iconRes = R.drawable.login, // have to replace
+                backgroundColor = Color(0xFFFFD700)
+            )
 
+            //  Creating Visited Sites Card
+            InfoCard(
+                title = "Visited Sites",
+                value = "$visitedSites",
+                iconRes = R.drawable.login,   //  have to Replace
+                backgroundColor = Color(0xFF4CAF50)
+            )
+
+            //  Creating Tokens Card
+            InfoCard(
+                title = " Total Tokens",
+                value = "$tokenCount",
+                iconRes = R.drawable.login,   // have to Replace
+                backgroundColor = Color(0xFF03A9F4)
+            )
+
+            // Button to simulate collectables
+            Button(onClick = {
+                updateStats(
+                    totalCoins + 10,
+                    visitedSites + 1,
+                    tokenCount + 2
+                )
+            }) {
+                Text("Update Collectables")
+            }
+        }
     }
 }
 
+// creating cards for displaying the preview as cards
+@Composable
+fun InfoCard(title: String, value: String, iconRes: Int, backgroundColor: Color) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(170.dp),
+        shape = RoundedCornerShape(12.dp),
+        elevation = CardDefaults.cardElevation(8.dp),
+        colors = CardDefaults.cardColors(containerColor = backgroundColor)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Column {
+                Text(text = title, fontSize = 25.sp, fontWeight = FontWeight.Bold, color = Color.Black)
+                Text(text = value, fontSize = 30.sp, fontWeight = FontWeight.Bold, color = Color.LightGray)
+            }
+
+            Image(
+                painter = painterResource(id = iconRes),
+                contentDescription = "$title Icon",
+                modifier = Modifier.size(90.dp)
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewUserCollectableScreen() {
+    CollectableScreen(
+        totalCoins = 100,
+        visitedSites = 5,
+        tokenCount = 3,
+        updateStats = { _, _,_->}
+        )
 }
