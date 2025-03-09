@@ -38,8 +38,6 @@ import android.location.LocationManager as AndroidLocationManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import androidx.core.content.ContextCompat
-import androidx.compose.animation.core.*
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.geometry.Offset
 import kotlin.random.Random
 import kotlin.math.cos
@@ -55,12 +53,15 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.animation.core.LinearEasing
 import androidx.compose.ui.res.painterResource
-import android.graphics.drawable.AnimationDrawable
-import android.widget.ImageView
 import androidx.compose.ui.viewinterop.AndroidView
 import com.google.maps.android.compose.Marker
+import android.net.Uri
+import androidx.core.content.FileProvider
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 // Data class for Points of Interest
 data class PointOfInterest(
@@ -80,6 +81,42 @@ fun HomeScreen(
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
+    
+    // Create a temporary file for storing the camera image
+    val tempImageFile = remember { createImageFile(context) }
+    val imageUri = remember {
+        FileProvider.getUriForFile(
+            context,
+            "${context.packageName}.provider",
+            tempImageFile
+        )
+    }
+    
+    // Camera launcher - moved before cameraPermissionLauncher
+    val takePictureLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.TakePicture()
+    ) { success ->
+        if (success) {
+            // Image captured successfully
+            Log.d("CameraDebug", "Image captured: $imageUri")
+            // TODO: Process the captured image (e.g., show it, upload it, etc.)
+        } else {
+            Log.d("CameraDebug", "Image capture failed")
+        }
+    }
+    
+    // Camera permission launcher
+    val cameraPermissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted) {
+            // Permission granted, launch camera
+            takePictureLauncher.launch(imageUri)
+        } else {
+            // Handle permission denied
+            Log.d("CameraDebug", "Camera permission denied")
+        }
+    }
     
     // Default location (Sri Lanka instead of San Francisco)
     var userLocation by remember { mutableStateOf(LatLng(7.8731, 80.7718)) } // Default to Sri Lanka center
@@ -194,59 +231,28 @@ fun HomeScreen(
     // Add state for dropdown menu
     var showProfileMenu by remember { mutableStateOf(false) }
     
-    // Add a pulsating animation for the player marker
-    val pulseAnim = remember { Animatable(1f) }
+    // Calculate bearing for the player marker direction
+    var bearing by remember { mutableStateOf(0f) }
+    var prevLocation by remember { mutableStateOf(userLocation) }
     
-    // Add a walking animation for the player marker
-    val walkingAnim = remember { Animatable(0f) }
-    
-    // Add a state for footsteps
-    var footsteps by remember { mutableStateOf(listOf<LatLng>()) }
-    val footstepFadeAnim = remember { Animatable(1f) }
-    
-    LaunchedEffect(Unit) {
-        // Create an infinite pulsating animation
-        pulseAnim.animateTo(
-            targetValue = 1.2f,
-            animationSpec = infiniteRepeatable(
-                animation = tween(1000, easing = FastOutSlowInEasing),
-                repeatMode = RepeatMode.Reverse
-            )
-        )
-    }
-    
-    LaunchedEffect(Unit) {
-        // Create an infinite walking animation
-        walkingAnim.animateTo(
-            targetValue = 1f,
-            animationSpec = infiniteRepeatable(
-                animation = tween(1500, easing = LinearEasing),
-                repeatMode = RepeatMode.Restart
-            )
-        )
-    }
-    
-    // Add footsteps when the user moves
+    // Update bearing when location changes
     LaunchedEffect(userLocation) {
-        // Only add footsteps if we've moved a significant distance
-        if (footsteps.isEmpty()) {
-            // Add first footstep
-            footsteps = listOf(userLocation)
-        } else {
-            // Check distance to last footstep
-            val results = FloatArray(1)
+        if (prevLocation != userLocation) {
+            // Calculate bearing between previous and current location
+            val results = FloatArray(2)
             Location.distanceBetween(
-                footsteps.last().latitude, footsteps.last().longitude,
+                prevLocation.latitude, prevLocation.longitude,
                 userLocation.latitude, userLocation.longitude,
                 results
             )
+            // Only update bearing if we've moved a significant distance
             if (results[0] > 5) {
-                // Add a new footstep if we've moved more than 5 meters
-                footsteps = (footsteps + userLocation).takeLast(10) // Keep only the last 10 footsteps
+                bearing = results[1] // The second value is the bearing
+                prevLocation = userLocation
             }
         }
     }
-
+    
     // Function to create a custom marker from a vector drawable
     fun vectorToBitmap(drawableId: Int): BitmapDescriptor {
         val drawable = ContextCompat.getDrawable(context, drawableId)
@@ -337,80 +343,12 @@ fun HomeScreen(
                 shouldRecenterMap = false
             }
         ) {
-            // Player marker with walking animation
-            val markerOffset = when ((walkingAnim.value * 4).toInt() % 4) {
-                0 -> LatLng(userLocation.latitude - 0.00002, userLocation.longitude)
-                1 -> LatLng(userLocation.latitude + 0.00002, userLocation.longitude)
-                2 -> LatLng(userLocation.latitude, userLocation.longitude - 0.00002)
-                else -> LatLng(userLocation.latitude, userLocation.longitude + 0.00002)
-            }
-            
-            // Calculate the bearing (direction) based on previous and current location
-            var bearing by remember { mutableStateOf(0f) }
-            var prevLocation by remember { mutableStateOf(userLocation) }
-            
-            // Update bearing when location changes
-            LaunchedEffect(userLocation) {
-                if (prevLocation != userLocation) {
-                    // Calculate bearing between previous and current location
-                    val results = FloatArray(2)
-                    Location.distanceBetween(
-                        prevLocation.latitude, prevLocation.longitude,
-                        userLocation.latitude, userLocation.longitude,
-                        results
-                    )
-                    // Only update bearing if we've moved a significant distance
-                    if (results[0] > 5) {
-                        bearing = results[1] // The second value is the bearing
-                        prevLocation = userLocation
-                    }
-                }
-            }
-            
-            // Use the player avatar drawable for the marker
-            val avatarFrame = when ((walkingAnim.value * 4).toInt() % 4) {
-                0 -> com.example.trail_tales_front_end_one.android.R.drawable.player_avatar
-                1 -> com.example.trail_tales_front_end_one.android.R.drawable.player_avatar_frame2
-                2 -> com.example.trail_tales_front_end_one.android.R.drawable.player_avatar
-                else -> com.example.trail_tales_front_end_one.android.R.drawable.player_avatar_frame3
-            }
-            
-            // Custom info window content
-            val playerInfoWindow: (@Composable (com.google.maps.android.compose.MarkerState) -> Unit) = { marker ->
-                Surface(
-                    modifier = Modifier.padding(8.dp),
-                    shape = RoundedCornerShape(8.dp),
-                    color = MaterialTheme.colorScheme.surface,
-                    tonalElevation = 8.dp
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            text = "Player",
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Spacer(modifier = Modifier.height(4.dp))
-                        Text(
-                            text = "Level: $playerLevel",
-                            style = MaterialTheme.typography.bodyMedium
-                        )
-                        Spacer(modifier = Modifier.height(4.dp))
-                        Text(
-                            text = "Coordinates: ${userLocation.latitude.format(4)}, ${userLocation.longitude.format(4)}",
-                            style = MaterialTheme.typography.bodySmall
-                        )
-                    }
-                }
-            }
-            
+            // Simplified Player marker without animations
             Marker(
-                state = MarkerState(position = markerOffset),
+                state = MarkerState(position = userLocation),
                 title = "You are here",
                 snippet = "Lat: ${userLocation.latitude.format(4)}, Lng: ${userLocation.longitude.format(4)}",
-                icon = vectorToBitmap(avatarFrame),
+                icon = vectorToBitmap(com.example.trail_tales_front_end_one.android.R.drawable.player_marker),
                 rotation = bearing,
                 zIndex = 1f
             )
@@ -423,30 +361,6 @@ fun HomeScreen(
                     snippet = "${poi.description}\nDistance: ${formatDistance(poi.distance)}",
                     icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)
                 )
-            }
-
-            // Add footstep markers
-            footsteps.forEachIndexed { index, position ->
-                // Calculate the alpha based on the index (older footsteps are more transparent)
-                val alpha = 1f - (index.toFloat() / footsteps.size)
-                
-                // Only show footsteps that are not too close to the player
-                val distanceToPlayer = FloatArray(1)
-                Location.distanceBetween(
-                    position.latitude, position.longitude,
-                    userLocation.latitude, userLocation.longitude,
-                    distanceToPlayer
-                )
-                
-                if (distanceToPlayer[0] > 2) {
-                    Marker(
-                        state = MarkerState(position = position),
-                        icon = vectorToBitmap(com.example.trail_tales_front_end_one.android.R.drawable.footstep),
-                        alpha = alpha,
-                        anchor = Offset(0.5f, 0.5f),
-                        zIndex = 0.5f
-                    )
-                }
             }
         }
         
@@ -566,30 +480,49 @@ fun HomeScreen(
             }
         }
         
-        // Custom "My Location" button (bottom-right, above toolbar)
-        FloatingActionButton(
-            onClick = { 
-                // Recenter map on current location
-                shouldRecenterMap = true
-                scope.launch {
-                    cameraPositionState.animate(
-                        update = CameraUpdateFactory.newCameraPosition(
-                            CameraPosition.fromLatLngZoom(userLocation, 15f)
-                        ),
-                        durationMs = 1000
-                    )
-                }
-            },
+        // Redesigned "My Location" button (bottom-right, above toolbar)
+        Box(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
-                .padding(bottom = 100.dp, end = 16.dp),
-            containerColor = MaterialTheme.colorScheme.surface,
-            contentColor = MaterialTheme.colorScheme.primary
+                .padding(bottom = 100.dp, end = 16.dp)
         ) {
-            Icon(
-                Icons.Default.LocationOn,
-                contentDescription = "Center on my location"
-            )
+            // Gold circle border
+            Surface(
+                modifier = Modifier.size(56.dp),
+                shape = CircleShape,
+                color = Color(0xFFFFD700) // Gold color
+            ) {
+                // Location button
+                IconButton(
+                    onClick = { 
+                        // Recenter map on current location
+                        shouldRecenterMap = true
+                        scope.launch {
+                            cameraPositionState.animate(
+                                update = CameraUpdateFactory.newCameraPosition(
+                                    CameraPosition.fromLatLngZoom(userLocation, 15f)
+                                ),
+                                durationMs = 1000
+                            )
+                        }
+                    },
+                    modifier = Modifier
+                        .padding(3.dp) // Border thickness
+                        .fillMaxSize()
+                ) {
+                    Surface(
+                        shape = CircleShape,
+                        color = MaterialTheme.colorScheme.surface
+                    ) {
+                        Icon(
+                            Icons.Default.LocationOn,
+                            contentDescription = "Center on my location",
+                            modifier = Modifier.padding(8.dp),
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                }
+            }
         }
         
         // User profile button (top-right corner)
@@ -729,7 +662,10 @@ fun HomeScreen(
                     color = MaterialTheme.colorScheme.primary
                 ) {
                     IconButton(
-                        onClick = { /* Open Camera */ },
+                        onClick = { 
+                            // Request camera permission and open camera
+                            cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
+                        },
                         modifier = Modifier.fillMaxSize()
                     ) {
                         Icon(
@@ -755,3 +691,19 @@ private fun formatDistance(meters: Float): String {
 
 // Add this extension function at the bottom of your file
 private fun Double.format(digits: Int) = "%.${digits}f".format(this)
+
+// Helper function to create a temporary image file
+private fun createImageFile(context: Context): File {
+    // Create an image file name with timestamp
+    val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+    val imageFileName = "JPEG_${timeStamp}_"
+    
+    // Get the directory for the app's private pictures directory
+    val storageDir = context.getExternalFilesDir("Pictures")
+    
+    return File.createTempFile(
+        imageFileName,  /* prefix */
+        ".jpg",         /* suffix */
+        storageDir      /* directory */
+    )
+}
