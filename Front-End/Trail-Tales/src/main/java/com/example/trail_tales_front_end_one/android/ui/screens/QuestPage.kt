@@ -35,7 +35,7 @@ fun GameLevelScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFFFEB3C)) // Yellow background
+            .background(Color(0xFFFFEB3C))    // Yellow background
             .padding(8.dp),
         contentAlignment = Alignment.BottomCenter
     ) {
@@ -53,7 +53,7 @@ fun GameLevelScreen() {
                 color = Color.Black
             )
 
-            Spacer(modifier = Modifier.height(30.dp)) // Space between the title and first card
+            Spacer(modifier = Modifier.height(30.dp))  // Space between the title and first card
 
             // Creating the 3 main game level cards with their own descriptions
 
@@ -80,13 +80,13 @@ fun GameLevelScreen() {
 
 @Composable
 fun LevelCard(difficulty: String, sites: Int, imageRes: Int, description: String) {
-    var showDialog by remember { mutableStateOf(false) } // State to track dialog visibility
+    var showDialog by remember { mutableStateOf(false) }    // State to track dialog visibility
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 8.dp)
-            .clickable { showDialog = true },  // Show pop-up when the card is clicked
+            .clickable { showDialog = true },     // Show pop-up when the card is clicked
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {
@@ -106,7 +106,9 @@ fun LevelCard(difficulty: String, sites: Int, imageRes: Int, description: String
             Spacer(modifier = Modifier.width(16.dp))
 
             Column {
+
                 // Creating Difficulty Level
+
                 Text(
                     text = "Difficulty: $difficulty",
                     fontSize = 20.sp,
@@ -116,6 +118,7 @@ fun LevelCard(difficulty: String, sites: Int, imageRes: Int, description: String
                 Spacer(modifier = Modifier.height(8.dp))
 
                 // Creating Sites
+
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(text = "Sites: ", fontSize = 16.sp, fontWeight = FontWeight.Bold)
                     Text(
@@ -134,7 +137,7 @@ fun LevelCard(difficulty: String, sites: Int, imageRes: Int, description: String
     if (showDialog) {
         AlertDialog(
             onDismissRequest = { showDialog = false },
-            text = { Text(text = description) },  // Only showing the description
+            text = { Text(text = description) },      // Only showing the description
             confirmButton = {
                 Button(onClick = { showDialog = false }) {
                     Text("OK")
