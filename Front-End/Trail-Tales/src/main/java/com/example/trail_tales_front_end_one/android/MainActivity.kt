@@ -7,18 +7,17 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.trail_tales_front_end_one.android.auth.AuthManager
-import com.example.trail_tales_front_end_one.android.auth.UserSession
-import com.example.trail_tales_front_end_one.android.ui.screens.HomeScreen
-import com.example.trail_tales_front_end_one.android.ui.screens.LoginScreen
-import com.example.trail_tales_front_end_one.android.ui.screens.RegisterScreen
 import com.example.trail_tales_front_end_one.android.ui.theme.AppTheme
+<<<<<<< Updated upstream
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.dp
+=======
+import com.example.trail_tales_front_end_one.android.ui.navigation.AppNavigation
+>>>>>>> Stashed changes
 
 class MainActivity : ComponentActivity() {
     private lateinit var authManager: AuthManager
@@ -33,6 +32,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+<<<<<<< Updated upstream
                     var showRegisterScreen by remember { mutableStateOf(false) }
                     val currentUser by UserSession.currentUser.collectAsState()
                     
@@ -57,6 +57,10 @@ class MainActivity : ComponentActivity() {
                     } else {
                         HomeScreen(currentUser!!, authManager)
                     }
+=======
+                    // Use AppNavigation for all screens including Loading/Landing screen
+                    AppNavigation(authManager = authManager)
+>>>>>>> Stashed changes
                 }
             }
         }
