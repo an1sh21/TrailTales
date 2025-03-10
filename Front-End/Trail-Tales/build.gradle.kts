@@ -54,4 +54,5 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("androidx.compose.ui:ui-text-google-fonts:1.0.0")
+    implementation("androidx.navigation:navigation-compose:2.5.3")   // navigation dependency
 }
