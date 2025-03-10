@@ -81,6 +81,13 @@ class AuthManager(private val activity: Activity) {
             }
     }
 
+    fun sendPasswordResetEmail(email: String, callback: (Boolean) -> Unit) {
+        auth.sendPasswordResetEmail(email)
+            .addOnCompleteListener { task ->
+                callback(task.isSuccessful)
+            }
+    }
+
     fun signOut() {
         auth.signOut()
         googleSignInClient.signOut()
