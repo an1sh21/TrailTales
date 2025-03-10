@@ -353,7 +353,7 @@ fun HomeScreen(
                                 state = MarkerState(position = userLocation),
                                 title = "You are here",
                                 snippet = "Lat: ${userLocation.latitude.format(4)}, Lng: ${userLocation.longitude.format(4)}",
-                                icon = vectorToBitmap(com.example.trail_tales_front_end_one.android.R.drawable.player_marker),
+                                icon = vectorToBitmap(com.example.trail_tales_front_end_one.android.R.drawable.player_down_2),
                                 rotation = bearing,
                                 zIndex = 1f
                             )
@@ -364,7 +364,7 @@ fun HomeScreen(
                                     state = MarkerState(position = poi.position),
                                     title = poi.title,
                                     snippet = "${poi.description}\nDistance: ${formatDistance(poi.distance)}",
-                                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)
+                                    icon = vectorToBitmap(com.example.trail_tales_front_end_one.android.R.drawable.poi_marker)
                                 )
                             }
                         }
@@ -492,7 +492,7 @@ fun HomeScreen(
                         ) {
                             // Gold circle border
                             Surface(
-                                modifier = Modifier.size(56.dp),
+                                modifier = Modifier.size(64.dp),
                                 shape = CircleShape,
                                 color = Color(0xFFFFD700) // Gold color
                             ) {
@@ -519,7 +519,7 @@ fun HomeScreen(
                                         color = MaterialTheme.colorScheme.surface
                                     ) {
                                         Icon(
-                                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.walking_character_frame2),
+                                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.player_marker),
                                             contentDescription = "Center on my location",
                                             modifier = Modifier.padding(8.dp),
                                             tint = MaterialTheme.colorScheme.primary
@@ -644,7 +644,7 @@ fun HomeScreen(
                                             tint = MaterialTheme.colorScheme.primary
                                         )
                                     }
-                                    IconButton(onClick = { /* Open Social */ }) {
+                                    IconButton(onClick = { selectedContent = "Socials" }) {
                                         Icon(
                                             painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_social),
                                             contentDescription = "Social",
@@ -692,6 +692,7 @@ fun HomeScreen(
                 }
                 "Quests" -> QuestsScreen(onBackClick = { selectedContent = "Map" })
                 "Collectables" -> CollectablesScreen(onBackClick = { selectedContent = "Map" })
+                "Socials" -> SocialsScreen(onBackClick = { selectedContent = "Map" })
             }
         }
     }
