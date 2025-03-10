@@ -81,7 +81,7 @@ fun LoadingScreen(onLoadingComplete: () -> Unit) {
         ) {
             // App logo or icon
             Image(
-                painter = painterResource(id = R.drawable.player_marker),
+                painter = painterResource(id = R.drawable.logo),
                 contentDescription = "App Logo",
                 modifier = Modifier
                     .size(150.dp * scale)

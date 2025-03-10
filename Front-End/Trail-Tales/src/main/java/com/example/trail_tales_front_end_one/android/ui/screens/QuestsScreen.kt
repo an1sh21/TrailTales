@@ -1,5 +1,6 @@
 package com.example.trail_tales_front_end_one.android.ui.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -19,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -51,8 +53,8 @@ fun QuestsScreen(onBackClick: () -> Unit = {}) {
             listOf(
                 Quest(
                     id = "1",
-                    title = "Discover the Hidden Waterfall",
-                    description = "Find the secret waterfall hidden in the forest. Take a photo when you arrive.",
+                    title = "Mission 01 : AIR-FORCE BASE",
+                    description = "Find the hidden tokens inside the AIR-FORCE base Rathmalana.",
                     difficulty = QuestDifficulty.EASY,
                     reward = 50,
                     distance = 1.2f
@@ -98,85 +100,98 @@ fun QuestsScreen(onBackClick: () -> Unit = {}) {
     var selectedFilter by remember { mutableStateOf("All") }
     val filters = listOf("All", "Active", "Completed", "Favorites")
     
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        // Top bar with back button and title
-        Row(
+    Box(modifier = Modifier.fillMaxSize()) {
+        // Background Image
+        Image(
+            painter = painterResource(id = R.drawable.quest),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.FillBounds
+        )
+        
+        // Content
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 16.dp),
-            verticalAlignment = Alignment.CenterVertically
+                .fillMaxSize()
+                .padding(16.dp)
+                .background(Color.Black.copy(alpha = 0.5f), shape = RoundedCornerShape(16.dp))
+                .padding(16.dp)
         ) {
-            // Back button
-            IconButton(
-                onClick = onBackClick,
-                modifier = Modifier.size(48.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Default.ArrowBack,
-                    contentDescription = "Back",
-                    tint = MaterialTheme.colorScheme.primary
-                )
-            }
-            
-            // Title
-            Text(
-                text = "Quests",
-                fontSize = 28.sp,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center,
+            // Top bar with back button and title
+            Row(
                 modifier = Modifier
-                    .weight(1f)
-                    .padding(end = 48.dp), // Balance for the back button
-                color = Color(0xFFFFD700) // Gold color for game-like feel
-            )
-        }
-        
-        // Filters
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            filters.forEach { filter ->
-                FilterChip(
-                    selected = selectedFilter == filter,
-                    onClick = { selectedFilter = filter },
-                    label = { Text(filter) },
-                    colors = FilterChipDefaults.filterChipColors(
-                        selectedContainerColor = MaterialTheme.colorScheme.primary,
-                        selectedLabelColor = MaterialTheme.colorScheme.onPrimary
+                    .fillMaxWidth()
+                    .padding(bottom = 16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                // Back button
+                IconButton(
+                    onClick = onBackClick,
+                    modifier = Modifier.size(48.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        tint = MaterialTheme.colorScheme.primary
                     )
+                }
+                
+                // Title
+                Text(
+                    text = "Quests",
+                    fontSize = 28.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(end = 48.dp), // Balance for the back button
+                    color = Color(0xFFFFD700) // Gold color for game-like feel
                 )
-            }
-        }
-        
-        // Quests list
-        LazyColumn(
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            val filteredQuests = when (selectedFilter) {
-                "Active" -> quests.filter { !it.isCompleted }
-                "Completed" -> quests.filter { it.isCompleted }
-                "Favorites" -> quests.filter { it.isFavorite }
-                else -> quests
             }
             
-            items(filteredQuests) { quest ->
-                QuestItem(
-                    quest = quest,
-                    onQuestClick = { /* Handle quest click */ },
-                    onFavoriteToggle = { 
-                        quests = quests.map { 
-                            if (it.id == quest.id) it.copy(isFavorite = !it.isFavorite) else it 
+            // Filters
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                filters.forEach { filter ->
+                    FilterChip(
+                        selected = selectedFilter == filter,
+                        onClick = { selectedFilter = filter },
+                        label = { Text(filter) },
+                        colors = FilterChipDefaults.filterChipColors(
+                            selectedContainerColor = MaterialTheme.colorScheme.primary,
+                            selectedLabelColor = MaterialTheme.colorScheme.onPrimary
+                        )
+                    )
+                }
+            }
+            
+            // Quests list
+            LazyColumn(
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                val filteredQuests = when (selectedFilter) {
+                    "Active" -> quests.filter { !it.isCompleted }
+                    "Completed" -> quests.filter { it.isCompleted }
+                    "Favorites" -> quests.filter { it.isFavorite }
+                    else -> quests
+                }
+                
+                items(filteredQuests) { quest ->
+                    QuestItem(
+                        quest = quest,
+                        onQuestClick = { /* Handle quest click */ },
+                        onFavoriteToggle = { 
+                            quests = quests.map { 
+                                if (it.id == quest.id) it.copy(isFavorite = !it.isFavorite) else it 
+                            }
                         }
-                    }
-                )
+                    )
+                }
             }
         }
     }

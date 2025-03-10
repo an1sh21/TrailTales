@@ -51,70 +51,70 @@ fun CollectablesScreen(onBackClick: () -> Unit = {}) {
             listOf(
                 Collectable(
                     id = "1",
-                    name = "Golden Leaf",
+                    name = "Sakura Sapphire",
                     description = "A rare golden leaf found only in autumn.",
-                    imageResId = R.drawable.login, // Replace with actual image
+                    imageResId = R.drawable.pink, // Replace with actual image
                     rarity = CollectableRarity.UNCOMMON,
                     isUnlocked = true,
                     discoveryDate = "Oct 15, 2023"
                 ),
                 Collectable(
                     id = "2",
-                    name = "Ancient Coin",
+                    name = "Serendib Jade",
                     description = "A mysterious coin from an ancient civilization.",
-                    imageResId = R.drawable.login,  // Replace with actual image
-                    rarity = CollectableRarity.RARE,
+                    imageResId = R.drawable.green,  // Replace with actual image
+                    rarity = CollectableRarity.COMMON,
                     isUnlocked = true,
                     discoveryDate = "Nov 3, 2023"
                 ),
                 Collectable(
                     id = "3",
-                    name = "Crystal Flower",
+                    name = "Amethyst of Anuradhapura",
                     description = "A beautiful flower that seems to be made of crystal.",
-                    imageResId = R.drawable.login,  // Replace with actual image
+                    imageResId = R.drawable.purpule,  // Replace with actual image
                     rarity = CollectableRarity.LEGENDARY,
                     isUnlocked = false
                 ),
                 Collectable(
                     id = "4",
-                    name = "Forest Mushroom",
+                    name = "Ruhunu Ruby",
                     description = "A common mushroom found in the forest.",
-                    imageResId = R.drawable.login,  // Replace with actual image
-                    rarity = CollectableRarity.COMMON,
+                    imageResId = R.drawable.heart,  // Replace with actual image
+                    rarity = CollectableRarity.LEGENDARY,
                     isUnlocked = true,
                     discoveryDate = "Sep 28, 2023"
                 ),
                 Collectable(
                     id = "5",
-                    name = "Colorful Feather",
+                    name = "Sigiriya Key",
                     description = "A colorful feather from an exotic bird.",
-                    imageResId = R.drawable.login,  // Replace with actual image
-                    rarity = CollectableRarity.UNCOMMON,
+                    imageResId = R.drawable.key,  // Replace with actual image
+                    rarity = CollectableRarity.LEGENDARY,
                     isUnlocked = true,
                     discoveryDate = "Oct 5, 2023"
                 ),
                 Collectable(
                     id = "6",
-                    name = "Ancient Artifact",
+                    name = "Araliya Sta",
                     description = "A mysterious artifact with unknown powers.",
-                    imageResId = R.drawable.login,  // Replace with actual image
-                    rarity = CollectableRarity.LEGENDARY,
+                    imageResId = R.drawable.star,  // Replace with actual image
+                    rarity = CollectableRarity.COMMON,
                     isUnlocked = false
                 ),
                 Collectable(
                     id = "7",
                     name = "River Stone",
                     description = "A smooth stone polished by the river.",
-                    imageResId = R.drawable.login,  // Replace with actual image
-                    rarity = CollectableRarity.COMMON,
+                    imageResId = R.drawable.badge,  // Replace with actual image
+                    rarity = CollectableRarity.LEGENDARY,
                     isUnlocked = true,
                     discoveryDate = "Aug 12, 2023"
                 ),
                 Collectable(
                     id = "8",
-                    name = "Mountain Crystal",
+                    name = "Mahavansa Hoard",
                     description = "A beautiful crystal found in the mountains.",
-                    imageResId = R.drawable.login,  // Replace with actual image
+                    imageResId = R.drawable.chest,  // Replace with actual image
                     rarity = CollectableRarity.RARE,
                     isUnlocked = false
                 )
@@ -128,137 +128,150 @@ fun CollectablesScreen(onBackClick: () -> Unit = {}) {
     var selectedRarity by remember { mutableStateOf("All Rarities") }
     val rarityFilters = listOf("All Rarities", "Common", "Uncommon", "Rare", "Legendary")
     
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        // Top bar with back button and title
-        Row(
+    Box(modifier = Modifier.fillMaxSize()) {
+        // Background Image
+        Image(
+            painter = painterResource(id = R.drawable.collectables),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.FillBounds
+        )
+        
+        // Content
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 16.dp),
-            verticalAlignment = Alignment.CenterVertically
+                .fillMaxSize()
+                .padding(16.dp)
+                .background(Color.Black.copy(alpha = 0.5f), shape = RoundedCornerShape(16.dp))
+                .padding(16.dp)
         ) {
-            // Back button
-            IconButton(
-                onClick = onBackClick,
-                modifier = Modifier.size(48.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Default.ArrowBack,
-                    contentDescription = "Back",
-                    tint = MaterialTheme.colorScheme.primary
-                )
-            }
-            
-            // Title
-            Text(
-                text = "Inventory",
-                fontSize = 28.sp,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center,
+            // Top bar with back button and title
+            Row(
                 modifier = Modifier
-                    .weight(1f)
-                    .padding(end = 48.dp), // Balance for the back button
-                color = Color(0xFFFFD700) // Gold color for game-like feel
-            )
-        }
-        
-        // Filters
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            filters.forEach { filter ->
-                FilterChip(
-                    selected = selectedFilter == filter,
-                    onClick = { selectedFilter = filter },
-                    label = { Text(filter) },
-                    colors = FilterChipDefaults.filterChipColors(
-                        selectedContainerColor = MaterialTheme.colorScheme.primary,
-                        selectedLabelColor = MaterialTheme.colorScheme.onPrimary
+                    .fillMaxWidth()
+                    .padding(bottom = 16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                // Back button
+                IconButton(
+                    onClick = onBackClick,
+                    modifier = Modifier.size(48.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        tint = MaterialTheme.colorScheme.primary
                     )
-                )
-            }
-        }
-        
-        // Rarity filters
-        ScrollableTabRow(
-            selectedTabIndex = rarityFilters.indexOf(selectedRarity),
-            edgePadding = 0.dp,
-            modifier = Modifier.padding(bottom = 16.dp)
-        ) {
-            rarityFilters.forEachIndexed { index, rarity ->
-                Tab(
-                    selected = selectedRarity == rarity,
-                    onClick = { selectedRarity = rarity },
-                    text = { Text(rarity) }
-                )
-            }
-        }
-        
-        // Stats
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 16.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly
-        ) {
-            val unlockedCount = collectables.count { it.isUnlocked }
-            val totalCount = collectables.size
-            
-            StatItem(
-                title = "Collected",
-                value = "$unlockedCount/$totalCount",
-                color = MaterialTheme.colorScheme.primary
-            )
-            
-            StatItem(
-                title = "Completion",
-                value = "${(unlockedCount * 100 / totalCount)}%",
-                color = MaterialTheme.colorScheme.secondary
-            )
-            
-            StatItem(
-                title = "Legendary",
-                value = "${collectables.count { it.rarity == CollectableRarity.LEGENDARY && it.isUnlocked }}/${collectables.count { it.rarity == CollectableRarity.LEGENDARY }}",
-                color = Color(0xFFFFD700)
-            )
-        }
-        
-        // Collectables grid
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            val filteredCollectables = collectables.filter { collectable ->
-                val statusFilter = when (selectedFilter) {
-                    "Unlocked" -> collectable.isUnlocked
-                    "Locked" -> !collectable.isUnlocked
-                    else -> true
                 }
                 
-                val rarityFilter = when (selectedRarity) {
-                    "Common" -> collectable.rarity == CollectableRarity.COMMON
-                    "Uncommon" -> collectable.rarity == CollectableRarity.UNCOMMON
-                    "Rare" -> collectable.rarity == CollectableRarity.RARE
-                    "Legendary" -> collectable.rarity == CollectableRarity.LEGENDARY
-                    else -> true
-                }
-                
-                statusFilter && rarityFilter
+                // Title
+                Text(
+                    text = "Inventory",
+                    fontSize = 28.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(end = 48.dp), // Balance for the back button
+                    color = Color(0xFFFFD700) // Gold color for game-like feel
+                )
             }
             
-            items(filteredCollectables) { collectable ->
-                CollectableItem(
-                    collectable = collectable,
-                    onClick = { /* Handle collectable click */ }
+            // Filters
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                filters.forEach { filter ->
+                    FilterChip(
+                        selected = selectedFilter == filter,
+                        onClick = { selectedFilter = filter },
+                        label = { Text(filter) },
+                        colors = FilterChipDefaults.filterChipColors(
+                            selectedContainerColor = MaterialTheme.colorScheme.primary,
+                            selectedLabelColor = MaterialTheme.colorScheme.onPrimary
+                        )
+                    )
+                }
+            }
+            
+            // Rarity filters
+            ScrollableTabRow(
+                selectedTabIndex = rarityFilters.indexOf(selectedRarity),
+                edgePadding = 0.dp,
+                modifier = Modifier.padding(bottom = 16.dp)
+            ) {
+                rarityFilters.forEachIndexed { index, rarity ->
+                    Tab(
+                        selected = selectedRarity == rarity,
+                        onClick = { selectedRarity = rarity },
+                        text = { Text(rarity) }
+                    )
+                }
+            }
+            
+            // Stats
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 16.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                val unlockedCount = collectables.count { it.isUnlocked }
+                val totalCount = collectables.size
+                
+                StatItem(
+                    title = "Collected",
+                    value = "$unlockedCount/$totalCount",
+                    color = MaterialTheme.colorScheme.primary
                 )
+                
+                StatItem(
+                    title = "Completion",
+                    value = "${(unlockedCount * 100 / totalCount)}%",
+                    color = MaterialTheme.colorScheme.secondary
+                )
+                
+                StatItem(
+                    title = "Legendary",
+                    value = "${collectables.count { it.rarity == CollectableRarity.LEGENDARY && it.isUnlocked }}/${collectables.count { it.rarity == CollectableRarity.LEGENDARY }}",
+                    color = Color(0xFFFFD700)
+                )
+            }
+            
+            // Collectables grid
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                val filteredCollectables = collectables.filter { collectable ->
+                    val statusFilter = when (selectedFilter) {
+                        "Unlocked" -> collectable.isUnlocked
+                        "Locked" -> !collectable.isUnlocked
+                        else -> true
+                    }
+                    
+                    val rarityFilter = when (selectedRarity) {
+                        "Common" -> collectable.rarity == CollectableRarity.COMMON
+                        "Uncommon" -> collectable.rarity == CollectableRarity.UNCOMMON
+                        "Rare" -> collectable.rarity == CollectableRarity.RARE
+                        "Legendary" -> collectable.rarity == CollectableRarity.LEGENDARY
+                        else -> true
+                    }
+                    
+                    statusFilter && rarityFilter
+                }
+                
+                items(filteredCollectables) { collectable ->
+                    CollectableItem(
+                        collectable = collectable,
+                        onClick = { /* Handle collectable click */ }
+                    )
+                }
             }
         }
     }
