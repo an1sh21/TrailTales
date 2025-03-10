@@ -19,6 +19,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.dp
 import com.example.trail_tales_front_end_one.android.ui.navigation.AppNavigation
+import com.example.trail_tales_front_end_one.android.ui.navigation.Screen
 
 class MainActivity : ComponentActivity() {
     private lateinit var authManager: AuthManager
@@ -55,8 +56,12 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     } else {
-                        // Use AppNavigation instead of directly showing HomeScreen
-                        AppNavigation(currentUser!!, authManager)
+                        // Use AppNavigation with loading screen as start destination
+                        AppNavigation(
+                            currentUser!!, 
+                            authManager,
+                            startDestination = Screen.Loading.route
+                        )
                     }
                 }
             }

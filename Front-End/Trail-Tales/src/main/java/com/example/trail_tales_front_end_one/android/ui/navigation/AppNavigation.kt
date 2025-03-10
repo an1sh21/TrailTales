@@ -8,10 +8,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.trail_tales_front_end_one.android.auth.AuthManager
 import com.example.trail_tales_front_end_one.android.ui.screens.HomeScreen
+import com.example.trail_tales_front_end_one.android.ui.screens.LoadingScreen
 import com.example.trail_tales_front_end_one.android.ui.screens.SettingsScreen
 import com.google.firebase.auth.FirebaseUser
 
 sealed class Screen(val route: String) {
+    object Loading : Screen("loading")
     object Home : Screen("home")
     object Settings : Screen("settings")
 }
@@ -20,14 +22,21 @@ sealed class Screen(val route: String) {
 fun AppNavigation(
     user: FirebaseUser,
     authManager: AuthManager,
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    startDestination: String = Screen.Loading.route
 ) {
     val actions = remember(navController) { NavigationActions(navController) }
     
     NavHost(
         navController = navController,
-        startDestination = Screen.Home.route
+        startDestination = startDestination
     ) {
+        composable(Screen.Loading.route) {
+            LoadingScreen(
+                onLoadingComplete = actions.navigateToHome
+            )
+        }
+        
         composable(Screen.Home.route) {
             HomeScreen(
                 user = user,
@@ -51,6 +60,12 @@ fun AppNavigation(
 }
 
 class NavigationActions(private val navController: NavHostController) {
+    val navigateToHome: () -> Unit = {
+        navController.navigate(Screen.Home.route) {
+            popUpTo(Screen.Loading.route) { inclusive = true }
+        }
+    }
+    
     val navigateToSettings: () -> Unit = {
         navController.navigate(Screen.Settings.route)
     }

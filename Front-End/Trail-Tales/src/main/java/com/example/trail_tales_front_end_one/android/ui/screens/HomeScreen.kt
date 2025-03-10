@@ -46,11 +46,8 @@ import androidx.compose.foundation.border
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.foundation.layout.size
 import android.location.Location
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
+import androidx.compose.animation.*
+import androidx.compose.animation.core.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.res.painterResource
@@ -323,359 +320,378 @@ fun HomeScreen(
         }
     }
     
-    // Main content
-    Box(modifier = Modifier.fillMaxSize()) {
-        // Google Map with custom style
-        GoogleMap(
-            modifier = Modifier.fillMaxSize(),
-            cameraPositionState = cameraPositionState,
-            properties = mapProperties,
-            uiSettings = MapUiSettings(
-                zoomControlsEnabled = false,
-                myLocationButtonEnabled = false,  // We'll add our own button
-                mapToolbarEnabled = false
-            ),
-            onMapLoaded = {
-                Log.d("MapDebug", "Map loaded successfully")
-            },
-            onMapClick = {
-                // When user interacts with map, stop auto-centering
-                shouldRecenterMap = false
-            }
-        ) {
-            // Simplified Player marker without animations
-            Marker(
-                state = MarkerState(position = userLocation),
-                title = "You are here",
-                snippet = "Lat: ${userLocation.latitude.format(4)}, Lng: ${userLocation.longitude.format(4)}",
-                icon = vectorToBitmap(com.example.trail_tales_front_end_one.android.R.drawable.player_marker),
-                rotation = bearing,
-                zIndex = 1f
-            )
-            
-            // Add POI markers
-            poiList.forEach { poi ->
-                Marker(
-                    state = MarkerState(position = poi.position),
-                    title = poi.title,
-                    snippet = "${poi.description}\nDistance: ${formatDistance(poi.distance)}",
-                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)
-                )
-            }
-        }
-        
-        // Proximity alert
-        AnimatedVisibility(
-            visible = showProximityAlert,
-            enter = fadeIn() + slideInVertically { -it },
-            exit = fadeOut() + slideOutVertically { -it },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-                .align(Alignment.TopCenter)
-                .offset(y = 100.dp)
-        ) {
-            Surface(
-                shape = RoundedCornerShape(16.dp),
-                color = Color(0xFFFFD700),
-                tonalElevation = 8.dp
-            ) {
-                Column(
-                    modifier = Modifier
-                        .padding(16.dp)
-                        .fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(
-                        text = "Trail Point Nearby!",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = Color.Black
-                    )
-                    Spacer(modifier = Modifier.height(4.dp))
-                    Text(
-                        text = nearbyPoi?.title ?: "",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = Color.Black
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Text(
-                        text = "Tap to discover and earn points!",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = Color.Black,
-                        textAlign = TextAlign.Center
-                    )
-                }
-            }
-        }
-        
-        // Game info panel at the top
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 16.dp, start = 16.dp, end = 16.dp)
-                .align(Alignment.TopCenter)
-        ) {
-            Surface(
-                modifier = Modifier
-                    .fillMaxWidth(0.8f)
-                    .border(
-                        width = 2.dp,
-                        color = Color(0xFFFFD700),
-                        shape = RoundedCornerShape(16.dp)
-                    ),
-                shape = RoundedCornerShape(16.dp),
-                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
-                tonalElevation = 8.dp
-            ) {
-                Row(
-                    modifier = Modifier
-                        .padding(12.dp)
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    // Level indicator
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(
-                            text = "LVL",
-                            style = MaterialTheme.typography.labelSmall
-                        )
-                        Text(
-                            text = "$playerLevel",
-                            style = MaterialTheme.typography.titleLarge,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.primary
-                        )
-                    }
-                    
-                    // Points
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(
-                            text = "POINTS",
-                            style = MaterialTheme.typography.labelSmall
-                        )
-                        Text(
-                            text = "$playerPoints",
-                            style = MaterialTheme.typography.titleLarge,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.primary
-                        )
-                    }
-                    
-                    // Discovered locations
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(
-                            text = "DISCOVERED",
-                            style = MaterialTheme.typography.labelSmall
-                        )
-                        Text(
-                            text = "$discoveredLocations",
-                            style = MaterialTheme.typography.titleLarge,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.primary
-                        )
-                    }
-                }
-            }
-        }
-        
-        // Redesigned "My Location" button (bottom-right, above toolbar)
-        Box(
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .padding(bottom = 100.dp, end = 16.dp)
-        ) {
-            // Gold circle border
-            Surface(
-                modifier = Modifier.size(56.dp),
-                shape = CircleShape,
-                color = Color(0xFFFFD700) // Gold color
-            ) {
-                // Location button
-                IconButton(
-                    onClick = { 
-                        // Recenter map on current location
-                        shouldRecenterMap = true
-                        scope.launch {
-                            cameraPositionState.animate(
-                                update = CameraUpdateFactory.newCameraPosition(
-                                    CameraPosition.fromLatLngZoom(userLocation, 15f)
-                                ),
-                                durationMs = 1000
+    // State for content selection (Map, Quests, Collectables)
+    var selectedContent by remember { mutableStateOf("Map") }
+    
+    Column(modifier = Modifier.fillMaxSize()) {
+        // Content area (takes most of the screen)
+        Box(modifier = Modifier.weight(1f)) {
+            when (selectedContent) {
+                "Map" -> {
+                    // Main content - Map
+                    Box(modifier = Modifier.fillMaxSize()) {
+                        // Google Map with custom style
+                        GoogleMap(
+                            modifier = Modifier.fillMaxSize(),
+                            cameraPositionState = cameraPositionState,
+                            properties = mapProperties,
+                            uiSettings = MapUiSettings(
+                                zoomControlsEnabled = false,
+                                myLocationButtonEnabled = false,  // We'll add our own button
+                                mapToolbarEnabled = false
+                            ),
+                            onMapLoaded = {
+                                Log.d("MapDebug", "Map loaded successfully")
+                            },
+                            onMapClick = {
+                                // When user interacts with map, stop auto-centering
+                                shouldRecenterMap = false
+                            }
+                        ) {
+                            // Simplified Player marker without animations
+                            Marker(
+                                state = MarkerState(position = userLocation),
+                                title = "You are here",
+                                snippet = "Lat: ${userLocation.latitude.format(4)}, Lng: ${userLocation.longitude.format(4)}",
+                                icon = vectorToBitmap(com.example.trail_tales_front_end_one.android.R.drawable.player_marker),
+                                rotation = bearing,
+                                zIndex = 1f
                             )
+                            
+                            // Add POI markers
+                            poiList.forEach { poi ->
+                                Marker(
+                                    state = MarkerState(position = poi.position),
+                                    title = poi.title,
+                                    snippet = "${poi.description}\nDistance: ${formatDistance(poi.distance)}",
+                                    icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)
+                                )
+                            }
                         }
-                    },
-                    modifier = Modifier
-                        .padding(3.dp) // Border thickness
-                        .fillMaxSize()
-                ) {
-                    Surface(
-                        shape = CircleShape,
-                        color = MaterialTheme.colorScheme.surface
-                    ) {
-                        Icon(
-                            Icons.Default.LocationOn,
-                            contentDescription = "Center on my location",
-                            modifier = Modifier.padding(8.dp),
-                            tint = MaterialTheme.colorScheme.primary
-                        )
+                        
+                        // Proximity alert
+                        if (showProximityAlert) {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp)
+                                    .align(Alignment.TopCenter)
+                                    .offset(y = 100.dp)
+                            ) {
+                                Surface(
+                                    shape = RoundedCornerShape(16.dp),
+                                    color = Color(0xFFFFD700),
+                                    tonalElevation = 8.dp
+                                ) {
+                                    Column(
+                                        modifier = Modifier
+                                            .padding(16.dp)
+                                            .fillMaxWidth(),
+                                        horizontalAlignment = Alignment.CenterHorizontally
+                                    ) {
+                                        Text(
+                                            text = "Trail Point Nearby!",
+                                            style = MaterialTheme.typography.titleMedium,
+                                            fontWeight = FontWeight.Bold,
+                                            color = Color.Black
+                                        )
+                                        Spacer(modifier = Modifier.height(4.dp))
+                                        Text(
+                                            text = nearbyPoi?.title ?: "",
+                                            style = MaterialTheme.typography.bodyMedium,
+                                            color = Color.Black
+                                        )
+                                        Spacer(modifier = Modifier.height(8.dp))
+                                        Text(
+                                            text = "Tap to discover and earn points!",
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = Color.Black,
+                                            textAlign = TextAlign.Center
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                        
+                        // Game info panel at the top
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 16.dp, start = 16.dp, end = 16.dp)
+                                .align(Alignment.TopCenter)
+                        ) {
+                            Surface(
+                                modifier = Modifier
+                                    .fillMaxWidth(0.8f)
+                                    .border(
+                                        width = 2.dp,
+                                        color = Color(0xFFFFD700),
+                                        shape = RoundedCornerShape(16.dp)
+                                    ),
+                                shape = RoundedCornerShape(16.dp),
+                                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
+                                tonalElevation = 8.dp
+                            ) {
+                                Row(
+                                    modifier = Modifier
+                                        .padding(12.dp)
+                                        .fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    // Level indicator
+                                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                        Text(
+                                            text = "LVL",
+                                            style = MaterialTheme.typography.labelSmall
+                                        )
+                                        Text(
+                                            text = "$playerLevel",
+                                            style = MaterialTheme.typography.titleLarge,
+                                            fontWeight = FontWeight.Bold,
+                                            color = MaterialTheme.colorScheme.primary
+                                        )
+                                    }
+                                    
+                                    // Points
+                                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                        Text(
+                                            text = "POINTS",
+                                            style = MaterialTheme.typography.labelSmall
+                                        )
+                                        Text(
+                                            text = "$playerPoints",
+                                            style = MaterialTheme.typography.titleLarge,
+                                            fontWeight = FontWeight.Bold,
+                                            color = MaterialTheme.colorScheme.primary
+                                        )
+                                    }
+                                    
+                                    // Discovered locations
+                                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                        Text(
+                                            text = "DISCOVERED",
+                                            style = MaterialTheme.typography.labelSmall
+                                        )
+                                        Text(
+                                            text = "$discoveredLocations",
+                                            style = MaterialTheme.typography.titleLarge,
+                                            fontWeight = FontWeight.Bold,
+                                            color = MaterialTheme.colorScheme.primary
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                        
+                        // Redesigned "My Location" button (bottom-right, above toolbar)
+                        Box(
+                            modifier = Modifier
+                                .align(Alignment.BottomEnd)
+                                .padding(bottom = 100.dp, end = 16.dp)
+                        ) {
+                            // Gold circle border
+                            Surface(
+                                modifier = Modifier.size(56.dp),
+                                shape = CircleShape,
+                                color = Color(0xFFFFD700) // Gold color
+                            ) {
+                                // Location button
+                                IconButton(
+                                    onClick = { 
+                                        // Recenter map on current location
+                                        shouldRecenterMap = true
+                                        scope.launch {
+                                            cameraPositionState.animate(
+                                                update = CameraUpdateFactory.newCameraPosition(
+                                                    CameraPosition.fromLatLngZoom(userLocation, 15f)
+                                                ),
+                                                durationMs = 1000
+                                            )
+                                        }
+                                    },
+                                    modifier = Modifier
+                                        .padding(3.dp) // Border thickness
+                                        .fillMaxSize()
+                                ) {
+                                    Surface(
+                                        shape = CircleShape,
+                                        color = MaterialTheme.colorScheme.surface
+                                    ) {
+                                        Icon(
+                                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.walking_character_frame2),
+                                            contentDescription = "Center on my location",
+                                            modifier = Modifier.padding(8.dp),
+                                            tint = MaterialTheme.colorScheme.primary
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                        
+                        // User profile button (top-right corner)
+                        Box(
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .align(Alignment.TopEnd)
+                        ) {
+                            // Gold circle border
+                            Surface(
+                                modifier = Modifier.size(56.dp),
+                                shape = CircleShape,
+                                color = Color(0xFFFFD700) // Gold color
+                            ) {
+                                // Profile button
+                                IconButton(
+                                    onClick = { showProfileMenu = true },
+                                    modifier = Modifier
+                                        .padding(3.dp) // Border thickness
+                                        .fillMaxSize()
+                                ) {
+                                    Surface(
+                                        shape = CircleShape,
+                                        color = MaterialTheme.colorScheme.surface
+                                    ) {
+                                        Icon(
+                                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_social),
+                                            contentDescription = "Profile",
+                                            modifier = Modifier.padding(8.dp),
+                                            tint = MaterialTheme.colorScheme.primary
+                                        )
+                                    }
+                                }
+                            }
+                            
+                            // Profile dropdown menu
+                            DropdownMenu(
+                                expanded = showProfileMenu,
+                                onDismissRequest = { showProfileMenu = false },
+                                modifier = Modifier.width(200.dp)
+                            ) {
+                                // User info item
+                                DropdownMenuItem(
+                                    text = { Text(user.email ?: "User") },
+                                    onClick = { },
+                                    leadingIcon = {
+                                        Icon(
+                                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_social),
+                                            contentDescription = null
+                                        )
+                                    }
+                                )
+                                Divider()
+                                // Logout item
+                                DropdownMenuItem(
+                                    text = { Text("Logout") },
+                                    onClick = {
+                                        authManager.signOut()
+                                        showProfileMenu = false
+                                    },
+                                    leadingIcon = {
+                                        Icon(
+                                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_settings),
+                                            contentDescription = null
+                                        )
+                                    }
+                                )
+                            }
+                        }
+                        
+                        // Bottom Navigation Bar (game-like)
+                        Box(
+                            modifier = Modifier
+                                .align(Alignment.BottomCenter)
+                                .padding(bottom = 16.dp)
+                        ) {
+                            // Bottom bar background
+                            Surface(
+                                modifier = Modifier
+                                    .fillMaxWidth(0.9f)
+                                    .height(70.dp),
+                                shape = RoundedCornerShape(35.dp),
+                                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
+                                tonalElevation = 8.dp
+                            ) {
+                                Row(
+                                    modifier = Modifier.fillMaxSize(),
+                                    horizontalArrangement = Arrangement.SpaceEvenly,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    // Left side buttons
+                                    IconButton(onClick = { selectedContent = "Quests" }) {
+                                        Icon(
+                                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_quest),
+                                            contentDescription = "Quests",
+                                            tint = MaterialTheme.colorScheme.primary
+                                        )
+                                    }
+                                    IconButton(onClick = { onNavigateToSettings() }) {
+                                        Icon(
+                                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_settings),
+                                            contentDescription = "Settings",
+                                            tint = MaterialTheme.colorScheme.primary
+                                        )
+                                    }
+                                    
+                                    // Spacer for the center button
+                                    Spacer(modifier = Modifier.width(56.dp))
+                                    
+                                    // Right side buttons
+                                    IconButton(onClick = { selectedContent = "Collectables" }) {
+                                        Icon(
+                                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_inventory),
+                                            contentDescription = "Collectables",
+                                            tint = MaterialTheme.colorScheme.primary
+                                        )
+                                    }
+                                    IconButton(onClick = { /* Open Social */ }) {
+                                        Icon(
+                                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_social),
+                                            contentDescription = "Social",
+                                            tint = MaterialTheme.colorScheme.primary
+                                        )
+                                    }
+                                }
+                            }
+                            
+                            // Center floating camera button
+                            Surface(
+                                modifier = Modifier
+                                    .size(70.dp)
+                                    .align(Alignment.TopCenter)
+                                    .offset(y = (-20).dp),
+                                shape = CircleShape,
+                                color = Color(0xFFFFD700), // Gold color
+                                tonalElevation = 8.dp
+                            ) {
+                                Surface(
+                                    modifier = Modifier
+                                        .padding(4.dp)
+                                        .fillMaxSize(),
+                                    shape = CircleShape,
+                                    color = MaterialTheme.colorScheme.primary
+                                ) {
+                                    IconButton(
+                                        onClick = { 
+                                            // Request camera permission and open camera
+                                            cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
+                                        },
+                                        modifier = Modifier.fillMaxSize()
+                                    ) {
+                                        Icon(
+                                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_camera),
+                                            contentDescription = "Camera",
+                                            modifier = Modifier.size(28.dp),
+                                            tint = Color.White
+                                        )
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
-            }
-        }
-        
-        // User profile button (top-right corner)
-        Box(
-            modifier = Modifier
-                .padding(16.dp)
-                .align(Alignment.TopEnd)
-        ) {
-            // Gold circle border
-            Surface(
-                modifier = Modifier.size(56.dp),
-                shape = CircleShape,
-                color = Color(0xFFFFD700) // Gold color
-            ) {
-                // Profile button
-                IconButton(
-                    onClick = { showProfileMenu = true },
-                    modifier = Modifier
-                        .padding(3.dp) // Border thickness
-                        .fillMaxSize()
-                ) {
-                    Surface(
-                        shape = CircleShape,
-                        color = MaterialTheme.colorScheme.surface
-                    ) {
-                        Icon(
-                            Icons.Default.Person,
-                            contentDescription = "Profile",
-                            modifier = Modifier.padding(8.dp),
-                            tint = MaterialTheme.colorScheme.primary
-                        )
-                    }
-                }
-            }
-            
-            // Profile dropdown menu
-            DropdownMenu(
-                expanded = showProfileMenu,
-                onDismissRequest = { showProfileMenu = false },
-                modifier = Modifier.width(200.dp)
-            ) {
-                // User info item
-                DropdownMenuItem(
-                    text = { Text(user.email ?: "User") },
-                    onClick = { },
-                    leadingIcon = {
-                        Icon(Icons.Default.Person, contentDescription = null)
-                    }
-                )
-                Divider()
-                // Logout item
-                DropdownMenuItem(
-                    text = { Text("Logout") },
-                    onClick = {
-                        authManager.signOut()
-                        showProfileMenu = false
-                    },
-                    leadingIcon = {
-                        Icon(Icons.Default.ExitToApp, contentDescription = null)
-                    }
-                )
-            }
-        }
-        
-        // Bottom Navigation Bar (game-like)
-        Box(
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(bottom = 16.dp)
-        ) {
-            // Bottom bar background
-            Surface(
-                modifier = Modifier
-                    .fillMaxWidth(0.9f)
-                    .height(70.dp),
-                shape = RoundedCornerShape(35.dp),
-                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
-                tonalElevation = 8.dp
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxSize(),
-                    horizontalArrangement = Arrangement.SpaceEvenly,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    // Left side buttons
-                    IconButton(onClick = { /* Open Quests */ }) {
-                        Icon(
-                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_quest),
-                            contentDescription = "Quests",
-                            tint = MaterialTheme.colorScheme.primary
-                        )
-                    }
-                    IconButton(onClick = { onNavigateToSettings() }) {
-                        Icon(
-                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_settings),
-                            contentDescription = "Settings",
-                            tint = MaterialTheme.colorScheme.primary
-                        )
-                    }
-                    
-                    // Spacer for the center button
-                    Spacer(modifier = Modifier.width(56.dp))
-                    
-                    // Right side buttons
-                    IconButton(onClick = { /* Open Inventory */ }) {
-                        Icon(
-                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_inventory),
-                            contentDescription = "Inventory",
-                            tint = MaterialTheme.colorScheme.primary
-                        )
-                    }
-                    IconButton(onClick = { /* Open Social */ }) {
-                        Icon(
-                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_social),
-                            contentDescription = "Social",
-                            tint = MaterialTheme.colorScheme.primary
-                        )
-                    }
-                }
-            }
-            
-            // Center floating camera button
-            Surface(
-                modifier = Modifier
-                    .size(70.dp)
-                    .align(Alignment.TopCenter)
-                    .offset(y = (-20).dp),
-                shape = CircleShape,
-                color = Color(0xFFFFD700), // Gold color
-                tonalElevation = 8.dp
-            ) {
-                Surface(
-                    modifier = Modifier
-                        .padding(4.dp)
-                        .fillMaxSize(),
-                    shape = CircleShape,
-                    color = MaterialTheme.colorScheme.primary
-                ) {
-                    IconButton(
-                        onClick = { 
-                            // Request camera permission and open camera
-                            cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
-                        },
-                        modifier = Modifier.fillMaxSize()
-                    ) {
-                        Icon(
-                            painter = painterResource(id = com.example.trail_tales_front_end_one.android.R.drawable.ic_camera),
-                            contentDescription = "Camera",
-                            modifier = Modifier.size(28.dp),
-                            tint = Color.White
-                        )
-                    }
-                }
+                "Quests" -> QuestsScreen(onBackClick = { selectedContent = "Map" })
+                "Collectables" -> CollectablesScreen(onBackClick = { selectedContent = "Map" })
             }
         }
     }
