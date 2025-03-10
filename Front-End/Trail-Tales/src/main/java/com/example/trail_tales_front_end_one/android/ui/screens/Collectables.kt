@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -73,15 +74,17 @@ fun CollectableScreen(
                 title = "Total Coins",
                 value = "$totalCoins",
                 iconRes = R.drawable.login, // have to replace
-                backgroundColor = Color(0xFFFFD700)
+                backgroundColor = Color(0xFFFFD700),
+                description = " "    // give a unique description for the total coins
             )
 
             //  Creating Visited Sites Card
             InfoCard(
                 title = "Visited Sites",
                 value = "$visitedSites",
-                iconRes = R.drawable.login,   //  have to Replace
-                backgroundColor = Color(0xFF4CAF50)
+                iconRes = R.drawable.login,   // have to replace
+                backgroundColor = Color(0xFF4CAF50),
+                description = " "   // give a unique description for the visited sites
             )
 
             //  Creating Tokens Card
@@ -89,7 +92,8 @@ fun CollectableScreen(
                 title = " Total Tokens",
                 value = "$tokenCount",
                 iconRes = R.drawable.login,   // have to Replace
-                backgroundColor = Color(0xFF03A9F4)
+                backgroundColor = Color(0xFF03A9F4),
+                description = " "   //  give a unique description for the total tokens
             )
 
             // Button to simulate collectables
@@ -108,11 +112,13 @@ fun CollectableScreen(
 
 // creating cards for displaying the preview as cards
 @Composable
-fun InfoCard(title: String, value: String, iconRes: Int, backgroundColor: Color) {
+fun InfoCard(title: String, value: String, iconRes: Int, backgroundColor: Color,description: String) {
+    var showDialog by remember {mutableStateOf(false)}  // tracking dialog visibility
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(170.dp),
+            .height(170.dp)
+            .clickable{showDialog},   // open dialog when card is clicked
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(8.dp),
         colors = CardDefaults.cardColors(containerColor = backgroundColor)
@@ -136,7 +142,23 @@ fun InfoCard(title: String, value: String, iconRes: Int, backgroundColor: Color)
             )
         }
     }
+
+    // Creating the pop up that shows the description of the card 
+
+    if (showDialog) {
+        AlertDialog(
+            onDismissRequest = { showDialog = false },
+            text = { Text(text = description) },  // ONLY the description
+            confirmButton = {
+                Button(onClick = { showDialog = false }) {
+                    Text("OK")
+                }
+            }
+        )
+    }
 }
+
+
 
 @Preview(showBackground = true)
 @Composable
