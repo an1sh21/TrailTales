@@ -19,32 +19,50 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.font.FontWeight
+import androidx.navigation.NavController
+import androidx.navigation.compose.*
+
 import com.example.trail_tales_front_end_one.android.R
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            GameLevelScreen()
+            GameApp()
         }
     }
 }
 
 @Composable
-fun GameLevelScreen() {
+fun GameApp() {
+    val navController = rememberNavController() // Create NavController
+
+    // Setting up the navigation graph
+    NavHost(navController = navController, startDestination = "gameLevelScreen") {
+        composable("gameLevelScreen") {
+            GameLevelScreen(navController) // Pass the navController to GameLevelScreen
+        }
+        composable("nextScreen") {
+            NextScreen() // The screen that will be shown after navigating
+        }
+    }
+}
+
+@Composable
+fun GameLevelScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFFFEB3C))    // Yellow background
             .padding(8.dp),
-        contentAlignment = Alignment.BottomCenter
+        contentAlignment = Alignment.TopCenter // Aligning the content to the top
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(5.dp),
+                .padding(top = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(8.dp)  // Reduced spacing between elements
         ) {
             Text(
                 text = "Quest",
@@ -53,27 +71,36 @@ fun GameLevelScreen() {
                 color = Color.Black
             )
 
-            Spacer(modifier = Modifier.height(30.dp))  // Space between the title and first card
+            Spacer(modifier = Modifier.height(8.dp))
 
             // Creating the 3 main game level cards with their own descriptions
-
             LevelCard(
-                "Beginner", 5, R.drawable.login,   // replace the image when crated
+                "Beginner", 5, R.drawable.login,
                 "Perfect for newcomers! Explore 5 beginner-friendly sites with simple challenges to get you started on your adventure."
             )
-            Spacer(modifier = Modifier.height(16.dp))
+
+            Spacer(modifier = Modifier.height(32.dp))
 
             LevelCard(
-                "Explorer", 7, R.drawable.login,    // replace the image when created
+                "Explorer", 7, R.drawable.login,
                 "Ready for a challenge? This level takes you through 7 exciting locations, testing your skills and strategy."
             )
-            Spacer(modifier = Modifier.height(16.dp))
+
+            Spacer(modifier = Modifier.height(32.dp))
 
             LevelCard(
-                "Expert", 10, R.drawable.login,    // replace the image when created
+                "Expert", 10, R.drawable.login,
                 "Only for the brave! Tackle 10 intense locations filled with the toughest obstacles and grand rewards."
             )
             Spacer(modifier = Modifier.height(16.dp))
+
+            // Next button to navigate to next screen
+            Button(
+                onClick = { navController.navigate("nextScreen") }, // Navigate to next screen
+                modifier = Modifier.padding(top = 16.dp)
+            ) {
+                Text("Next")
+            }
         }
     }
 }
@@ -147,8 +174,19 @@ fun LevelCard(difficulty: String, sites: Int, imageRes: Int, description: String
     }
 }
 
+// Next screen to navigate to after clicking the Next button
+@Composable
+fun NextScreen() {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(" ")  // add the description for logging into the next appropiate page 
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun PreviewGameLevelScreen() {
-    GameLevelScreen()
+    GameLevelScreen(navController = rememberNavController())
 }
