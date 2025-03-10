@@ -43,20 +43,20 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// ✅ Home Page with Background
+// Home Page with Background
 @Composable
 fun HomeScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF121212)), // Dark Background
+            .background(Color(0xFF121212)),
         contentAlignment = Alignment.Center
     ) {
         Text(text = "Welcome to the Home Page!", fontSize = 24.sp, color = Color.White)
     }
 }
 
-// ✅ Updated CollectableScreen with Fixes
+// Updated CollectableScreen with Fixes
 @Composable
 fun CollectableScreen(
     navController: NavController,
@@ -68,12 +68,16 @@ fun CollectableScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState()) // Enable scrolling
+            .verticalScroll(rememberScrollState())   // Enable scrolling
             .background(Color(0xFF1E1E2E))
-            .padding(horizontal = 40.dp), // Adjust padding
+            .padding(horizontal = 40.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(26.dp)
     ) {
+        // push content to the lower
+        Spacer(modifier = Modifier.height(40.dp))
+
+        // Title of Collectables Screen
         Text(
             text = "Collectables",
             fontSize = 40.sp,
@@ -82,24 +86,34 @@ fun CollectableScreen(
             color = Color.White
         )
 
+        // Add some spacing between the title and the first card
+        Spacer(modifier = Modifier.height(7.dp))
+
+        // Creating cards that contains details
+
         InfoCard("Total Coins", "$totalCoins", R.drawable.login, Color(0xFFFFD700), "You have collected many coins!")
         InfoCard("Visited Sites", "$visitedSites", R.drawable.login, Color(0xFF4CAF50), "Explore new places!")
         InfoCard("Total Tokens", "$tokenCount", R.drawable.login, Color(0xFF03A9F4), "Earned valuable tokens!")
 
-        Spacer(modifier = Modifier.weight(1f)) // Push buttons to bottom
 
-        // ✅ Place Both Buttons in the Same Row
+
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 40.dp),
+            horizontalArrangement = Arrangement.spacedBy(35.dp)  // Space between buttons
         ) {
-            Button(onClick = { updateStats(totalCoins + 10, visitedSites + 1, tokenCount + 2) }) {
-                Text("Update Collectables")
+            Button(
+                onClick = { updateStats(totalCoins + 10, visitedSites + 1, tokenCount + 2) },
+                modifier = Modifier.weight(1f)   // width for the button
+            ) {
+                Text("Update output")
             }
 
             Button(
                 onClick = { navController.navigate("home") },
-                colors = ButtonDefaults.buttonColors(containerColor = Color.White)
+                colors = ButtonDefaults.buttonColors(containerColor = Color.White),
+                modifier = Modifier.weight(1f)
             ) {
                 Text("Back to Home", color = Color.Black)
             }
@@ -107,7 +121,7 @@ fun CollectableScreen(
     }
 }
 
-// ✅ Clickable Cards with Working Pop-up
+// Clickable Cards with Working Pop-up
 @Composable
 fun InfoCard(title: String, value: String, iconRes: Int, backgroundColor: Color, description: String) {
     var showDialog by remember { mutableStateOf(false) } // Track dialog visibility
