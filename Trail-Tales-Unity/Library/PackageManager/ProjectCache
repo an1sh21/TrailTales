@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638755007093590928
-    m_Hash: 2044254785
+      ticks: 638769630616702128
+    m_Hash: 3107313729
   m_LockFileStatus:
     m_FilePath: C:/Users/Admin/Desktop/Project 1/TrailTales/Trail-Tales-Unity/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638755007093736072
-    m_Hash: 2858611894
+      ticks: 638769630616732137
+    m_Hash: 2172245355
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:

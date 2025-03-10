@@ -59,7 +59,6 @@
     <UnityVersion>6000.0.35f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Users\Admin\.vscode\extensions\visualstudiotoolsforunity.vstuc-0.9.0.210be6c4.vsctmp.-5b52b2b1.vsctmp.2944d03.vsctmp.-6eb9ccd7.vsctmp.-542ab962.vsctmp.-2c031ac1.vsctmp.-d1678a3.vsctmp.-657616b6.vsctmp.-33206b85.vsctmp.5acbadc8.vsctmp.7ca727d4.vsctmp.-1b4af62c.vsctmp.7ff1ab47.vsctmp.256fbc20.vsctmp.-2e0f193a.vsctmp.-2241ef3d.vsctmp.6e6dd22e.vsctmp.-1f0af30e.vsctmp.5ab0a546.vsctmp.3623f69c.vsctmp.37e0a33a.vsctmp.721d1970.vsctmp.-27dbc0be.vsctmp.5e9970c9.vsctmp.-1875301a.vsctmp.-7a60bb90.vsctmp.-63a3e908.vsctmp.4beb934d.vsctmp.6fed6f7d.vsctmp.5f93f14e.vsctmp.-4f87299f.vsctmp.11b2b993.vsctmp.6ceb5b2c.vsctmp.-29bccebd.vsctmp.4d3a0ac.vsctmp.-2114f879.vsctmp.6663c63.vsctmp.14a4ba70.vsctmp\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.35f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.35f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.35f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
