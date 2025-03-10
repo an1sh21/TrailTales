@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Networking;
 using System.Text;
+
+// Fix: Add reference to KMPIntegration if it's in a different namespace
+// If KMPIntegration is in a namespace, add: using YourNamespace;
+
 public class ARCoinCollectorDirectTouch : MonoBehaviour
 {
     public ARRaycastManager arRaycastManager; // AR Raycast Manager for raycasting
@@ -12,6 +16,9 @@ public class ARCoinCollectorDirectTouch : MonoBehaviour
     public float fadeDuration = 1f; // Duration of the fade effect
     public float shineIntensity = 5f; // Intensity of the shine effect
     public ParticleSystem collectParticleEffect; // Particle effect to play when the coin is collected
+
+    // Reference to KMPIntegration (add this)
+    private KMPIntegration kmpIntegration;
 
     // List of valid coin tags (add all your coin tags here)
     private List<string> validCoinTags = new List<string>()
@@ -26,7 +33,6 @@ public class ARCoinCollectorDirectTouch : MonoBehaviour
 
     private string backendURL = "https://3000/collectibles";
 
-
     private AudioSource audioSource;
 
     void Start()
@@ -35,6 +41,9 @@ public class ARCoinCollectorDirectTouch : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
         audioSource.clip = collectSound;
+        
+        // Get reference to KMPIntegration singleton
+        kmpIntegration = KMPIntegration.Instance;
     }
 
     void Update()
@@ -100,15 +109,22 @@ public class ARCoinCollectorDirectTouch : MonoBehaviour
             particles.Play();
             Destroy(particles.gameObject, particles.main.duration);
         }
-
-         
          
         StartCoroutine(SendCoinDataToBackend(coin.tag, GetPointsForCoin(coin.tag)));
+        
         // Start the fade and shine effect
         StartCoroutine(FadeAndShine(coin));
 
+        // Send to KMP only if integration is available
+        if (kmpIntegration != null)
+        {
+            kmpIntegration.SendCollectedItem(coin.tag, GetPointsForCoin(coin.tag).ToString());
+        }
+        else
+        {
+            Debug.LogWarning("KMPIntegration not found. Coin collection not sent to KMP app.");
+        }
     }
-
 
     private IEnumerator SendCoinDataToBackend(string coinTag, int points)
     {
@@ -135,7 +151,6 @@ public class ARCoinCollectorDirectTouch : MonoBehaviour
             }
         }
     }
-
 
     private bool IsCoinVisible(GameObject coin)
     {
@@ -196,5 +211,4 @@ public class ARCoinCollectorDirectTouch : MonoBehaviour
         // Destroy the coin after fading
         Destroy(coin);
     }
-
 }
