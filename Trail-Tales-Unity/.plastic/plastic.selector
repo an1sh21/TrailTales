@@ -1,4 +1,0 @@
-repository "AR/Trail-Tales@18967937549209@cloud"
-  path "/"
-    br "/main"
-    co "/main"
