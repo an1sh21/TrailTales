@@ -5,7 +5,6 @@ require('dotenv').config();
 
 const storiesRouter = require('./routes/stories');
 const collectiblesRouter = require('./routes/collectibles');
-const legendsRouter = require('./routes/legends');
 
 const app = express();
 
@@ -17,7 +16,6 @@ app.use(express.json());
 // Routes
 app.use('/api/stories', storiesRouter);
 app.use('/api/collectibles', collectiblesRouter);
-app.use('/api/legends', legendsRouter);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
