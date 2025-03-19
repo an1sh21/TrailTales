@@ -34,16 +34,28 @@ router.post('/unlock', verifyToken, async (req, res) => {
 
     await db.runTransaction(async (transaction) => {
       const userRef = db.collection('users').doc(userId);
-      const user = await transaction.get(userRef);
+      const userDoc = await transaction.get(userRef);
       
-      const collection = user.data().collection || [];
+      let userData = userDoc.exists ? userDoc.data() : { collection: [] };
+      const collection = userData.collection || [];
+      
+      // Check if story is already unlocked
+      const isAlreadyUnlocked = collection.some(item => item.storyId === storyId && item.type === 'story');
+      if (isAlreadyUnlocked) {
+        return res.json({ message: 'Story already unlocked' });
+      }
+
       collection.push({
         storyId,
         unlockedAt: admin.firestore.FieldValue.serverTimestamp(),
         type: 'story'
       });
       
-      transaction.update(userRef, { collection });
+      if (!userDoc.exists) {
+        transaction.set(userRef, { collection });
+      } else {
+        transaction.update(userRef, { collection });
+      }
     });
 
     res.json({ message: 'Story unlocked successfully' });
