@@ -11,16 +11,28 @@ router.post('/collect', verifyToken, async (req, res) => {
 
     await db.runTransaction(async (transaction) => {
       const userRef = db.collection('users').doc(userId);
-      const user = await transaction.get(userRef);
+      const userDoc = await transaction.get(userRef);
       
-      const collection = user.data().collection || [];
+      let userData = userDoc.exists ? userDoc.data() : { collection: [] };
+      const collection = userData.collection || [];
+
+      // Check if item is already collected
+      const isAlreadyCollected = collection.some(item => item.itemId === itemId && item.type === 'collectible');
+      if (isAlreadyCollected) {
+        return res.json({ message: 'Item already collected' });
+      }
+
       collection.push({
         itemId,
         collectedAt: admin.firestore.FieldValue.serverTimestamp(),
         type: 'collectible'
       });
       
-      transaction.update(userRef, { collection });
+      if (!userDoc.exists) {
+        transaction.set(userRef, { collection });
+      } else {
+        transaction.update(userRef, { collection });
+      }
     });
 
     res.json({ message: 'Item collected successfully' });
