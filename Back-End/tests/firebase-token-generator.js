@@ -1,13 +1,14 @@
 const admin = require('firebase-admin');
-const serviceAccount = require('./path-to-your-service-account-key.json');
+const serviceAccount = require('../serviceAccountKey.json');
 const axios = require('axios');
+require('dotenv').config();
 
 // Initialize the app
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
 
-async function generateTestToken() {
+async function generateToken() {
   try {
     // Method 1: Create a new test user (if needed)
     let testUser;
@@ -28,57 +29,44 @@ async function generateTestToken() {
     const customToken = await admin.auth().createCustomToken(testUser.uid);
     console.log('Custom token:', customToken);
     
-    // Method 2: Even easier - create a token with custom claims for any UID
-    const uid = 'test-user-123'; // Can be any string
-    const additionalClaims = {
-      email: 'test@example.com',
-      role: 'user'
-    };
-    
-    const customTokenWithClaims = await admin.auth().createCustomToken(uid, additionalClaims);
-    console.log('Custom token with claims:', customTokenWithClaims);
-    
-    return customTokenWithClaims;
+    return customToken;
   } catch (error) {
     console.error('Error generating token:', error);
+    throw error;
   }
 }
 
 // Using Firebase client SDK to exchange tokens
-const firebase = require('firebase/app');
-require('firebase/auth');
+const { initializeApp } = require('firebase/app');
+const { getAuth, signInWithCustomToken } = require('firebase/auth');
 
 const firebaseConfig = {
-  // Your Firebase project config (get from Firebase console)
-  apiKey: "your-api-key",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project",
-  // ...other config
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID
 };
 
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
 
 async function getIdTokenFromCustomToken(customToken) {
-  const apiKey = 'your-firebase-api-key'; // From Firebase console
-  
   try {
-    const response = await axios.post(
-      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=${apiKey}`,
-      {
-        token: customToken,
-        returnSecureToken: true
-      }
-    );
-    
-    return response.data.idToken;
+    const userCredential = await signInWithCustomToken(auth, customToken);
+    const idToken = await userCredential.user.getIdToken();
+    return idToken;
   } catch (error) {
     console.error('Error:', error.response?.data || error.message);
+    throw error;
   }
 }
 
-// Use both functions together
+module.exports = {
+  generateToken,
+  getIdTokenFromCustomToken
+};
+
 async function generateTestIdToken() {
-  const customToken = await generateTestToken();
+  const customToken = await generateToken();
   const idToken = await getIdTokenFromCustomToken(customToken);
   return idToken;
 }
@@ -86,7 +74,7 @@ async function generateTestIdToken() {
 generateTestIdToken();
 
 const API_BASE_URL = 'http://localhost:3000';
-const FIREBASE_API_KEY = 'your-firebase-api-key';
+const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY;
 
 // Get an ID token for testing
 async function getTestIdToken() {
