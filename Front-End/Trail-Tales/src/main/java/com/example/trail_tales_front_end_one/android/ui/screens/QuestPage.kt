@@ -181,7 +181,11 @@ fun NextScreen() {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
+
         Text(" ")  // add the description for logging into the next appropiate page 
+
+        Text("You are now on the Next Screen!")
+
     }
 }
 
