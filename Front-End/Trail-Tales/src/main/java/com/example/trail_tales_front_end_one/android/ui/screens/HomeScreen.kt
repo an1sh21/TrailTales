@@ -79,6 +79,17 @@ data class PointOfInterest(
     var distance: Float = 0f
 )
 
+// Create a data class for the active quest
+data class ActiveQuest(
+    val id: String,
+    val title: String,
+    val position: LatLng,
+    val siteMapResourceId: Int
+)
+
+// Constants for locations
+private val AIR_FORCE_BASE_LOCATION = LatLng(6.8237755, 79.8919505)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
@@ -210,7 +221,14 @@ fun HomeScreen(
     
     // Camera position state that follows the user location
     val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(userLocation, 15f)
+        position = CameraPosition.fromLatLngZoom(
+            // Center between user location and Air Force base for a better view of the route
+            LatLng(
+                (userLocation.latitude + AIR_FORCE_BASE_LOCATION.latitude) / 2,
+                (userLocation.longitude + AIR_FORCE_BASE_LOCATION.longitude) / 2
+            ),
+            11f // Zoom out a bit to see both points
+        )
     }
     
     // Add a state to track if we should recenter the map
@@ -335,6 +353,46 @@ fun HomeScreen(
     // State for content selection (Map, Quests, Collectables)
     var selectedContent by remember { mutableStateOf("Map") }
     
+    // Add active quest state - initialize with provided quest if any or with Air Force Base
+    var activeQuest: ActiveQuest? by remember { mutableStateOf(initialActiveQuest ?: ActiveQuest(
+        id = "airforce_base",
+        title = "SLAF Ratmalana Air Force Base",
+        position = AIR_FORCE_BASE_LOCATION,
+        siteMapResourceId = com.example.trail_tales_front_end_one.android.R.drawable.airforce_sitemap // Using the correct resource
+    ))}
+    
+    // Initialize route points if we have an active quest
+    var routePoints by remember { mutableStateOf<List<LatLng>>(emptyList()) }
+    
+    // State for sitemap dialog
+    var showSiteMap by remember { mutableStateOf(false) }
+    
+    // Generate route when active quest changes
+    LaunchedEffect(activeQuest, userLocation) {
+        activeQuest?.let { quest ->
+            routePoints = generateSimpleRoute(userLocation, quest.position)
+        } ?: run {
+            routePoints = emptyList()
+        }
+    }
+    
+    // Check if user is near quest destination
+    LaunchedEffect(userLocation, activeQuest) {
+        activeQuest?.let { quest ->
+            val distanceResults = FloatArray(1)
+            Location.distanceBetween(
+                userLocation.latitude, userLocation.longitude,
+                quest.position.latitude, quest.position.longitude,
+                distanceResults
+            )
+            
+            // If user is within 50 meters of destination, show sitemap
+            if (distanceResults[0] < 50 && !showSiteMap) {
+                showSiteMap = true
+            }
+        }
+    }
+    
     Column(modifier = Modifier.fillMaxSize()) {
         // Content area (takes most of the screen)
         Box(modifier = Modifier.weight(1f)) {
@@ -360,7 +418,7 @@ fun HomeScreen(
                                 shouldRecenterMap = false
                             }
                         ) {
-                            // Simplified Player marker without animations
+                            // Player marker
                             Marker(
                                 state = MarkerState(position = userLocation),
                                 title = "You are here",
