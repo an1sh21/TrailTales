@@ -47,7 +47,10 @@ enum class QuestDifficulty {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun QuestsScreen(onBackClick: () -> Unit = {}) {
+fun QuestsScreen(
+    onBackClick: () -> Unit = {},
+    onQuestStart: (Quest) -> Unit = {}  // Add parameter for quest start callback
+) {
     var quests by remember {
         mutableStateOf(
             listOf(
@@ -189,7 +192,8 @@ fun QuestsScreen(onBackClick: () -> Unit = {}) {
                             quests = quests.map { 
                                 if (it.id == quest.id) it.copy(isFavorite = !it.isFavorite) else it 
                             }
-                        }
+                        },
+                        onStartClick = { onQuestStart(quest) }  // Add handler for start quest button
                     )
                 }
             }
@@ -201,7 +205,8 @@ fun QuestsScreen(onBackClick: () -> Unit = {}) {
 fun QuestItem(
     quest: Quest,
     onQuestClick: (Quest) -> Unit,
-    onFavoriteToggle: () -> Unit
+    onFavoriteToggle: () -> Unit,
+    onStartClick: () -> Unit  // Add parameter for start quest button click
 ) {
     Card(
         modifier = Modifier
@@ -315,6 +320,32 @@ fun QuestItem(
                         color = Color.Gray
                     )
                 }
+            }
+            
+            // Add a Start Quest button for the Air Force Base quest
+            if (quest.id == "1" && !quest.isCompleted) {  // Air Force Base quest ID is "1"
+                Spacer(modifier = Modifier.height(8.dp))
+                Button(
+                    onClick = onStartClick,
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFFFFD700)  // Gold color
+                    )
+                ) {
+                    Text(
+                        text = "Start Quest",
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            } else if (quest.isCompleted) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = "Completed",
+                    color = Color.Green,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(8.dp)
+                )
             }
         }
     }

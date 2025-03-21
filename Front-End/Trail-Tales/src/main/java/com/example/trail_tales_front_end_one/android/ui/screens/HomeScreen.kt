@@ -59,6 +59,16 @@ import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import android.widget.Toast
+import androidx.compose.foundation.Image
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.ui.window.Dialog
+import com.google.maps.android.compose.Polyline
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.material3.Surface
+import androidx.compose.ui.draw.blur
 
 // Data class for Points of Interest
 data class PointOfInterest(
@@ -74,7 +84,9 @@ data class PointOfInterest(
 fun HomeScreen(
     user: FirebaseUser, 
     authManager: AuthManager,
-    onNavigateToSettings: () -> Unit = {}
+    onNavigateToSettings: () -> Unit = {},
+    onNavigateToQuests: () -> Unit = {},
+    initialActiveQuest: ActiveQuest? = null  // Add parameter for initial active quest
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -284,13 +296,13 @@ fun HomeScreen(
             )
             
             // Calculate distance to POI
-            val results = FloatArray(1)
+            val distanceResults = FloatArray(1)
             Location.distanceBetween(
                 userLocation.latitude, userLocation.longitude,
                 poi.position.latitude, poi.position.longitude,
-                results
+                distanceResults
             )
-            poi.distance = results[0]
+            poi.distance = distanceResults[0]
             
             list.add(poi)
         }
@@ -366,6 +378,31 @@ fun HomeScreen(
                                     snippet = "${poi.description}\nDistance: ${formatDistance(poi.distance)}",
                                     icon = vectorToBitmap(com.example.trail_tales_front_end_one.android.R.drawable.poi_marker)
                                 )
+                            }
+                            
+                            // Draw route to active quest if available
+                            if (routePoints.isNotEmpty()) {
+                                Polyline(
+                                    points = routePoints,
+                                    color = Color(0xFF2196F3), // Blue color
+                                    width = 8f
+                                )
+                                
+                                // Add destination marker for quest
+                                activeQuest?.let { questForMarker ->
+                                    Marker(
+                                        state = MarkerState(position = questForMarker.position),
+                                        title = questForMarker.title,
+                                        snippet = "Quest destination",
+                                        icon = if (questForMarker.position == AIR_FORCE_BASE_LOCATION) {
+                                            // Use a special marker for the Air Force Base
+                                            BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)
+                                        } else {
+                                            BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)
+                                        },
+                                        zIndex = 2f
+                                    )
+                                }
                             }
                         }
                         
@@ -688,6 +725,140 @@ fun HomeScreen(
                                 }
                             }
                         }
+                        
+                        // Add quest controls when a quest is active
+                        if (activeQuest != null) {
+                            // Show quest information panel
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp)
+                                    .align(Alignment.TopCenter)
+                                    .offset(y = 70.dp)
+                            ) {
+                                Surface(
+                                    shape = RoundedCornerShape(16.dp),
+                                    color = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
+                                    tonalElevation = 8.dp,
+                                    modifier = Modifier
+                                        .fillMaxWidth(0.9f)
+                                        .border(
+                                            width = 2.dp,
+                                            color = Color(0xFFFFD700),
+                                            shape = RoundedCornerShape(16.dp)
+                                        )
+                                ) {
+                                    Column(
+                                        modifier = Modifier
+                                            .padding(16.dp)
+                                            .fillMaxWidth(),
+                                        horizontalAlignment = Alignment.CenterHorizontally
+                                    ) {
+                                        Text(
+                                            text = "Active Quest",
+                                            style = MaterialTheme.typography.labelMedium,
+                                            color = Color.Gray
+                                        )
+                                        activeQuest?.let { safeQuest ->
+                                            Text(
+                                                text = safeQuest.title,
+                                                style = MaterialTheme.typography.titleMedium,
+                                                fontWeight = FontWeight.Bold,
+                                                color = MaterialTheme.colorScheme.primary
+                                            )
+                                            
+                                            // Display description for Air Force base
+                                            if (safeQuest.position == AIR_FORCE_BASE_LOCATION) {
+                                                Spacer(modifier = Modifier.height(4.dp))
+                                                Text(
+                                                    text = "RVFV+FJC, Ratmalana, Dehiwala-Mount Lavinia",
+                                                    style = MaterialTheme.typography.bodySmall,
+                                                    color = Color.Gray
+                                                )
+                                            }
+                                            
+                                            // Calculate and show distance
+                                            val distanceResults = FloatArray(1)
+                                            Location.distanceBetween(
+                                                userLocation.latitude, userLocation.longitude,
+                                                safeQuest.position.latitude, safeQuest.position.longitude,
+                                                distanceResults
+                                            )
+                                            
+                                            Text(
+                                                text = "Distance: ${formatDistance(distanceResults[0])}",
+                                                style = MaterialTheme.typography.bodySmall,
+                                                color = Color.Gray
+                                            )
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            // Show end quest button and sitemap button
+                            Box(
+                                modifier = Modifier
+                                    .align(Alignment.BottomCenter)
+                                    .padding(bottom = 100.dp)
+                                    .fillMaxWidth(0.9f)
+                            ) {
+                                val questLocalCopy = activeQuest // Local copy for smart cast to avoid impossible smart cast error
+                                
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Button(
+                                        onClick = { 
+                                            // End the quest
+                                            activeQuest = null
+                                            routePoints = emptyList()
+                                            Toast.makeText(context, "Quest ended", Toast.LENGTH_SHORT).show()
+                                        },
+                                        colors = ButtonDefaults.buttonColors(
+                                            containerColor = Color.Red
+                                        )
+                                    ) {
+                                        Text("End Quest")
+                                    }
+                                    
+                                    // Calculate distance to destination
+                                    questLocalCopy?.let { quest ->
+                                        val distanceResults = FloatArray(1)
+                                        Location.distanceBetween(
+                                            userLocation.latitude, userLocation.longitude,
+                                            quest.position.latitude, quest.position.longitude,
+                                            distanceResults
+                                        )
+                                        
+                                        // Show view sitemap button if nearby
+                                        if (distanceResults[0] < 100) {
+                                            Button(
+                                                onClick = { showSiteMap = true },
+                                                colors = ButtonDefaults.buttonColors(
+                                                    containerColor = Color(0xFFFFD700)
+                                                )
+                                            ) {
+                                                Text("View Site Map", color = Color.Black)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                "Quests" -> {
+                    // Instead of inline implementation, navigate to the QuestsScreen
+                    LaunchedEffect(Unit) {
+                        onNavigateToQuests()
+                    }
+                    // Show loading while navigation happens
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
                     }
                 }
                 "Quests" -> QuestsScreen(onBackClick = { selectedContent = "Map" })
@@ -723,4 +894,36 @@ private fun createImageFile(context: Context): File {
         ".jpg",         /* suffix */
         storageDir      /* directory */
     )
+}
+
+// Helper function to generate a simple route (for demo)
+private fun generateSimpleRoute(start: LatLng, end: LatLng): List<LatLng> {
+    val points = mutableListOf<LatLng>()
+    points.add(start)
+    
+    // For Air Force Base route, create a more precise route
+    if (end == AIR_FORCE_BASE_LOCATION) {
+        // Create waypoints for a route to Ratmalana Air Force Base
+        // These are approximate waypoints that might be on a realistic route
+        points.add(LatLng(start.latitude * 0.9 + end.latitude * 0.1, start.longitude * 0.9 + end.longitude * 0.1))
+        points.add(LatLng(start.latitude * 0.7 + end.latitude * 0.3, start.longitude * 0.7 + end.longitude * 0.3))
+        points.add(LatLng(start.latitude * 0.5 + end.latitude * 0.5, start.longitude * 0.5 + end.longitude * 0.5))
+        points.add(LatLng(start.latitude * 0.3 + end.latitude * 0.7, start.longitude * 0.3 + end.longitude * 0.7))
+        points.add(LatLng(start.latitude * 0.1 + end.latitude * 0.9, start.longitude * 0.1 + end.longitude * 0.9))
+    } else {
+        // Add some points in between for a more realistic route
+        val steps = 5
+        for (i in 1 until steps) {
+            val fraction = i.toFloat() / steps
+            val lat = start.latitude + (end.latitude - start.latitude) * fraction
+            val lng = start.longitude + (end.longitude - start.longitude) * fraction
+            
+            // Add some randomness to make it look like a real route
+            val jitter = 0.0005 * (Math.random() - 0.5)
+            points.add(LatLng(lat + jitter, lng + jitter))
+        }
+    }
+    
+    points.add(end)
+    return points
 }
