@@ -6,6 +6,11 @@ const { generateToken } = require('./firebase-token-generator');
 // Configuration
 const API_BASE_URL = 'http://localhost:3000';
 
+// Test data
+const TEST_LOCATION_ID = 'location1';  // Update with a valid location ID from your database
+const TEST_STORY_ID = 'story1';        // Update with a valid story ID from your database
+const TEST_ITEM_ID = 'coin1';          // Update with a valid collectible ID from your database
+
 /**
  * Tests all API endpoints
  * @param {string} idToken - Firebase ID token to use for authentication
@@ -26,12 +31,16 @@ async function testAllEndpoints(idToken) {
     // Test 1: Get stories endpoint
     try {
       console.log('Testing GET /api/stories/:locationId');
-      const locationId = 'location123'; // Replace with an actual location ID
-      const response = await client.get(`/api/stories/${locationId}`);
+      const response = await client.get(`/api/stories/${TEST_LOCATION_ID}`);
       console.log('✅ Success! Status:', response.status);
       console.log('Response data:', JSON.stringify(response.data, null, 2));
     } catch (error) {
-      console.error('❌ Error:', error.response?.status, error.response?.data || error.message);
+      console.error('❌ Error:', {
+        status: error.response?.status,
+        statusText: error.response?.statusText,
+        data: error.response?.data,
+        message: error.message
+      });
     }
     console.log('\n---\n');
 
@@ -39,12 +48,17 @@ async function testAllEndpoints(idToken) {
     try {
       console.log('Testing POST /api/stories/unlock');
       const response = await client.post('/api/stories/unlock', {
-        storyId: 'story123' // Replace with an actual story ID
+        storyId: TEST_STORY_ID
       });
       console.log('✅ Success! Status:', response.status);
       console.log('Response data:', JSON.stringify(response.data, null, 2));
     } catch (error) {
-      console.error('❌ Error:', error.response?.status, error.response?.data || error.message);
+      console.error('❌ Error:', {
+        status: error.response?.status,
+        statusText: error.response?.statusText,
+        data: error.response?.data,
+        message: error.message
+      });
     }
     console.log('\n---\n');
 
@@ -52,38 +66,19 @@ async function testAllEndpoints(idToken) {
     try {
       console.log('Testing POST /api/collectibles/collect');
       const response = await client.post('/api/collectibles/collect', {
-        itemId: 'item123' // Replace with an actual item ID
+        itemId: TEST_ITEM_ID
       });
       console.log('✅ Success! Status:', response.status);
       console.log('Response data:', JSON.stringify(response.data, null, 2));
     } catch (error) {
-      console.error('❌ Error:', error.response?.status, error.response?.data || error.message);
-    }
-    console.log('\n---\n');
-
-    // Test 4: Get all legends
-    try {
-      console.log('Testing GET /api/legends');
-      const response = await client.get('/api/legends');
-      console.log('✅ Success! Status:', response.status);
-      console.log('Response data:', JSON.stringify(response.data, null, 2));
-    } catch (error) {
-      console.error('❌ Error:', error.response?.status, error.response?.data || error.message);
-    }
-    console.log('\n---\n');
-
-    // Test 5: Trade legends
-    try {
-      console.log('Testing POST /api/legends/trade');
-      const response = await client.post('/api/legends/trade', {
-        legendId: 'legend123', // Replace with an actual legend ID
-        targetUserId: 'user456' // Replace with an actual user ID
+      console.error('❌ Error:', {
+        status: error.response?.status,
+        statusText: error.response?.statusText,
+        data: error.response?.data,
+        message: error.message
       });
-      console.log('✅ Success! Status:', response.status);
-      console.log('Response data:', JSON.stringify(response.data, null, 2));
-    } catch (error) {
-      console.error('❌ Error:', error.response?.status, error.response?.data || error.message);
     }
+    console.log('\n---\n');
     
     console.log('\n=== API Testing Complete ===');
   } catch (error) {
