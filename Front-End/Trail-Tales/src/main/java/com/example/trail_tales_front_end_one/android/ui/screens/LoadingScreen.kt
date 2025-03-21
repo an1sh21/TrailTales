@@ -33,6 +33,7 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun LandingScreen(navController: NavController){
+
     Box (modifier = Modifier.fillMaxSize()){
         Image(
             painter = painterResource(R.drawable.login),
@@ -72,12 +73,12 @@ fun LandingScreen(navController: NavController){
             }
         }
 
-        // adding the loading part
+
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter)
-                .padding(bottom = 40.dp),           // Add spacing from the bottom
+
             contentAlignment = Alignment.Center
         ) {
             LoadingBar()
@@ -123,8 +124,5 @@ fun LandingScreenPreview(){
     LandingScreen(navController = rememberNavController())
 }
 
-//@Preview
-//@Composable
-//fun LoadingBarPreview() {
-//    LoadingBar()
-//}
+
+
