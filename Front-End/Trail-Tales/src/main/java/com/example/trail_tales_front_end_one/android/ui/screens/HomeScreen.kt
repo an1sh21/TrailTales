@@ -219,7 +219,7 @@ fun HomeScreen(
         }
     }
     
-    // Camera position state that follows the user location
+    // CameraPositionState to control the map camera
     val cameraPositionState = rememberCameraPositionState {
         position = CameraPosition.fromLatLngZoom(
             // Center between user location and Air Force base for a better view of the route
@@ -485,7 +485,7 @@ fun HomeScreen(
                                         horizontalAlignment = Alignment.CenterHorizontally
                                     ) {
                                         Text(
-                                            text = "Trail Point Nearby!",
+                                            text = "Trail Collectable Nearby!",
                                             style = MaterialTheme.typography.titleMedium,
                                             fontWeight = FontWeight.Bold,
                                             color = Color.Black
@@ -919,9 +919,80 @@ fun HomeScreen(
                         CircularProgressIndicator()
                     }
                 }
-                "Quests" -> QuestsScreen(onBackClick = { selectedContent = "Map" })
                 "Collectables" -> CollectablesScreen(onBackClick = { selectedContent = "Map" })
                 "Socials" -> SocialsScreen(onBackClick = { selectedContent = "Map" })
+            }
+        }
+    }
+    
+    // Show sitemap dialog when triggered
+    if (showSiteMap && activeQuest != null) {
+        val activeQuestCopy = activeQuest // Create a local copy for smart cast
+        Dialog(onDismissRequest = { showSiteMap = false }) {
+            Surface(
+                modifier = Modifier
+                    .fillMaxWidth(0.9f)
+                    .wrapContentHeight(),
+                shape = RoundedCornerShape(16.dp),
+                color = MaterialTheme.colorScheme.surface
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    activeQuestCopy?.let { quest ->
+                        Text(
+                            text = "Site Map: ${quest.title}",
+                            style = MaterialTheme.typography.titleLarge,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center
+                        )
+                        
+                        Spacer(modifier = Modifier.height(16.dp))
+                        
+                        Image(
+                            painter = painterResource(id = quest.siteMapResourceId),
+                            contentDescription = "Site Map",
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .aspectRatio(1f)
+                                .border(2.dp, Color.Gray, RoundedCornerShape(8.dp))
+                                .clip(RoundedCornerShape(8.dp)),
+                            contentScale = ContentScale.Fit
+                        )
+                        
+                        Spacer(modifier = Modifier.height(16.dp))
+                        
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Button(
+                                onClick = { showSiteMap = false },
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = MaterialTheme.colorScheme.secondary
+                                )
+                            ) {
+                                Text("Close")
+                            }
+                            
+                            Button(
+                                onClick = { 
+                                    // Complete the quest
+                                    showSiteMap = false
+                                    activeQuest = null
+                                    routePoints = emptyList()
+                                    Toast.makeText(context, "Quest completed! You earned 50 points.", Toast.LENGTH_LONG).show() 
+                                },
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = Color(0xFFFFD700)
+                                )
+                            ) {
+                                Text("Complete Quest", color = Color.Black)
+                            }
+                        }
+                    }
+                }
             }
         }
     }
