@@ -1,7 +1,7 @@
 package com.example.trail_tales_front_end_one.android.ui.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -54,22 +54,7 @@ fun LandingScreen(navController: NavController){
                     .fillMaxSize()
                     .padding(25.dp)
             ){
-//                Text(
-//                    text ="Trail Tales",
-//                    style = TextStyle(
-//                        fontSize = 76.sp,
-//                        fontFamily = FontFamily.Cursive,
-//                        fontWeight = FontWeight.Bold,
-//                        fontStyle = FontStyle.Italic,
-//                        color = Color.Black,
-//                        letterSpacing = 3.sp,
-//                        shadow = Shadow(
-//                            color = Color.Black,
-//                            blurRadius = 35f
-//                        )
-//                    ),
-//                    modifier = Modifier.padding(top = 98.dp)      // getting the text down
-//                )
+
             }
         }
 
@@ -123,6 +108,5 @@ fun LoadingBar() {
 fun LandingScreenPreview(){
     LandingScreen(navController = rememberNavController())
 }
-
 
 
