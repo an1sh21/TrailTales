@@ -1,5 +1,6 @@
 package com.example.trail_tales_front_end_one.android.ui.screens
 
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -33,15 +34,6 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun LandingScreen(navController: NavController){
-    // Progress tracking for automatic navigation
-    var progress by remember { mutableStateOf(0f) }
-
-    LaunchedEffect(Unit) {
-        while (progress < 1f) {
-            delay(100)
-            progress += 0.05f
-        }
-    }
 
     Box (modifier = Modifier.fillMaxSize()){
         Image(
@@ -56,6 +48,7 @@ fun LandingScreen(navController: NavController){
                 .fillMaxWidth()
                 .align(Alignment.TopStart)
                 .padding(10.dp)
+
         ) {
             Row(
                 modifier = Modifier
@@ -81,12 +74,12 @@ fun LandingScreen(navController: NavController){
             }
         }
 
-        // Loading progress bar at the bottom
+
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter)
-                .padding(bottom = 40.dp),
+
             contentAlignment = Alignment.Center
         ) {
             LoadingBar()
@@ -123,6 +116,7 @@ fun LoadingBar() {
                 .height(8.dp)
         )
     }
+
 }
 
 
@@ -132,8 +126,4 @@ fun LandingScreenPreview(){
     LandingScreen(navController = rememberNavController())
 }
 
-//@Preview
-//@Composable
-//fun LoadingBarPreview() {
-//    LoadingBar()
-//}
+
