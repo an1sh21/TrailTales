@@ -4,5 +4,6 @@ const { checkProximity, getAllLocations } = require('../controllers/locationCont
 
 router.get('/check', checkProximity);
 router.get('/all', getAllLocations);
+router.get('/all', getAllLocations);
 
 module.exports = router;
