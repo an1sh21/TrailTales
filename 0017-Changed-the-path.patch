@@ -1,0 +1,29 @@
+From fdd8f4c8e8cadfdb8d83eb4fa76c1435cf3b4a70 Mon Sep 17 00:00:00 2001
+From: VidyaSenevirathna <165774022+VidyaSenevirathna@users.noreply.github.com>
+Date: Sun, 16 Mar 2025 23:44:28 +0530
+Subject: [PATCH 17/22] Changed the path
+
+---
+ public/{images => }/rewards/easy.jpg   | Bin
+ public/{images => }/rewards/hard.jpg   | Bin
+ public/{images => }/rewards/medium.jpg | Bin
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ rename public/{images => }/rewards/easy.jpg (100%)
+ rename public/{images => }/rewards/hard.jpg (100%)
+ rename public/{images => }/rewards/medium.jpg (100%)
+
+diff --git a/public/images/rewards/easy.jpg b/public/rewards/easy.jpg
+similarity index 100%
+rename from public/images/rewards/easy.jpg
+rename to public/rewards/easy.jpg
+diff --git a/public/images/rewards/hard.jpg b/public/rewards/hard.jpg
+similarity index 100%
+rename from public/images/rewards/hard.jpg
+rename to public/rewards/hard.jpg
+diff --git a/public/images/rewards/medium.jpg b/public/rewards/medium.jpg
+similarity index 100%
+rename from public/images/rewards/medium.jpg
+rename to public/rewards/medium.jpg
+-- 
+2.48.1.windows.1
+

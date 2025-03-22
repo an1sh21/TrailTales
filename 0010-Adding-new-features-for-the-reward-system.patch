@@ -1,0 +1,181 @@
+From 57cceb16b0a4c36bf8b1c3c023b9b063419b1f86 Mon Sep 17 00:00:00 2001
+From: VidyaSenevirathna <165774022+VidyaSenevirathna@users.noreply.github.com>
+Date: Mon, 10 Mar 2025 22:22:51 +0530
+Subject: [PATCH 10/22] Adding new features for the reward system
+
+---
+ src/controllers/questController.js | 135 ++++++++++++++++++++++++++---
+ 1 file changed, 122 insertions(+), 13 deletions(-)
+
+diff --git a/src/controllers/questController.js b/src/controllers/questController.js
+index 8dbe478..41836f3 100644
+--- a/src/controllers/questController.js
++++ b/src/controllers/questController.js
+@@ -230,23 +230,102 @@ exports.collectTokenViaAR = async (req, res) => {
+       return res.status(400).json({ message: 'You are too far from the token location' });
+     }
+ 
+-    // Verify AR scan data (implement your AR validation logic here)
++    // Verify AR scan data
+     if (!validateARScan(arScanData, token.arMarker)) {
+       return res.status(400).json({ message: 'Invalid AR scan. Please align your camera properly.' });
+     }
+ 
+-    // Update progress
++    // Get quest details for site-specific information
++    const questDoc = await db.collection('quests').doc(questId).get();
++    const quest = questDoc.data();
++
++    // Get current site tokens
++    const currentSiteTokens = quest.tokenLocations.filter(t => 
++      t.siteId === token.siteId
++    );
++    const siteTokenCount = currentSiteTokens.length;
++    
++    // Count collected tokens for this site
++    const siteCollectedTokens = progress.collectedTokens.filter(tokenId => 
++      currentSiteTokens.some(t => t.id === tokenId)
++    ).length;
++
++    // Update user's collection and progress
+     const progressDocRef = progressRef.docs[0].ref;
+-    await progressDocRef.update({
++    const updateData = {
+       collectedTokens: admin.firestore.FieldValue.arrayUnion(tokenId),
+       currentStep: progress.currentStep + 1,
+-      lastCollectedAt: admin.firestore.FieldValue.serverTimestamp()
+-    });
++      lastCollectedAt: admin.firestore.FieldValue.serverTimestamp(),
++      [`siteProgress.${token.siteId}`]: {
++        collected: siteCollectedTokens + 1,
++        total: siteTokenCount
++      }
++    };
+ 
+-    // Get remaining tokens at the site
+-    const questDoc = await db.collection('quests').doc(questId).get();
+-    const quest = questDoc.data();
+-    const remainingTokens = quest.tokenLocations.filter(t => 
++    // Check if this completes the site
++    if (siteCollectedTokens + 1 === siteTokenCount) {
++      updateData.completedSites = admin.firestore.FieldValue.arrayUnion(token.siteId);
++    }
++
++    // Check if this completes the entire quest
++    const isQuestCompleted = progress.currentStep + 1 === quest.tokenLocations.length;
++    if (isQuestCompleted) {
++      updateData.status = 'completed';
++      updateData.completedAt = admin.firestore.FieldValue.serverTimestamp();
++
++      // Determine and add rewards based on difficulty
++      let goldReward = 0;
++      
++      switch(quest.difficulty.toLowerCase()) {
++        case 'easy':
++          goldReward = 100;
++          break;
++        case 'medium':
++          goldReward = 250;
++          break;
++        case 'hard':
++          goldReward = 500;
++          break;
++      }
++
++      // Update user's rewards in a separate collection
++      await db.collection('userRewards').doc(userId).set({
++        gold: admin.firestore.FieldValue.increment(goldReward),
++        completedQuests: admin.firestore.FieldValue.arrayUnion({
++          questId: questId,
++          completedAt: admin.firestore.FieldValue.serverTimestamp(),
++          difficulty: quest.difficulty,
++          rewards: {
++            gold: goldReward,
++            // For hard difficulty, note that diamond is included in gold reward
++            includesDiamond: quest.difficulty.toLowerCase() === 'hard'
++          }
++        })
++      }, { merge: true });
++
++      updateData.rewards = {
++        gold: goldReward,
++        includesDiamond: quest.difficulty.toLowerCase() === 'hard'
++      };
++    }
++
++    await progressDocRef.update(updateData);
++
++    // Add token to user's collection
++    await db.collection('userCollections').doc(userId).set({
++      tokens: admin.firestore.FieldValue.arrayUnion({
++        id: tokenId,
++        type: token.type,
++        collectedAt: admin.firestore.FieldValue.serverTimestamp(),
++        questId: questId,
++        siteId: token.siteId,
++        description: token.description,
++        rarity: token.rarity
++      })
++    }, { merge: true });
++
++    // Get remaining tokens at the current site
++    const remainingTokens = currentSiteTokens.filter(t => 
+       !progress.collectedTokens.includes(t.id) && t.id !== tokenId
+     );
+ 
+@@ -255,18 +334,48 @@ exports.collectTokenViaAR = async (req, res) => {
+       collectedToken: {
+         id: tokenId,
+         type: token.type,
++        description: token.description,
++        rarity: token.rarity,
+         reward: token.reward
+       },
++      siteProgress: {
++        collected: siteCollectedTokens + 1,
++        total: siteTokenCount,
++        isCompleted: siteCollectedTokens + 1 === siteTokenCount
++      },
++      questProgress: {
++        currentStep: progress.currentStep + 1,
++        totalSteps: quest.tokenLocations.length,
++        completed: isQuestCompleted,
++        completedSites: updateData.completedSites ? 
++          (progress.completedSites || []).concat(token.siteId) : 
++          (progress.completedSites || [])
++      },
+       remainingTokens: remainingTokens.map(token => ({
+         id: token.id,
+         type: token.type,
+         location: token.location,
+         collectInstructions: token.type === 'coin' ? 'Tap on the Coin' : 'Tap on the Token'
+       })),
+-      progress: {
+-        currentStep: progress.currentStep + 1,
+-        totalSteps: quest.tokenLocations.length,
+-        completed: progress.currentStep + 1 === quest.tokenLocations.length
++      popupContent: isQuestCompleted ? {
++        title: 'Congratulations!',
++        description: quest.difficulty.toLowerCase() === 'hard' ? 
++          'You successfully completed the hard quest! You earned 500 gold and a special diamond!' :
++          `You successfully completed the ${quest.difficulty} quest!`,
++        questRewards: {
++          gold: goldReward,
++          includesDiamond: quest.difficulty.toLowerCase() === 'hard',
++          rewardImage: `/rewards/${quest.difficulty.toLowerCase()}.png`
++        },
++        type: 'quest_completion'
++      } : {
++        title: 'Token Collected!',
++        description: token.description,
++        rarity: token.rarity,
++        type: token.type,
++        siteCompletion: siteCollectedTokens + 1 === siteTokenCount ? 
++          'Site Completed!' : 
++          `${siteCollectedTokens + 1}/${siteTokenCount} tokens collected at this site`
+       }
+     });
+   } catch (error) {
+-- 
+2.48.1.windows.1
+

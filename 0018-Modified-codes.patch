@@ -1,0 +1,485 @@
+From 6a1206b7d887de1ebc2662a3a789c15e92e1c391 Mon Sep 17 00:00:00 2001
+From: VidyaSenevirathna <165774022+VidyaSenevirathna@users.noreply.github.com>
+Date: Sun, 16 Mar 2025 23:46:00 +0530
+Subject: [PATCH 18/22] Modified codes
+
+---
+ src/app.js                             |   2 +
+ src/config/firebase.js                 |   9 +-
+ src/controllers/questController.js     |  10 +-
+ src/controllers/userStatsController.js | 129 +++++++++++++++++++++++++
+ src/models/Quest.js                    |  57 ++++++++---
+ src/routes/userRoutes.js               |   9 ++
+ src/scripts/addSampleData.js           | 110 ---------------------
+ src/scripts/initDatabase.js            |  20 ++--
+ 8 files changed, 203 insertions(+), 143 deletions(-)
+ create mode 100644 src/controllers/userStatsController.js
+ create mode 100644 src/routes/userRoutes.js
+ delete mode 100644 src/scripts/addSampleData.js
+
+diff --git a/src/app.js b/src/app.js
+index 46047e0..b155fb3 100644
+--- a/src/app.js
++++ b/src/app.js
+@@ -2,6 +2,7 @@ require('dotenv').config();  // Load environment variables from .env file
+ const express = require('express');
+ const questRoutes = require('./routes/questRoutes');
+ const challengeRoutes = require('./routes/challengeRoutes');
++const userRoutes = require('./routes/userRoutes');
+ 
+ const app = express();
+ 
+@@ -11,6 +12,7 @@ app.use(express.json());
+ // Routes
+ app.use('/api', questRoutes);
+ app.use('/api', challengeRoutes);
++app.use('/api/user', userRoutes);
+ 
+ // Error handling middleware for catching server errors
+ app.use((err, req, res, next) => {
+diff --git a/src/config/firebase.js b/src/config/firebase.js
+index 86471b2..2d5c0c6 100644
+--- a/src/config/firebase.js
++++ b/src/config/firebase.js
+@@ -1,9 +1,10 @@
+-const admin = require('firebase-admin');
+-const serviceAccount = require('./serviceAccountKey.json');
++const admin = require("firebase-admin");
++const serviceAccount = require("../serviceAccountKey.json");
+ 
+ admin.initializeApp({
+-  credential: admin.credential.cert(serviceAccount)
++  credential: admin.credential.cert(serviceAccount),
++  databaseURL: "https://TrailTalesAuth.firebaseio.com"
+ });
+ 
+ const db = admin.firestore();
+-module.exports = { admin, db }; 
+\ No newline at end of file
++module.exports = { db };
+diff --git a/src/controllers/questController.js b/src/controllers/questController.js
+index 235a801..60f00bd 100644
+--- a/src/controllers/questController.js
++++ b/src/controllers/questController.js
+@@ -1,5 +1,6 @@
+ const { db } = require('../config/firebase');
+ const admin = require('firebase-admin');
++const { updateUserStats } = require('./userStatsController');
+ 
+ exports.getAllQuests = async (req, res) => {
+   try {
+@@ -280,18 +281,21 @@ exports.collectTokenViaAR = async (req, res) => {
+       switch(quest.difficulty.toLowerCase()) {
+         case 'easy':
+           goldReward = 100;
+-          rewardImage = '/images/rewards/easy.jpg';
++          rewardImage = '/rewards/easy.jpg';
+           break;
+         case 'medium':
+           goldReward = 250;
+-          rewardImage = '/images/rewards/medium.jpg';
++          rewardImage = '/rewards/medium.jpg';
+           break;
+         case 'hard':
+           goldReward = 500;
+-          rewardImage = '/images/rewards/hard.jpg';
++          rewardImage = '/rewards/hard.jpg';
+           break;
+       }
+ 
++      // Update user stats
++      await updateUserStats(userId, quest, goldReward);
++
+       // Update user's rewards in a separate collection
+       await db.collection('userRewards').doc(userId).set({
+         gold: admin.firestore.FieldValue.increment(goldReward),
+diff --git a/src/controllers/userStatsController.js b/src/controllers/userStatsController.js
+new file mode 100644
+index 0000000..2ce8ef1
+--- /dev/null
++++ b/src/controllers/userStatsController.js
+@@ -0,0 +1,129 @@
++const { db } = require('../config/firebase');
++const admin = require('firebase-admin');
++
++// Get user statistics
++exports.getUserStats = async (req, res) => {
++  try {
++    const userId = req.user.uid;
++
++    // Get user progress
++    const userProgressDoc = await db.collection('userProgress')
++      .doc(userId)
++      .get();
++
++    // Get user rewards
++    const userRewardsDoc = await db.collection('userRewards')
++      .doc(userId)
++      .get();
++
++    // If documents don't exist, initialize them
++    const stats = {
++      totalCoins: 0,
++      completedQuests: [],
++      activeQuests: [],
++      collectedTokens: [],
++      ...userProgressDoc.exists ? userProgressDoc.data() : {},
++      rewards: {
++        gold: 0,
++        diamonds: 0,
++        ...userRewardsDoc.exists ? userRewardsDoc.data() : {}
++      }
++    };
++
++    // Get active quests details
++    const activeQuestsDetails = [];
++    if (stats.activeQuests && stats.activeQuests.length > 0) {
++      const activeQuestsSnapshot = await db.collection('quests')
++        .where(admin.firestore.FieldPath.documentId(), 'in', stats.activeQuests)
++        .get();
++      
++      activeQuestsSnapshot.forEach(doc => {
++        const quest = doc.data();
++        activeQuestsDetails.push({
++          id: doc.id,
++          title: quest.title,
++          description: quest.description,
++          difficulty: quest.difficulty,
++          progress: {
++            current: stats.questProgress?.[doc.id]?.currentStep || 0,
++            total: quest.totalSteps
++          }
++        });
++      });
++    }
++
++    // Get completed quests
++    const completedQuestsDetails = stats.completedQuests.map(quest => ({
++      id: quest.questId,
++      completedAt: quest.completedAt,
++      rewards: quest.rewards
++    }));
++
++    res.json({
++      stats: {
++        totalCoins: stats.totalCoins,
++        completedQuests: completedQuestsDetails,
++        activeQuests: activeQuestsDetails,
++        collectedTokens: stats.collectedTokens,
++        rewards: {
++          gold: stats.rewards.gold,
++          diamonds: stats.rewards.diamonds
++        }
++      }
++    });
++  } catch (error) {
++    res.status(500).json({ message: error.message });
++  }
++};
++
++// Update user statistics after completing a quest
++exports.updateUserStats = async (userId, questData, rewards) => {
++  try {
++    const userProgressRef = db.collection('userProgress').doc(userId);
++    const userRewardsRef = db.collection('userRewards').doc(userId);
++
++    // Update progress
++    await userProgressRef.set({
++      totalCoins: admin.firestore.FieldValue.increment(rewards.gold),
++      completedQuests: admin.firestore.FieldValue.arrayUnion({
++        questId: questData.id,
++        completedAt: admin.firestore.FieldValue.serverTimestamp(),
++        rewards: rewards
++      }),
++      activeQuests: admin.firestore.FieldValue.arrayRemove(questData.id),
++      lastUpdated: admin.firestore.FieldValue.serverTimestamp()
++    }, { merge: true });
++
++    // Update rewards
++    await userRewardsRef.set({
++      gold: admin.firestore.FieldValue.increment(rewards.gold),
++      diamonds: admin.firestore.FieldValue.increment(rewards.includesDiamond ? 1 : 0)
++    }, { merge: true });
++
++    return true;
++  } catch (error) {
++    console.error('Error updating user stats:', error);
++    return false;
++  }
++};
++
++// Add a quest to user's active quests
++exports.addActiveQuest = async (userId, questId) => {
++  try {
++    const userProgressRef = db.collection('userProgress').doc(userId);
++    
++    await userProgressRef.set({
++      activeQuests: admin.firestore.FieldValue.arrayUnion(questId),
++      [`questProgress.${questId}`]: {
++        currentStep: 0,
++        startedAt: admin.firestore.FieldValue.serverTimestamp(),
++        status: 'in_progress'
++      }
++    }, { merge: true });
++
++    return true;
++  } catch (error) {
++    console.error('Error adding active quest:', error);
++    return false;
++  }
++}; 
+\ No newline at end of file
+diff --git a/src/models/Quest.js b/src/models/Quest.js
+index de5902d..92c890d 100644
+--- a/src/models/Quest.js
++++ b/src/models/Quest.js
+@@ -1,22 +1,47 @@
+ // Data structure for Quests
+ const questStructure = {
+-    title: String,
+-    description: String,
+-    difficulty: String, // 'easy', 'medium', 'hard'
+-    theme: String,
+-    locations: [
+-      {
+-  
+-        name: String,
++  title: String,
++  description: String,
++  difficulty: String, // 'easy', 'medium', 'hard'
++  isActive: Boolean,
++  tokenLocations: [
++    {
++      id: String,
++      type: String, // 'token' or 'coin'
++      location: {
+         coordinates: {
+           latitude: Number,
+           longitude: Number
+         },
+-        storyTokenId: String
+-      }
+-    ],
+-    isActive: Boolean,
+-    createdAt: Date
+-  };
+-  
+-  module.exports = questStructure
+\ No newline at end of file
++        radius: Number
++      },
++      description: String,
++      arMarker: {
++        type: String,
++        data: String
++      },
++      collectInstructions: String // 'Tap on the Coin' or 'Tap on the Token'
++    }
++  ],
++  path: [
++    {
++      latitude: Number,
++      longitude: Number
++    }
++  ],
++  totalSteps: Number,
++  rewards: {
++    easy: {
++      gold: 100
++    },
++    medium: {
++      gold: 250
++    },
++    hard: {
++      gold: 500,
++      includesDiamond: true
++    }
++  }
++};
++
++module.exports = questStructure;
+\ No newline at end of file
+diff --git a/src/routes/userRoutes.js b/src/routes/userRoutes.js
+new file mode 100644
+index 0000000..4d9bbd9
+--- /dev/null
++++ b/src/routes/userRoutes.js
+@@ -0,0 +1,9 @@
++const express = require('express');
++const router = express.Router();
++const { authenticateToken } = require('../middleware/auth');
++const userStatsController = require('../controllers/userStatsController');
++
++// Get user statistics
++router.get('/stats', authenticateToken, userStatsController.getUserStats);
++
++module.exports = router; 
+\ No newline at end of file
+diff --git a/src/scripts/addSampleData.js b/src/scripts/addSampleData.js
+deleted file mode 100644
+index 41c0d39..0000000
+--- a/src/scripts/addSampleData.js
++++ /dev/null
+@@ -1,110 +0,0 @@
+-const { db } = require('../config/firebase');
+-const admin = require('firebase-admin');
+-
+-async function addSampleData() {
+-  try {
+-    // 1. Add more sample quests
+-    const quests = [
+-      {
+-        title: "Easy Temple Quest",
+-        description: "A simple quest to collect temple tokens",
+-        difficulty: "easy",
+-        isActive: true,
+-        tokenLocations: [
+-          {
+-            id: "easy_token1",
+-            type: "token",
+-            location: {
+-              coordinates: { latitude: 12.345, longitude: 67.890 },
+-              radius: 50,
+-              siteId: "easy_site1"
+-            },
+-            description: "Easy Temple Token",
+-            rarity: "common",
+-            arMarker: {
+-              type: "image",
+-              data: "easy_marker_data"
+-            }
+-          }
+-        ],
+-        path: [
+-          { latitude: 12.345, longitude: 67.890 }
+-        ]
+-      },
+-      {
+-        title: "Hard Temple Quest",
+-        description: "A challenging quest for experienced explorers",
+-        difficulty: "hard",
+-        isActive: true,
+-        tokenLocations: [
+-          {
+-            id: "hard_token1",
+-            type: "token",
+-            location: {
+-              coordinates: { latitude: 12.346, longitude: 67.891 },
+-              radius: 50,
+-              siteId: "hard_site1"
+-            },
+-            description: "Hard Temple Token",
+-            rarity: "legendary",
+-            arMarker: {
+-              type: "image",
+-              data: "hard_marker_data"
+-            }
+-          }
+-        ],
+-        path: [
+-          { latitude: 12.346, longitude: 67.891 }
+-        ]
+-      }
+-    ];
+-
+-    for (const quest of quests) {
+-      const questRef = await db.collection('quests').add(quest);
+-      console.log(`Created quest: ${quest.title} with ID: ${questRef.id}`);
+-    }
+-
+-    // 2. Add sample user progress
+-    const sampleUserId = "test_user_123"; // Replace with actual test user ID
+-    const progressData = {
+-      userId: sampleUserId,
+-      questId: "quest_id_here", // Replace with actual quest ID
+-      status: "in_progress",
+-      collectedTokens: [],
+-      completedLocations: [],
+-      currentStep: 0,
+-      lockedTokens: ["token1", "token2"],
+-      startedAt: admin.firestore.FieldValue.serverTimestamp(),
+-      siteProgress: {
+-        site1: { collected: 0, total: 2 }
+-      }
+-    };
+-
+-    const progressRef = await db.collection('userProgress').add(progressData);
+-    console.log('Created user progress with ID:', progressRef.id);
+-
+-    // 3. Add sample user rewards
+-    const rewardsData = {
+-      gold: 0,
+-      completedQuests: []
+-    };
+-
+-    await db.collection('userRewards').doc(sampleUserId).set(rewardsData);
+-    console.log('Created user rewards for user:', sampleUserId);
+-
+-    // 4. Add sample user collection
+-    const collectionData = {
+-      tokens: []
+-    };
+-
+-    await db.collection('userCollections').doc(sampleUserId).set(collectionData);
+-    console.log('Created user collection for user:', sampleUserId);
+-
+-    console.log('Sample data added successfully!');
+-  } catch (error) {
+-    console.error('Error adding sample data:', error);
+-  }
+-}
+-
+-// Run the sample data addition
+-addSampleData(); 
+\ No newline at end of file
+diff --git a/src/scripts/initDatabase.js b/src/scripts/initDatabase.js
+index 4d52d97..8e8c723 100644
+--- a/src/scripts/initDatabase.js
++++ b/src/scripts/initDatabase.js
+@@ -42,7 +42,7 @@ async function initializeDatabase() {
+     console.log('Fields: userId (Ascending), questId (Ascending), status (Ascending)');
+ 
+     // 3. Set up security rules
+-    console.log('Please set up the following security rules in Firebase Console:');
++    console.log('Setting up security rules in Firebase Console:');
+     console.log(`
+     rules_version = '2';
+     service cloud.firestore {
+@@ -54,25 +54,25 @@ async function initializeDatabase() {
+           return request.auth.uid == userId;
+         }
+ 
++        // Quests are readable by all authenticated users, but only writable by admin
+         match /quests/{questId} {
+-          allow read: if true;
++          allow read: if isAuthenticated();
+           allow write: if false;
+         }
+ 
+-        match /userProgress/{progressId} {
+-          allow read: if isAuthenticated() && isOwner(resource.data.userId);
+-          allow create: if isAuthenticated() && isOwner(request.resource.data.userId);
+-          allow update: if isAuthenticated() && isOwner(resource.data.userId);
++        // User progress can only be read/written by the owner
++        match /userProgress/{userId} {
++          allow read, write: if isAuthenticated() && isOwner(userId);
+         }
+ 
++        // User rewards can only be read/written by the owner
+         match /userRewards/{userId} {
+-          allow read: if isAuthenticated() && isOwner(userId);
+-          allow write: if isAuthenticated() && isOwner(userId);
++          allow read, write: if isAuthenticated() && isOwner(userId);
+         }
+ 
++        // User collections can only be read/written by the owner
+         match /userCollections/{userId} {
+-          allow read: if isAuthenticated() && isOwner(userId);
+-          allow write: if isAuthenticated() && isOwner(userId);
++          allow read, write: if isAuthenticated() && isOwner(userId);
+         }
+       }
+     }
+-- 
+2.48.1.windows.1
+

@@ -1,0 +1,24 @@
+From 00d78cb90a3ef0080f47b64d4f99fe6e9ca10ce5 Mon Sep 17 00:00:00 2001
+From: VidyaSenevirathna <165774022+VidyaSenevirathna@users.noreply.github.com>
+Date: Thu, 6 Mar 2025 17:22:58 +0530
+Subject: [PATCH 01/22] add gitignore
+
+---
+ .gitignore | 5 +++++
+ 1 file changed, 5 insertions(+)
+ create mode 100644 .gitignore
+
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..6921c2b
+--- /dev/null
++++ b/.gitignore
+@@ -0,0 +1,5 @@
++node_modules/
++/src/config/serviceAccountKey.json
++.env
++
++
+-- 
+2.48.1.windows.1
+

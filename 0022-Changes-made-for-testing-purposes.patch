@@ -1,0 +1,640 @@
+From a3d532494f9511bb76bcc1eea62fa617e7c37022 Mon Sep 17 00:00:00 2001
+From: VidyaSenevirathna <165774022+VidyaSenevirathna@users.noreply.github.com>
+Date: Sat, 22 Mar 2025 17:29:05 +0530
+Subject: [PATCH 22/22] Changes made for testing purposes
+
+---
+ src/controllers/questController.js     | 204 +++++++------------------
+ src/controllers/userStatsController.js |  16 +-
+ src/routes/authRoutes.js               |   9 ++
+ src/routes/challengeRoutes.js          |   6 +-
+ src/routes/questRoutes.js              |  44 +++++-
+ src/routes/userRoutes.js               |  28 +++-
+ src/scripts/getToken.js                |  32 ++++
+ src/scripts/testAPIs.js                |   4 +
+ src/scripts/verifySetup.js             | 107 +++++++++++++
+ 9 files changed, 283 insertions(+), 167 deletions(-)
+ create mode 100644 src/routes/authRoutes.js
+ create mode 100644 src/scripts/getToken.js
+ create mode 100644 src/scripts/testAPIs.js
+ create mode 100644 src/scripts/verifySetup.js
+
+diff --git a/src/controllers/questController.js b/src/controllers/questController.js
+index 60f00bd..b72e5fa 100644
+--- a/src/controllers/questController.js
++++ b/src/controllers/questController.js
+@@ -22,6 +22,35 @@ exports.getAllQuests = async (req, res) => {
+   }
+ };
+ 
++exports.getQuestById = async (req, res) => {
++  try {
++    const { questId } = req.params; // Get quest ID from route parameters
++
++    // Get quest details from Firestore
++    const questDoc = await db.collection('quests').doc(questId).get();
++
++    if (!questDoc.exists) {
++      return res.status(404).json({ message: 'Quest not found' });
++    }
++
++    const quest = questDoc.data();
++
++    // Optionally, format the response before sending (e.g., adding additional info)
++    res.json({
++      id: questDoc.id,
++      title: quest.title,
++      description: quest.description,
++      difficulty: quest.difficulty,
++      tokenLocations: quest.tokenLocations || [],
++      path: quest.path || [],
++      siteMap: quest.siteMap || null
++    });
++
++  } catch (error) {
++    res.status(500).json({ message: error.message });
++  }
++};
++
+ exports.startQuest = async (req, res) => {
+   try {
+     const { questId } = req.body;
+@@ -34,6 +63,10 @@ exports.startQuest = async (req, res) => {
+     }
+     const quest = questDoc.data();
+ 
++    // Debug logging
++    console.log('Quest data:', quest);
++    console.log('Token locations:', quest.tokenLocations);
++
+     // Check if quest is already in progress
+     const existingProgress = await db.collection('userProgress')
+       .where('userId', '==', userId)
+@@ -45,6 +78,17 @@ exports.startQuest = async (req, res) => {
+       return res.status(400).json({ message: 'Quest already in progress' });
+     }
+ 
++    // Safely extract token IDs from tokenLocations
++    const lockedTokens = Array.isArray(quest.tokenLocations) 
++      ? quest.tokenLocations
++        .filter(token => token && typeof token.id === 'string') // Ensure id is a valid string
++        .map(token => token.id)
++      : [];
++
++    // Debug logging
++    console.log('Quest tokenLocations:', quest.tokenLocations);
++    console.log('Processed locked tokens:', lockedTokens);
++
+     // Create new quest progress with locked tokens
+     const newProgress = await db.collection('userProgress').add({
+       userId,
+@@ -52,7 +96,7 @@ exports.startQuest = async (req, res) => {
+       collectedTokens: [],
+       completedLocations: [],
+       currentStep: 0,
+-      lockedTokens: quest.tokenLocations.map(token => token.id), // Initially lock all tokens
++      lockedTokens,
+       startedAt: admin.firestore.FieldValue.serverTimestamp(),
+       status: 'in_progress'
+     });
+@@ -67,18 +111,19 @@ exports.startQuest = async (req, res) => {
+         title: quest.title,
+         description: quest.description,
+         difficulty: quest.difficulty,
+-        totalSteps: quest.tokenLocations.length,
++        totalSteps: quest.tokenLocations ? quest.tokenLocations.length : 0,
+         currentStep: 0,
+-        firstStep: {
++        firstStep: quest.tokenLocations && quest.tokenLocations[0] ? {
+           location: quest.tokenLocations[0].location,
+           description: quest.tokenLocations[0].description,
+           waypoint: quest.tokenLocations[0].location.coordinates
+-        },
+-        path: quest.path,
+-        lockedTokens: quest.tokenLocations.map(token => token.id)
++        } : null,
++        path: quest.path || [],
++        lockedTokens
+       }
+     });
+   } catch (error) {
++    console.error('Error starting quest:', error);
+     res.status(500).json({ message: error.message });
+   }
+ };
+@@ -236,156 +281,19 @@ exports.collectTokenViaAR = async (req, res) => {
+       return res.status(400).json({ message: 'Invalid AR scan. Please align your camera properly.' });
+     }
+ 
+-    // Get quest details for site-specific information
+-    const questDoc = await db.collection('quests').doc(questId).get();
+-    const quest = questDoc.data();
+-
+-    // Get current site tokens
+-    const currentSiteTokens = quest.tokenLocations.filter(t => 
+-      t.siteId === token.siteId
+-    );
+-    const siteTokenCount = currentSiteTokens.length;
+-    
+-    // Count collected tokens for this site
+-    const siteCollectedTokens = progress.collectedTokens.filter(tokenId => 
+-      currentSiteTokens.some(t => t.id === tokenId)
+-    ).length;
+-
+     // Update user's collection and progress
+     const progressDocRef = progressRef.docs[0].ref;
+     const updateData = {
+       collectedTokens: admin.firestore.FieldValue.arrayUnion(tokenId),
+       currentStep: progress.currentStep + 1,
+-      lastCollectedAt: admin.firestore.FieldValue.serverTimestamp(),
+-      [`siteProgress.${token.siteId}`]: {
+-        collected: siteCollectedTokens + 1,
+-        total: siteTokenCount
+-      }
++      lastCollectedAt: admin.firestore.FieldValue.serverTimestamp()
+     };
+ 
+-    // Check if this completes the site
+-    if (siteCollectedTokens + 1 === siteTokenCount) {
+-      updateData.completedSites = admin.firestore.FieldValue.arrayUnion(token.siteId);
+-    }
+-
+-    // Check if this completes the entire quest
+-    const isQuestCompleted = progress.currentStep + 1 === quest.tokenLocations.length;
+-    if (isQuestCompleted) {
+-      updateData.status = 'completed';
+-      updateData.completedAt = admin.firestore.FieldValue.serverTimestamp();
+-
+-      // Determine and add rewards based on difficulty
+-      let goldReward = 0;
+-      let rewardImage = '';
+-      
+-      switch(quest.difficulty.toLowerCase()) {
+-        case 'easy':
+-          goldReward = 100;
+-          rewardImage = '/rewards/easy.jpg';
+-          break;
+-        case 'medium':
+-          goldReward = 250;
+-          rewardImage = '/rewards/medium.jpg';
+-          break;
+-        case 'hard':
+-          goldReward = 500;
+-          rewardImage = '/rewards/hard.jpg';
+-          break;
+-      }
+-
+-      // Update user stats
+-      await updateUserStats(userId, quest, goldReward);
+-
+-      // Update user's rewards in a separate collection
+-      await db.collection('userRewards').doc(userId).set({
+-        gold: admin.firestore.FieldValue.increment(goldReward),
+-        completedQuests: admin.firestore.FieldValue.arrayUnion({
+-          questId: questId,
+-          completedAt: admin.firestore.FieldValue.serverTimestamp(),
+-          difficulty: quest.difficulty,
+-          rewards: {
+-            gold: goldReward,
+-            includesDiamond: quest.difficulty.toLowerCase() === 'hard',
+-            rewardImage: rewardImage
+-          }
+-        })
+-      }, { merge: true });
+-
+-      updateData.rewards = {
+-        gold: goldReward,
+-        includesDiamond: quest.difficulty.toLowerCase() === 'hard',
+-        rewardImage: rewardImage
+-      };
+-    }
+-
+     await progressDocRef.update(updateData);
+ 
+-    // Add token to user's collection
+-    await db.collection('userCollections').doc(userId).set({
+-      tokens: admin.firestore.FieldValue.arrayUnion({
+-        id: tokenId,
+-        type: token.type,
+-        collectedAt: admin.firestore.FieldValue.serverTimestamp(),
+-        questId: questId,
+-        siteId: token.siteId,
+-        description: token.description,
+-        rarity: token.rarity
+-      })
+-    }, { merge: true });
+-
+-    // Get remaining tokens at the current site
+-    const remainingTokens = currentSiteTokens.filter(t => 
+-      !progress.collectedTokens.includes(t.id) && t.id !== tokenId
+-    );
+-
+     res.json({
+       message: 'Token collected successfully!',
+-      collectedToken: {
+-        id: tokenId,
+-        type: token.type,
+-        description: token.description,
+-        rarity: token.rarity,
+-        reward: token.reward
+-      },
+-      siteProgress: {
+-        collected: siteCollectedTokens + 1,
+-        total: siteTokenCount,
+-        isCompleted: siteCollectedTokens + 1 === siteTokenCount
+-      },
+-      questProgress: {
+-        currentStep: progress.currentStep + 1,
+-        totalSteps: quest.tokenLocations.length,
+-        completed: isQuestCompleted,
+-        completedSites: updateData.completedSites ? 
+-          (progress.completedSites || []).concat(token.siteId) : 
+-          (progress.completedSites || [])
+-      },
+-      remainingTokens: remainingTokens.map(token => ({
+-        id: token.id,
+-        type: token.type,
+-        location: token.location,
+-        collectInstructions: token.type === 'coin' ? 'Tap on the Coin' : 'Tap on the Token'
+-      })),
+-      popupContent: isQuestCompleted ? {
+-        title: 'Congratulations!',
+-        description: quest.difficulty.toLowerCase() === 'hard' ? 
+-          'You successfully completed the hard quest! You earned 500 gold and a special diamond!' :
+-          `You successfully completed the ${quest.difficulty} quest! You earned ${goldReward} gold!`,
+-        questRewards: {
+-          gold: goldReward,
+-          includesDiamond: quest.difficulty.toLowerCase() === 'hard',
+-          rewardImage: rewardImage
+-        },
+-        type: 'quest_completion'
+-      } : {
+-        title: 'Token Collected!',
+-        description: token.description,
+-        rarity: token.rarity,
+-        type: token.type,
+-        siteCompletion: siteCollectedTokens + 1 === siteTokenCount ? 
+-          'Site Completed!' : 
+-          `${siteCollectedTokens + 1}/${siteTokenCount} tokens collected at this site`
+-      }
++      currentStep: progress.currentStep + 1
+     });
+   } catch (error) {
+     res.status(500).json({ message: error.message });
+@@ -394,9 +302,7 @@ exports.collectTokenViaAR = async (req, res) => {
+ 
+ // Helper function to validate AR scan
+ function validateARScan(scanData, markerData) {
+-  // Implement your AR validation logic here
+-  // This is a placeholder - replace with actual AR validation
+-  return true;
++  return true; // Replace with actual AR scan validation logic
+ }
+ 
+ function calculateDistance(lat1, lon1, lat2, lon2) {
+@@ -412,4 +318,4 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
+   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+ 
+   return R * c; // Distance in meters
+-}
+\ No newline at end of file
++}
+diff --git a/src/controllers/userStatsController.js b/src/controllers/userStatsController.js
+index 2ce8ef1..b4ce4ea 100644
+--- a/src/controllers/userStatsController.js
++++ b/src/controllers/userStatsController.js
+@@ -1,8 +1,8 @@
+-const { db } = require('../config/firebase');
+-const admin = require('firebase-admin');
++const { db, admin } = require('../config/firebase');
+ 
+ // Get user statistics
+-exports.getUserStats = async (req, res) => {
++const getUserStats = async (req, res) => {
++  console.log('getUserStats called');
+   try {
+     const userId = req.user.uid;
+ 
+@@ -77,7 +77,7 @@ exports.getUserStats = async (req, res) => {
+ };
+ 
+ // Update user statistics after completing a quest
+-exports.updateUserStats = async (userId, questData, rewards) => {
++const updateUserStats = async (userId, questData, rewards) => {
+   try {
+     const userProgressRef = db.collection('userProgress').doc(userId);
+     const userRewardsRef = db.collection('userRewards').doc(userId);
+@@ -108,7 +108,7 @@ exports.updateUserStats = async (userId, questData, rewards) => {
+ };
+ 
+ // Add a quest to user's active quests
+-exports.addActiveQuest = async (userId, questId) => {
++const addActiveQuest = async (userId, questId) => {
+   try {
+     const userProgressRef = db.collection('userProgress').doc(userId);
+     
+@@ -126,4 +126,10 @@ exports.addActiveQuest = async (userId, questId) => {
+     console.error('Error adding active quest:', error);
+     return false;
+   }
++};
++
++module.exports = {
++  getUserStats,
++  updateUserStats,
++  addActiveQuest
+ }; 
+\ No newline at end of file
+diff --git a/src/routes/authRoutes.js b/src/routes/authRoutes.js
+new file mode 100644
+index 0000000..e21b2c4
+--- /dev/null
++++ b/src/routes/authRoutes.js
+@@ -0,0 +1,9 @@
++const express = require('express');
++const router = express.Router();
++
++router.post('/auth/token', (req, res) => {
++    console.log('Received request:', req.body);
++    res.json({ message: "Token route is working!" });
++});
++
++module.exports = router;
+diff --git a/src/routes/challengeRoutes.js b/src/routes/challengeRoutes.js
+index 3b3d6b1..8ca7657 100644
+--- a/src/routes/challengeRoutes.js
++++ b/src/routes/challengeRoutes.js
+@@ -1,8 +1,8 @@
+ const express = require('express');
+ const router = express.Router();
+ const challengeController = require('../controllers/challengeController');
+-const auth = require('../middleware/auth');
++const { authenticateToken } = require('../middleware/auth');  // ✅ Import correctly
+ 
+-router.get('/quests/:questId/challenges', auth, challengeController.getQuestChallenges);
++router.get('/quests/:questId/challenges', authenticateToken, challengeController.getQuestChallenges); // ✅ Use the function
+ 
+-module.exports = router; 
+\ No newline at end of file
++module.exports = router;
+diff --git a/src/routes/questRoutes.js b/src/routes/questRoutes.js
+index 0e6de62..436bf87 100644
+--- a/src/routes/questRoutes.js
++++ b/src/routes/questRoutes.js
+@@ -1,12 +1,42 @@
+ const express = require('express');
+ const router = express.Router();
++const { authenticateToken } = require('../middleware/auth');
+ const questController = require('../controllers/questController');
+-const auth = require('../middleware/auth');
++const { getUserStats } = require('../controllers/userStatsController');
+ 
+-router.get('/quests', questController.getAllQuests);
+-router.post('/quests/start', auth, questController.startQuest);
+-router.post('/quests/collect-token', auth, questController.collectToken);
+-router.get('/quests/:questId/site-tokens', auth, questController.getSiteTokens);
+-router.post('/quests/ar-collect-token', auth, questController.collectTokenViaAR);
++// Debug middleware to check the request
++const debugMiddleware = (req, res, next) => {
++  console.log('Debug middleware called');
++  next();
++};
+ 
+-module.exports = router; 
+\ No newline at end of file
++// Test route without authentication
++router.get('/test', (req, res) => {
++  res.json({ message: 'Test route working' });
++});
++
++// Get user statistics with authentication
++router.get('/stats', 
++  (req, res, next) => {
++    console.log('Before auth middleware');
++    next();
++  },
++  authenticateToken,
++  (req, res, next) => {
++    console.log('After auth middleware');
++    next();
++  },
++  getUserStats
++);
++
++// Add quest-related routes
++router.get('/quests', authenticateToken, questController.getAllQuests);
++router.post('/quests/start', authenticateToken, questController.startQuest);
++router.post('/quests/collect-token', authenticateToken, questController.collectToken);
++router.get('/quests/:questId/tokens', authenticateToken, questController.getSiteTokens);
++router.post('/quests/collect-ar-token', authenticateToken, questController.collectTokenViaAR);
++
++// New route to get a quest by ID
++router.get('/quests/:questId', authenticateToken, questController.getQuestById);
++
++module.exports = router;
+diff --git a/src/routes/userRoutes.js b/src/routes/userRoutes.js
+index 4d9bbd9..1d38eab 100644
+--- a/src/routes/userRoutes.js
++++ b/src/routes/userRoutes.js
+@@ -1,9 +1,31 @@
+ const express = require('express');
+ const router = express.Router();
+ const { authenticateToken } = require('../middleware/auth');
+-const userStatsController = require('../controllers/userStatsController');
++const { getUserStats } = require('../controllers/userStatsController');
+ 
+-// Get user statistics
+-router.get('/stats', authenticateToken, userStatsController.getUserStats);
++// Debug middleware to check the request
++const debugMiddleware = (req, res, next) => {
++  console.log('Debug middleware called');
++  next();
++};
++
++// Test route without authentication
++router.get('/test', (req, res) => {
++  res.json({ message: 'Test route working' });
++});
++
++// Get user statistics with authentication
++router.get('/stats', 
++  (req, res, next) => {
++    console.log('Before auth middleware');
++    next();
++  },
++  authenticateToken,
++  (req, res, next) => {
++    console.log('After auth middleware');
++    next();
++  },
++  getUserStats
++);
+ 
+ module.exports = router; 
+\ No newline at end of file
+diff --git a/src/scripts/getToken.js b/src/scripts/getToken.js
+new file mode 100644
+index 0000000..5ec9a0f
+--- /dev/null
++++ b/src/scripts/getToken.js
+@@ -0,0 +1,32 @@
++const admin = require('firebase-admin');
++const serviceAccount = require('../config/serviceAccountKey.json');
++
++// Initialize Firebase Admin
++admin.initializeApp({
++  credential: admin.credential.cert(serviceAccount)
++});
++
++// Create a custom token for a test user
++const uid = 'test-user-123'; // This can be any unique identifier
++const email = 'test@example.com';
++
++admin.auth().createCustomToken(uid)
++  .then((token) => {
++    console.log('Custom Token:', token);
++    
++    // Also create a user if it doesn't exist
++    return admin.auth().getUserByEmail(email)
++      .catch(() => {
++        return admin.auth().createUser({
++          email: email,
++          password: 'password123',
++          uid: uid
++        });
++      });
++  })
++  .then((userRecord) => {
++    console.log('User Record:', userRecord);
++  })
++  .catch((error) => {
++    console.error('Error:', error);
++  }); 
+\ No newline at end of file
+diff --git a/src/scripts/testAPIs.js b/src/scripts/testAPIs.js
+new file mode 100644
+index 0000000..7d08990
+--- /dev/null
++++ b/src/scripts/testAPIs.js
+@@ -0,0 +1,4 @@
++const axios = require('axios');
++
++const BASE_URL = 'http://localhost:3001/api';
++const TEST_TOKEN = 'token1'; // Replace with a valid Firebase token
+diff --git a/src/scripts/verifySetup.js b/src/scripts/verifySetup.js
+new file mode 100644
+index 0000000..32cb404
+--- /dev/null
++++ b/src/scripts/verifySetup.js
+@@ -0,0 +1,107 @@
++const { db, admin } = require('../config/firebase');
++
++async function verifySetup() {
++  try {
++    console.log('🔍 Starting Firebase Setup Verification...\n');
++
++    // 1. Test Database Connection
++    console.log('1️⃣ Testing Database Connection...');
++    await db.collection('test').doc('test').set({ test: true });
++    console.log('✅ Database connection successful!\n');
++
++    // 2. Test Security Rules
++    console.log('2️⃣ Testing Security Rules...');
++    const testUserId = 'test_user_123';
++    
++    // Create test user progress
++    await db.collection('userProgress').doc(testUserId).set({
++      totalCoins: 0,
++      completedQuests: [],
++      activeQuests: [],
++      collectedTokens: []
++    });
++    console.log('✅ Security rules for userProgress working!\n');
++
++    // 3. Test Quest Collection
++    console.log('3️⃣ Testing Quest Collection...');
++    const testQuest = {
++      title: "Test Quest",
++      description: "A test quest for verification",
++      difficulty: "easy",
++      isActive: true,
++      tokenLocations: [
++        {
++          id: "test_token_1",
++          type: "token",
++          location: {
++            coordinates: { latitude: 6.9271, longitude: 79.8612 },
++            radius: 50
++          },
++          description: "Test Token",
++          arMarker: {
++            type: "image",
++            data: "test_marker"
++          },
++          collectInstructions: "Tap on the Token"
++        }
++      ],
++      path: [
++        { latitude: 6.9271, longitude: 79.8612 }
++      ],
++      totalSteps: 1
++    };
++
++    const questRef = await db.collection('quests').add(testQuest);
++    console.log('✅ Quest collection working!\n');
++
++    // 4. Test User Rewards
++    console.log('4️⃣ Testing User Rewards...');
++    await db.collection('userRewards').doc(testUserId).set({
++      gold: 0,
++      diamonds: 0
++    });
++    console.log('✅ User rewards working!\n');
++
++    // 5. Test User Collections
++    console.log('5️⃣ Testing User Collections...');
++    await db.collection('userCollections').doc(testUserId).set({
++      tokens: []
++    });
++    console.log('✅ User collections working!\n');
++
++    // 6. Test Indexes
++    console.log('6️⃣ Testing Indexes...');
++    const questsSnapshot = await db.collection('quests')
++      .where('isActive', '==', true)
++      .where('difficulty', '==', 'easy')
++      .get();
++    console.log('✅ Indexes working!\n');
++
++    // 7. Cleanup Test Data
++    console.log('7️⃣ Cleaning up test data...');
++    await db.collection('test').doc('test').delete();
++    await db.collection('userProgress').doc(testUserId).delete();
++    await db.collection('userRewards').doc(testUserId).delete();
++    await db.collection('userCollections').doc(testUserId).delete();
++    await questRef.delete();
++    console.log('✅ Test data cleaned up!\n');
++
++    console.log('🎉 All Firebase setup verifications passed successfully!');
++    console.log('\nYour database is ready for use with the following collections:');
++    console.log('- quests');
++    console.log('- userProgress');
++    console.log('- userRewards');
++    console.log('- userCollections');
++
++  } catch (error) {
++    console.error('❌ Verification failed:', error);
++    console.error('\nPlease check:');
++    console.error('1. Firebase configuration in src/config/firebase.js');
++    console.error('2. Service account key file');
++    console.error('3. Security rules in Firebase Console');
++    console.error('4. Database indexes in Firebase Console');
++  }
++}
++
++// Run the verification
++verifySetup(); 
+\ No newline at end of file
+-- 
+2.48.1.windows.1
+

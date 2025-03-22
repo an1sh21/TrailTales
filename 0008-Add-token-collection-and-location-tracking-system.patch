@@ -1,0 +1,134 @@
+From f7af39e7075ea49f132568025d39700f6cf6640f Mon Sep 17 00:00:00 2001
+From: VidyaSenevirathna <165774022+VidyaSenevirathna@users.noreply.github.com>
+Date: Sun, 9 Mar 2025 11:34:27 +0530
+Subject: [PATCH 08/22] Add token collection and location tracking system
+
+---
+ src/controllers/questController.js | 67 ++++++++++++++++++++++++------
+ 1 file changed, 54 insertions(+), 13 deletions(-)
+
+diff --git a/src/controllers/questController.js b/src/controllers/questController.js
+index 9484e2b..4c18640 100644
+--- a/src/controllers/questController.js
++++ b/src/controllers/questController.js
+@@ -26,6 +26,14 @@ exports.startQuest = async (req, res) => {
+     const { questId } = req.body;
+     const userId = req.user.uid;
+ 
++    // Check if quest exists and get its details
++    const questDoc = await db.collection('quests').doc(questId).get();
++    if (!questDoc.exists) {
++      return res.status(404).json({ message: 'Quest not found' });
++    }
++    const quest = questDoc.data();
++
++    // Check if quest is already in progress
+     const existingProgress = await db.collection('userProgress')
+       .where('userId', '==', userId)
+       .where('questId', '==', questId)
+@@ -36,20 +44,38 @@ exports.startQuest = async (req, res) => {
+       return res.status(400).json({ message: 'Quest already in progress' });
+     }
+ 
++    // Create new quest progress with locked tokens
+     const newProgress = await db.collection('userProgress').add({
+       userId,
+       questId,
+       collectedTokens: [],
+       completedLocations: [],
++      currentStep: 0,
++      lockedTokens: quest.tokenLocations.map(token => token.id), // Initially lock all tokens
+       startedAt: admin.firestore.FieldValue.serverTimestamp(),
+       status: 'in_progress'
+     });
+ 
++    // Return quest details with first step
+     res.status(201).json({
+       id: newProgress.id,
+       userId,
+       questId,
+-      status: 'in_progress'
++      status: 'in_progress',
++      questDetails: {
++        title: quest.title,
++        description: quest.description,
++        difficulty: quest.difficulty,
++        totalSteps: quest.tokenLocations.length,
++        currentStep: 0,
++        firstStep: {
++          location: quest.tokenLocations[0].location,
++          description: quest.tokenLocations[0].description,
++          waypoint: quest.tokenLocations[0].location.coordinates
++        },
++        path: quest.path,
++        lockedTokens: quest.tokenLocations.map(token => token.id)
++      }
+     });
+   } catch (error) {
+     res.status(500).json({ message: error.message });
+@@ -61,12 +87,31 @@ exports.collectToken = async (req, res) => {
+     const { questId, tokenId, userLocation } = req.body;
+     const userId = req.user.uid;
+ 
++    // Get quest progress
++    const progressRef = db.collection('userProgress')
++      .where('userId', '==', userId)
++      .where('questId', '==', questId)
++      .where('status', '==', 'in_progress');
++
++    const progressDoc = await progressRef.get();
++    if (progressDoc.empty) {
++      return res.status(404).json({ message: 'Quest progress not found' });
++    }
++
++    const progress = progressDoc.docs[0].data();
++
++    // Check if token is locked
++    if (progress.lockedTokens.includes(tokenId)) {
++      return res.status(403).json({ message: 'This token is currently locked' });
++    }
++
+     const tokenDoc = await db.collection('storyTokens').doc(tokenId).get();
+     if (!tokenDoc.exists) {
+       return res.status(404).json({ message: 'Token not found' });
+     }
+     const token = tokenDoc.data();
+ 
++    // Check if user is at the correct location
+     const distance = calculateDistance(
+       userLocation.latitude,
+       userLocation.longitude,
+@@ -78,22 +123,18 @@ exports.collectToken = async (req, res) => {
+       return res.status(400).json({ message: 'You are too far from the token location' });
+     }
+ 
+-    const progressRef = db.collection('userProgress')
+-      .where('userId', '==', userId)
+-      .where('questId', '==', questId)
+-      .where('status', '==', 'in_progress');
+-
+-    const progressDoc = await progressRef.get();
+-    if (progressDoc.empty) {
+-      return res.status(404).json({ message: 'Quest progress not found' });
+-    }
+-
++    // Update progress
+     await db.collection('userProgress').doc(progressDoc.docs[0].id).update({
+       collectedTokens: admin.firestore.FieldValue.arrayUnion(tokenId),
+-      completedLocations: admin.firestore.FieldValue.arrayUnion(token.location)
++      completedLocations: admin.firestore.FieldValue.arrayUnion(token.location),
++      currentStep: progress.currentStep + 1,
++      lockedTokens: admin.firestore.FieldValue.arrayRemove(tokenId)
+     });
+ 
+-    res.json({ message: 'Token collected successfully' });
++    res.json({ 
++      message: 'Token collected successfully',
++      nextStep: progress.currentStep + 1
++    });
+   } catch (error) {
+     res.status(500).json({ message: error.message });
+   }
+-- 
+2.48.1.windows.1
+

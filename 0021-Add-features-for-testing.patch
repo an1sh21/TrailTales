@@ -1,0 +1,31 @@
+From 0491ef0e6afc14a03ea6ae242d4cd817a06436e8 Mon Sep 17 00:00:00 2001
+From: VidyaSenevirathna <165774022+VidyaSenevirathna@users.noreply.github.com>
+Date: Sat, 22 Mar 2025 17:27:53 +0530
+Subject: [PATCH 21/22] Add features for testing
+
+---
+ src/config/firebase.js | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+diff --git a/src/config/firebase.js b/src/config/firebase.js
+index 2d5c0c6..2c503df 100644
+--- a/src/config/firebase.js
++++ b/src/config/firebase.js
+@@ -1,10 +1,9 @@
+-const admin = require("firebase-admin");
+-const serviceAccount = require("../serviceAccountKey.json");
++const admin = require('firebase-admin');
++const serviceAccount = require('./serviceAccountKey.json');
+ 
+ admin.initializeApp({
+-  credential: admin.credential.cert(serviceAccount),
+-  databaseURL: "https://TrailTalesAuth.firebaseio.com"
++  credential: admin.credential.cert(serviceAccount)
+ });
+ 
+ const db = admin.firestore();
+-module.exports = { db };
++module.exports = { admin, db };
+-- 
+2.48.1.windows.1
+

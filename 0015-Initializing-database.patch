@@ -1,0 +1,108 @@
+From b72ea6fb0d5b4b3f8b2449c7d08ee35c4d870522 Mon Sep 17 00:00:00 2001
+From: VidyaSenevirathna <165774022+VidyaSenevirathna@users.noreply.github.com>
+Date: Mon, 10 Mar 2025 23:04:00 +0530
+Subject: [PATCH 15/22] Initializing database
+
+---
+ src/scripts/initDatabase.js | 88 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 88 insertions(+)
+ create mode 100644 src/scripts/initDatabase.js
+
+diff --git a/src/scripts/initDatabase.js b/src/scripts/initDatabase.js
+new file mode 100644
+index 0000000..4d52d97
+--- /dev/null
++++ b/src/scripts/initDatabase.js
+@@ -0,0 +1,88 @@
++const { db } = require('../config/firebase');
++const admin = require('firebase-admin');
++
++async function initializeDatabase() {
++  try {
++    // 1. Create a sample quest
++    const questData = {
++      title: "Ancient Temple Exploration",
++      description: "Explore the ancient temple and collect sacred tokens",
++      difficulty: "medium",
++      isActive: true,
++      tokenLocations: [
++        {
++          id: "token1",
++          type: "token",
++          location: {
++            coordinates: { latitude: 12.345, longitude: 67.890 },
++            radius: 50,
++            siteId: "site1"
++          },
++          description: "Sacred Temple Token",
++          rarity: "rare",
++          arMarker: {
++            type: "image",
++            data: "sample_marker_data"
++          }
++        }
++      ],
++      path: [
++        { latitude: 12.345, longitude: 67.890 },
++        { latitude: 12.346, longitude: 67.891 }
++      ]
++    };
++
++    const questRef = await db.collection('quests').add(questData);
++    console.log('Sample quest created with ID:', questRef.id);
++
++    // 2. Create indexes
++    // Note: Indexes need to be created in Firebase Console
++    console.log('Please create the following indexes in Firebase Console:');
++    console.log('Collection: userProgress');
++    console.log('Fields: userId (Ascending), questId (Ascending), status (Ascending)');
++
++    // 3. Set up security rules
++    console.log('Please set up the following security rules in Firebase Console:');
++    console.log(`
++    rules_version = '2';
++    service cloud.firestore {
++      match /databases/{database}/documents {
++        function isAuthenticated() {
++          return request.auth != null;
++        }
++        function isOwner(userId) {
++          return request.auth.uid == userId;
++        }
++
++        match /quests/{questId} {
++          allow read: if true;
++          allow write: if false;
++        }
++
++        match /userProgress/{progressId} {
++          allow read: if isAuthenticated() && isOwner(resource.data.userId);
++          allow create: if isAuthenticated() && isOwner(request.resource.data.userId);
++          allow update: if isAuthenticated() && isOwner(resource.data.userId);
++        }
++
++        match /userRewards/{userId} {
++          allow read: if isAuthenticated() && isOwner(userId);
++          allow write: if isAuthenticated() && isOwner(userId);
++        }
++
++        match /userCollections/{userId} {
++          allow read: if isAuthenticated() && isOwner(userId);
++          allow write: if isAuthenticated() && isOwner(userId);
++        }
++      }
++    }
++    `);
++
++    console.log('Database initialization completed successfully!');
++  } catch (error) {
++    console.error('Error initializing database:', error);
++  }
++}
++
++// Run the initialization
++initializeDatabase(); 
+\ No newline at end of file
+-- 
+2.48.1.windows.1
+

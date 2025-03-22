@@ -1,0 +1,47 @@
+From 9ec752b2a25556be5c458d30d279a51d249f6112 Mon Sep 17 00:00:00 2001
+From: VidyaSenevirathna <165774022+VidyaSenevirathna@users.noreply.github.com>
+Date: Thu, 6 Mar 2025 22:02:28 +0530
+Subject: [PATCH 05/22] Add changes for the Routs folder
+
+---
+ src/routes/challengeRoutes.js |  8 ++++++++
+ src/routes/questRoutes.js     | 10 ++++++++++
+ 2 files changed, 18 insertions(+)
+ create mode 100644 src/routes/challengeRoutes.js
+ create mode 100644 src/routes/questRoutes.js
+
+diff --git a/src/routes/challengeRoutes.js b/src/routes/challengeRoutes.js
+new file mode 100644
+index 0000000..3b3d6b1
+--- /dev/null
++++ b/src/routes/challengeRoutes.js
+@@ -0,0 +1,8 @@
++const express = require('express');
++const router = express.Router();
++const challengeController = require('../controllers/challengeController');
++const auth = require('../middleware/auth');
++
++router.get('/quests/:questId/challenges', auth, challengeController.getQuestChallenges);
++
++module.exports = router; 
+\ No newline at end of file
+diff --git a/src/routes/questRoutes.js b/src/routes/questRoutes.js
+new file mode 100644
+index 0000000..b0ceda0
+--- /dev/null
++++ b/src/routes/questRoutes.js
+@@ -0,0 +1,10 @@
++const express = require('express');
++const router = express.Router();
++const questController = require('../controllers/questController');
++const auth = require('../middleware/auth');
++
++router.get('/quests', questController.getAllQuests);
++router.post('/quests/start', auth, questController.startQuest);
++router.post('/quests/collect-token', auth, questController.collectToken);
++
++module.exports = router; 
+\ No newline at end of file
+-- 
+2.48.1.windows.1
+

@@ -1,0 +1,71 @@
+From b46d221b6dc33acadce08c192e6599c8a6b504c9 Mon Sep 17 00:00:00 2001
+From: VidyaSenevirathna <165774022+VidyaSenevirathna@users.noreply.github.com>
+Date: Mon, 10 Mar 2025 22:49:05 +0530
+Subject: [PATCH 13/22] Handling the reward images properly
+
+---
+ src/controllers/questController.js | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
+
+diff --git a/src/controllers/questController.js b/src/controllers/questController.js
+index 41836f3..235a801 100644
+--- a/src/controllers/questController.js
++++ b/src/controllers/questController.js
+@@ -275,16 +275,20 @@ exports.collectTokenViaAR = async (req, res) => {
+ 
+       // Determine and add rewards based on difficulty
+       let goldReward = 0;
++      let rewardImage = '';
+       
+       switch(quest.difficulty.toLowerCase()) {
+         case 'easy':
+           goldReward = 100;
++          rewardImage = '/images/rewards/easy.jpg';
+           break;
+         case 'medium':
+           goldReward = 250;
++          rewardImage = '/images/rewards/medium.jpg';
+           break;
+         case 'hard':
+           goldReward = 500;
++          rewardImage = '/images/rewards/hard.jpg';
+           break;
+       }
+ 
+@@ -297,15 +301,16 @@ exports.collectTokenViaAR = async (req, res) => {
+           difficulty: quest.difficulty,
+           rewards: {
+             gold: goldReward,
+-            // For hard difficulty, note that diamond is included in gold reward
+-            includesDiamond: quest.difficulty.toLowerCase() === 'hard'
++            includesDiamond: quest.difficulty.toLowerCase() === 'hard',
++            rewardImage: rewardImage
+           }
+         })
+       }, { merge: true });
+ 
+       updateData.rewards = {
+         gold: goldReward,
+-        includesDiamond: quest.difficulty.toLowerCase() === 'hard'
++        includesDiamond: quest.difficulty.toLowerCase() === 'hard',
++        rewardImage: rewardImage
+       };
+     }
+ 
+@@ -361,11 +366,11 @@ exports.collectTokenViaAR = async (req, res) => {
+         title: 'Congratulations!',
+         description: quest.difficulty.toLowerCase() === 'hard' ? 
+           'You successfully completed the hard quest! You earned 500 gold and a special diamond!' :
+-          `You successfully completed the ${quest.difficulty} quest!`,
++          `You successfully completed the ${quest.difficulty} quest! You earned ${goldReward} gold!`,
+         questRewards: {
+           gold: goldReward,
+           includesDiamond: quest.difficulty.toLowerCase() === 'hard',
+-          rewardImage: `/rewards/${quest.difficulty.toLowerCase()}.png`
++          rewardImage: rewardImage
+         },
+         type: 'quest_completion'
+       } : {
+-- 
+2.48.1.windows.1
+

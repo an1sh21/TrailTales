@@ -1,0 +1,29 @@
+From e7e00e63a1ea24445236b00bb86b6f124dc0b9b6 Mon Sep 17 00:00:00 2001
+From: VidyaSenevirathna <165774022+VidyaSenevirathna@users.noreply.github.com>
+Date: Thu, 6 Mar 2025 20:41:45 +0530
+Subject: [PATCH 02/22] Adding firebase file
+
+---
+ src/config/firebase.js | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+ create mode 100644 src/config/firebase.js
+
+diff --git a/src/config/firebase.js b/src/config/firebase.js
+new file mode 100644
+index 0000000..86471b2
+--- /dev/null
++++ b/src/config/firebase.js
+@@ -0,0 +1,9 @@
++const admin = require('firebase-admin');
++const serviceAccount = require('./serviceAccountKey.json');
++
++admin.initializeApp({
++  credential: admin.credential.cert(serviceAccount)
++});
++
++const db = admin.firestore();
++module.exports = { admin, db }; 
+\ No newline at end of file
+-- 
+2.48.1.windows.1
+

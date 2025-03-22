@@ -1,0 +1,53 @@
+From ef98f3d7c3f258d14efa78adaf697aa86942ba7b Mon Sep 17 00:00:00 2001
+From: VidyaSenevirathna <165774022+VidyaSenevirathna@users.noreply.github.com>
+Date: Sat, 22 Mar 2025 17:27:16 +0530
+Subject: [PATCH 20/22] changes made for authorization testing part
+
+---
+ src/config/serviceAccountKey.json | 13 +++++++++++++
+ src/middleware/auth.js            |  4 ++--
+ 2 files changed, 15 insertions(+), 2 deletions(-)
+ create mode 100644 src/config/serviceAccountKey.json
+
+diff --git a/src/config/serviceAccountKey.json b/src/config/serviceAccountKey.json
+new file mode 100644
+index 0000000..bc9ca7d
+--- /dev/null
++++ b/src/config/serviceAccountKey.json
+@@ -0,0 +1,13 @@
++{
++  "type": "service_account",
++  "project_id": "trail-tales-auth",
++  "private_key_id": "e2e61de13b4eb13cc15f7358ef73c9a4ed87b9a0",
++  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCggyboW6V7OOVl\neZyJALJzK3/MopukDRy+Ml/zXWKCa3xJBr+jrrtNplHH5YmVCaS2uCNKrkCliico\nZO4SvFzqNUd3OTfUsqedWiHtR/iItCRjas4RtF4lA7UahFjz69oSwXqDgWHhRbt7\nm7AXJZ4zIF6qG7NMUezBRYHJNKAlGLT25GOnrRgeY/0bJMO+kw4bz1OMfzubPDCm\nRBpQtqCKCyfff1lGM7BJbDq51/aa8YNwLhnFvBz6bG4jIK3YY0CxSYuxvRJrD9GR\nMTncZtN10orvH/7ezHkuSmy0LqsEtDgFnuijukKQLt9YI1o4oBNW0yJwzpIQ0bR0\nG5MGTDlNAgMBAAECggEAAuiNdm1esL5lrbKH6xWXpi2WGbuijVTtfebExVCeXdWb\nwWj9ZPZgD3ahibk3hntPwD3S6eIBat53eixmAfHmzxmbC2Z+g/yeu+OrtLR2pOd6\nt1BynnCBujL4f5wBTp4p6+gUk7hu8RmF3aYDCVBVrwB5pqRs2cesPg5H3UD2W+Ww\n2ZW/qskY1/epX2b+2hzdnnTafGiwgi6NrrgTFUINXE7xcX80IMq0T4U4YQUxTYcw\nrA53wfLJyVnl4XFsb3yRcRuui1rYcwPCifSV1rUZiGSawULECCrMqe4ytrgibJPd\nngDzFg7ETi7pf4/W1z5hrwcxMyHA94HxF7VsGyKFwwKBgQDXjwTIPtefzyHnvXa1\n2JgavzhuBtak7HXXerIQ5gcjdSFgrE+AwKoscUcYYUZuYgiXb8imyeoLVWjGAmLx\n9jE9jSYv5XxbCuLfVDXbHgdXPpzMQtKiZ4MuELNEkQs787YKAA5dNv1surFHs7CV\nsClf2Ywvt1y5KOrvb8RjAkKwjwKBgQC+oFV5cs0kb3xumhIHMSufG9BcW3mcNSzH\nDoUJc+0eXWPZbeaFoewDM/mb4XIYgTz0Wx/3Czl/BVaay9hiVHOQTrA04MGsvBMs\nSlIvXGfXTKFlBXCLlZyLF8yycu9yyxU0aNMIBx+1Lzt6b+HP1UUGnVE/L2BdNwnj\nKmMVmFPuYwKBgCNEEMI6FcjdeGyTgLJrhycJFdBaag99aCIivrMpDw3sAdPxHOix\nnKW8uqbwczdn7oPoE+nFqvbDuGp8xXdUkeXCC/dWEixK8acb/dulZAoQAlMgs5lC\nWiHVNZ8II9BhJO0p6S+y6W86c/qJGWDD+2DlFJxR4WehnB4kKPsRyZtdAoGASykM\nioYpPGR4u2MkGJHakTF2RfQLTvvoW9PtwHxk0cQgymn6qlXdqKWllUCeq+rJDc+g\nGtfiI6MHMqGM/7gsmIluEGtN8b12EdB79xCIIOul9x7d8StcPbt0iienIavRAIkU\nK+YjKl0lJnFWp4t/W8xLbI5RgG9jBp5/0tPsw+ECgYBBDh6rZ88xS/CGYdCNWslm\n2LGltkNEU2KgVb89FhGbNX+XrDWt1HbDMXjvCLbx2Vfu9kbRj3LPw0a8acybj1IE\n7s325zkV4G91sxAeEqYBtghzrP8WBVc5P9UaLk8diGK3Ffla6sTMA6EjG0DXmswo\noG43qDbmvHdd2haqS/ksuQ==\n-----END PRIVATE KEY-----\n",
++  "client_email": "firebase-adminsdk-fbsvc@trail-tales-auth.iam.gserviceaccount.com",
++  "client_id": "103927856846059314276",
++  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
++  "token_uri": "https://oauth2.googleapis.com/token",
++  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
++  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40trail-tales-auth.iam.gserviceaccount.com",
++  "universe_domain": "googleapis.com"
++}
+diff --git a/src/middleware/auth.js b/src/middleware/auth.js
+index 13fe285..5875c25 100644
+--- a/src/middleware/auth.js
++++ b/src/middleware/auth.js
+@@ -1,6 +1,6 @@
+ const { admin } = require('../config/firebase');
+ 
+-const auth = async (req, res, next) => {
++const authenticateToken = async (req, res, next) => {
+   try {
+     const token = req.headers.authorization?.split('Bearer ')[1];
+     if (!token) {
+@@ -15,4 +15,4 @@ const auth = async (req, res, next) => {
+   }
+ };
+ 
+-module.exports = auth; 
+\ No newline at end of file
++module.exports = { authenticateToken }; 
+\ No newline at end of file
+-- 
+2.48.1.windows.1
+
