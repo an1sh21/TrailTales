@@ -1,0 +1,10 @@
+# Ignore node modules
+node_modules/
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore dotenv and secrets
+.env
+src/config/serviceAccountKey.json
