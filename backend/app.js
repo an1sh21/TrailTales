@@ -7,6 +7,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/location', locationRoutes);
+app.use('/api/locaion', locationRoutes);
 
 module.exports = app;
