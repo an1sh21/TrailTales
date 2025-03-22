@@ -15,7 +15,7 @@ exports.checkProximity = async (req, res) => {
             if (distance <= location.radiusMeters) {
                 nearbyLocations.push(location);
 
-                db.collection('users').doc(userID).collection('unlockedLocations')
+                db.collection('user').doc(userID).collection('unlockedLocations')
                   .doc(location.siteID)
                   .set({ unlockedAt: new Date() }, { merge: true });
             }
