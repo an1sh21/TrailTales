@@ -29,7 +29,7 @@ exports.checkProximity = async (req, res) => {
 
 exports.getAllLocations = async (req, res) => {
     try {
-        const locationsSnapshot = await db.collection('location').get();
+        const locationsSnapshot = await db.collection('locations').get();
         const locations = locationsSnapshot.docs.map(doc => doc.data());
 
         res.json(locations);
