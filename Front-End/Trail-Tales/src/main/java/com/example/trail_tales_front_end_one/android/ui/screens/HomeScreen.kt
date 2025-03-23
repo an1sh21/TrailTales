@@ -88,7 +88,7 @@ data class ActiveQuest(
 )
 
 // Constants for locations
-private val AIR_FORCE_BASE_LOCATION = LatLng(6.8237755, 79.8919505)
+private val AIR_FORCE_BASE_LOCATION = LatLng(6.824377931569581, 79.892272582069)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -353,13 +353,8 @@ fun HomeScreen(
     // State for content selection (Map, Quests, Collectables)
     var selectedContent by remember { mutableStateOf("Map") }
     
-    // Add active quest state - initialize with provided quest if any or with Air Force Base
-    var activeQuest: ActiveQuest? by remember { mutableStateOf(initialActiveQuest ?: ActiveQuest(
-        id = "airforce_base",
-        title = "SLAF Ratmalana Air Force Base",
-        position = AIR_FORCE_BASE_LOCATION,
-        siteMapResourceId = com.example.trail_tales_front_end_one.android.R.drawable.airforce_sitemap // Using the correct resource
-    ))}
+    // Add active quest state - initialize with provided quest if any, otherwise null (no quest active by default)
+    var activeQuest: ActiveQuest? by remember { mutableStateOf(initialActiveQuest) }
     
     // Initialize route points if we have an active quest
     var routePoints by remember { mutableStateOf<List<LatLng>>(emptyList()) }
@@ -370,6 +365,7 @@ fun HomeScreen(
     // Generate route when active quest changes
     LaunchedEffect(activeQuest, userLocation) {
         activeQuest?.let { quest ->
+            // For demo, generate a simple route
             routePoints = generateSimpleRoute(userLocation, quest.position)
         } ?: run {
             routePoints = emptyList()
@@ -485,7 +481,7 @@ fun HomeScreen(
                                         horizontalAlignment = Alignment.CenterHorizontally
                                     ) {
                                         Text(
-                                            text = "Trail Collectable Nearby!",
+                                            text = "Trail Point Nearby!",
                                             style = MaterialTheme.typography.titleMedium,
                                             fontWeight = FontWeight.Bold,
                                             color = Color.Black
@@ -907,20 +903,133 @@ fun HomeScreen(
                     }
                 }
                 "Quests" -> {
-                    // Instead of inline implementation, navigate to the QuestsScreen
-                    LaunchedEffect(Unit) {
-                        onNavigateToQuests()
-                    }
-                    // Show loading while navigation happens
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        CircularProgressIndicator()
+                    // Display a list of quests inline instead of navigating to a separate screen
+                    Box(modifier = Modifier.fillMaxSize()) {
+                        // Background with some styling
+                        Surface(
+                            modifier = Modifier.fillMaxSize(),
+                            color = MaterialTheme.colorScheme.background
+                        ) {
+                            // Show a simple message with a button to navigate to the full Quests screen
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(16.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center
+                            ) {
+                                Text(
+                                    text = "Available Quests",
+                                    style = MaterialTheme.typography.headlineMedium,
+                                    fontWeight = FontWeight.Bold
+                                )
+                                
+                                Spacer(modifier = Modifier.height(24.dp))
+                                
+                                Button(
+                                    onClick = { onNavigateToQuests() },
+                                    colors = ButtonDefaults.buttonColors(
+                                        containerColor = Color(0xFFFFD700) // Gold color
+                                    )
+                                ) {
+                                    Text("See All Quests", color = Color.Black)
+                                }
+                            }
+                        }
                     }
                 }
                 "Collectables" -> CollectablesScreen(onBackClick = { selectedContent = "Map" })
-                "Socials" -> SocialsScreen(onBackClick = { selectedContent = "Map" })
+                "Socials" -> {
+                    Box(modifier = Modifier.fillMaxSize()) {
+                        // Render the actual Socials screen in the background with blur
+                        SocialsScreen(onBackClick = { selectedContent = "Map" })
+                        
+                        // Overlay with blur and "Coming Soon" message
+                        Surface(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .blur(10.dp),
+                            color = Color.Black.copy(alpha = 0.7f)
+                        ) {
+                            // Empty surface for blur and darkening effect
+                        }
+                        
+                        // Coming soon content
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(16.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            // Back button (clearly visible at the top)
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(8.dp)
+                                    .align(Alignment.CenterHorizontally)
+                            ) {
+                                IconButton(
+                                    onClick = { selectedContent = "Map" },
+                                    modifier = Modifier
+                                        .align(Alignment.TopStart)
+                                        .size(48.dp)
+                                        .background(Color(0xFFFFD700), CircleShape)
+                                        .border(2.dp, Color.White, CircleShape)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.ArrowBack,
+                                        contentDescription = "Back to Map",
+                                        tint = Color.Black
+                                    )
+                                }
+                            }
+                            
+                            Spacer(modifier = Modifier.height(32.dp))
+                            
+                            // Coming soon label
+                            Surface(
+                                shape = RoundedCornerShape(16.dp),
+                                color = Color(0xFFFFD700),
+                                tonalElevation = 8.dp,
+                                modifier = Modifier
+                                    .padding(16.dp)
+                            ) {
+                                Text(
+                                    text = "COMING SOON",
+                                    style = MaterialTheme.typography.headlineMedium,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.Black,
+                                    modifier = Modifier.padding(horizontal = 32.dp, vertical = 16.dp)
+                                )
+                            }
+                            
+                            Spacer(modifier = Modifier.height(16.dp))
+                            
+                            // Message
+                            Text(
+                                text = "The social features of Trail Tales are under development and will be available in the next update!",
+                                style = MaterialTheme.typography.titleMedium,
+                                color = Color.White,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier.padding(32.dp)
+                            )
+                            
+                            Spacer(modifier = Modifier.height(16.dp))
+                            
+                            // Return button
+                            Button(
+                                onClick = { selectedContent = "Map" },
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = MaterialTheme.colorScheme.primary
+                                ),
+                                modifier = Modifier.padding(8.dp)
+                            ) {
+                                Text("Return to Map", modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp))
+                            }
+                        }
+                    }
+                }
             }
         }
     }
