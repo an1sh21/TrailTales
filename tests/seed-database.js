@@ -40,33 +40,27 @@ const db = admin.firestore();
 // Sample data for stories
 const stories = [
   {
-    title: "The Legend of Trail Peak",
-    content: "Long ago, travelers would climb this mountain to seek wisdom...",
-    locationId: "location1",
+    title: "Mission 01 : Airforce base",
+    content: "Machines that were forged in battle brewed in glory. This museum showcases the Aircrafts and Artefacts that are related to the SRI-LANKAN CIVIL WAR.",
+    locationId: "location 01",
     createdAt: admin.firestore.FieldValue.serverTimestamp()
   },
-  {
-    title: "The Hidden Waterfall",
-    content: "Locals say that this waterfall has magical properties...",
-    locationId: "location2",
-    createdAt: admin.firestore.FieldValue.serverTimestamp()
-  }
 ];
 
 // Sample data for collectibles
 const collectibles = [
   {
-    name: "Ancient Coin",
-    description: "A rare coin from the medieval period",
+    name: "US Coin",
+    description: "A common coin that is scattered across multiple sites in the island.",
     type: "coin",
-    locationId: "location1",
+    locationId: "location 01",
     rarity: "common"
   },
   {
-    name: "Golden Token",
-    description: "A mysterious token with unknown origins",
+    name: "Air relic of war",
+    description: "A token of bravery and glory of the Sri Lankan airforce.",
     type: "token",
-    locationId: "location2",
+    locationId: "location 01",
     rarity: "rare"
   }
 ];
@@ -76,20 +70,20 @@ const collectibles = [
 // Sample data for quests
 const quests = [
   {
-    title: "Ancient Temple Exploration",
-    description: "Explore the ancient temple and collect sacred tokens",
-    difficulty: "medium",
+    title: "Mission 01: Air force base",
+    description: "Explore the Ratmalana Air-Force base museum and discover the history of the SRILANKAN CIVIL WAR form the pov of the skies.",
+    difficulty: "easy",
     isActive: true,
     tokenLocations: [
       {
-        id: "token1",
+        id: "token 01",
         type: "token",
         location: {
           coordinates: { latitude: 12.345, longitude: 67.890 },
           radius: 50,
-          siteId: "site1"
+          siteId: "site 01"
         },
-        description: "Sacred Temple Token",
+        description: "A token of bravery and glory of the Sri Lankan airforce.",
         rarity: "rare",
         arMarker: {
           type: "image",
@@ -101,27 +95,27 @@ const quests = [
       { latitude: 12.345, longitude: 67.890 },
       { latitude: 12.346, longitude: 67.891 }
     ],
-    siteMap: "/public/rewards/medium.jpg"
+    siteMap: "/public/rewards/easy.jpg"
   },
   {
-    title: "Mountain Trail Challenge",
-    description: "Hike the mountain trail and discover hidden treasures",
-    difficulty: "hard",
+    title: "Mission 01: Air force base",
+    description: "Explore the Ratmalana Air-Force base museum and discover the history of the SRILANKAN CIVIL WAR form the pov of the skies.",
+    difficulty: "easy",
     isActive: true,
     tokenLocations: [
       {
-        id: "token2",
+        id: "token 02",
         type: "coin",
         location: {
           coordinates: { latitude: 12.355, longitude: 67.880 },
           radius: 30,
-          siteId: "site2"
+          siteId: "site 01"
         },
-        description: "Mountain Coin",
+        description: "A common coin that is scattered across multiple sites in the island.",
         rarity: "uncommon",
         arMarker: {
           type: "image",
-          data: "mountain_marker"
+          data: "US coin"
         }
       }
     ],
@@ -129,21 +123,21 @@ const quests = [
       { latitude: 12.355, longitude: 67.880 },
       { latitude: 12.357, longitude: 67.882 }
     ],
-    siteMap: "/public/rewards/hard.jpg"
+    siteMap: "/public/rewards/easy.jpg"
   }
 ];
 
 // Sample data for challenges
 const challenges = [
   {
-    questId: "quest1", // Will be updated after quest creation
-    title: "Photo Challenge",
-    description: "Take a photo at the marked location",
+    questId: "quest 01", // Will be updated after quest creation
+    title: "Find the artefact",
+    description: "Find the artifact inside a hanger of the airforce base.",
     points: 50,
     type: "photo"
   },
   {
-    questId: "quest1", // Will be updated after quest creation
+    questId: "quest 01", // Will be updated after quest creation
     title: "Quiz Challenge",
     description: "Answer questions about the temple history",
     points: 100,
@@ -161,9 +155,9 @@ const challenges = [
 // Sample user with combined properties
 const users = [
   {
-    uid: "testuser123",
-    email: "test@example.com",
-    username: "TestUser",
+    uid: "KUgT8Ju89cUAWP103htXUltrXcx1",
+    email: "hixsisvix@gmail.com",
+    username: "CyberWolf",
     collection: [],
     coins: 0,
     tokens: 0,
@@ -176,7 +170,7 @@ const users = [
 // Sample user progress data
 const userProgress = [
   {
-    userId: "testuser123",
+    userId: "tKUgT8Ju89cUAWP103htXUltrXcx1",
     totalCoins: 0,
     completedQuests: [],
     activeQuests: [],
@@ -188,7 +182,7 @@ const userProgress = [
 // Sample user rewards data
 const userRewards = [
   {
-    userId: "testuser123",
+    userId: "KUgT8Ju89cUAWP103htXUltrXcx1",
     gold: 100,
     diamonds: 5,
     updatedAt: admin.firestore.FieldValue.serverTimestamp()
@@ -198,7 +192,7 @@ const userRewards = [
 // Sample user collections data
 const userCollections = [
   {
-    userId: "testuser123",
+    userId: "KUgT8Ju89cUAWP103htXUltrXcx1",
     tokens: [],
     updatedAt: admin.firestore.FieldValue.serverTimestamp()
   }
