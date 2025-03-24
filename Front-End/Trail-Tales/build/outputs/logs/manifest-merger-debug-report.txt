@@ -1,0 +1,906 @@
+-- Merging decision tree log ---
+provider#androidx.core.content.FileProvider
+INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:28:9-36:20
+	android:grantUriPermissions
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:32:13-47
+	android:authorities
+		INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:30:13-60
+	android:exported
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:29:13-62
+manifest
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:2:1-45:12
+MERGED from [:Trail-Tales-shared] /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales-shared/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-common:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5b3e28ccb6838d893191d19cc56c85cc/transformed/navigation-common-2.8.7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/b7f2ab0a2b1ac172b22081b511c8da60/transformed/navigation-runtime-2.8.7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/d6fe71478522bff407f43ececa94472d/transformed/navigation-common-ktx-2.8.7/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a29e7fec273766d84c2f0ccdf55c1cd9/transformed/navigation-runtime-ktx-2.8.7/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-compose:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5f2ca816b52ec3a3b94cff9dbb9ab902/transformed/navigation-compose-2.8.7/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.maps.android:maps-compose:4.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/e180053afe92f869a9e71ebda12d8fd9/transformed/maps-compose-4.3.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material3:material3-android:1.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a03826e1bc1512bb5c80c36769b332fd/transformed/material3-release/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.maps.android:maps-ktx:5.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/dc346beb4d0e2ad8117850598add6693/transformed/maps-ktx-5.0.0/AndroidManifest.xml:18:1-23:12
+MERGED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:17:1-44:12
+MERGED from [com.google.firebase:firebase-auth-ktx:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7c5d7630e132aaf9908e874e99a10e7f/transformed/firebase-auth-ktx-23.2.0/AndroidManifest.xml:2:1-17:12
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:17:1-75:12
+MERGED from [com.google.android.gms:play-services-location:21.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/400c3c9ee3bb028ccde3cef7872634ff/transformed/play-services-location-21.2.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-analytics:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/87e6fd0ff3ea7e617db57125e1804aa3/transformed/firebase-analytics-22.2.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:17:1-46:12
+MERGED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:17:1-39:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ed6568ade3b5fceaedb947bf073b1f07/transformed/play-services-measurement-sdk-22.2.0/AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c2a3cd8568daa1f3940edc6deb9469a1/transformed/credentials-1.2.0-rc01/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:17:1-44:12
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/68bb3aec6400f0bd9021e326b07bf010/transformed/play-services-auth-api-phone-18.0.2/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/bc2086c877288bb7cff111082f58cd56/transformed/recaptcha-18.6.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.play:integrity:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8799b9c31e917297dc7ddb20dad7a671/transformed/integrity-1.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/982306c13a07090d0e3d2593c0e5d667/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:15:1-25:12
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/21d5d12a60e899fd6f24510f99839eb2/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6df355dcf990812c00bd10d1ccae3878/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:17:1-32:12
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/435df0207a2567c446019e094c33a31c/transformed/play-services-fido-20.1.0/AndroidManifest.xml:2:1-10:12
+MERGED from [androidx.compose.foundation:foundation-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/9d30bd93fb3c04031bdfac407d54694e/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/294f8b421dcb2cf3b7934f080215c6ad/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c8e4b09caab1eecffea958602f7b76ef/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5270f52af08e322268f6f7564e3b0bdb/transformed/ui-tooling-data-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ac34b64c340a047365254db0c594076e/transformed/ui-unit-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5b4983f2a2504248682aa1f6627f8a49/transformed/ui-geometry-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8067d5fadb64a9b9ae1b370e21a2fa31/transformed/ui-tooling-preview-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-util-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/2880878e79c620397618323b74ea5ffe/transformed/ui-util-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/bc142aa12d1f08f62074dafd9c68ce9e/transformed/ui-text-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f9dc51fbc9540c3245c12c2996d93297/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-google-fonts:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/52115a032a251e4401b6db5279d998ca/transformed/ui-text-google-fonts-1.7.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a7009c845fbd401ba84a4bf59f1b5ea1/transformed/ui-tooling-release/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.material:material-android:1.6.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ddc8087e0d1875b4202d4f00a73529d9/transformed/material-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/842981d8862a0a192c95a1fdfadf0bff/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.6.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/be850a002ebecd5a25cdf81830aac181/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/2c2e89eaec88bc29f47e4632053d8bd1/transformed/animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6296f75232b7d3ba0596a43b2d23113f/transformed/play-services-stats-17.0.2/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ae4b7c30e0834afc771b6b7ec00b34f6/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/2a2e0a68d4ac7c62f3076f6a159eff57/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c506d509b7b584b4e3541544ebc3eb4c/transformed/emoji2-1.3.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.browser:browser:1.4.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3206532b3a06a6aa29b56df03cc97f99/transformed/browser-1.4.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5c9b006208f0eacddb15bcffc883c78a/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a3c02fa4c0052cf8b35aed168e965cf4/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6f55fa4bff3c4e22b45041f1c8146eac/transformed/play-services-auth-base-18.0.4/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a5316f53699c0443e432f57503663bb1/transformed/play-services-base-18.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7bb25d138476afb051a075d2a1d6fe9d/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/82ad6476e31cdd8250a054a26295872b/transformed/graphics-path-1.0.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8239ddbc9a0b411ab0b1d34dc5b7a5dc/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.privacysandbox.ads:ads-adservices-java:1.0.0-beta05] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/651bb3e7e95b012903e35f909f2659f9/transformed/ads-adservices-java-1.0.0-beta05/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/37e4d2077523634fbce763383523a143/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f7ab5153885c0cc8803e7d44430ebacf/transformed/core-ktx-1.13.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8faa15da290067cd3980fda33d4b14d0/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/67e953eecf47bd1022e87e3e8e4030be/transformed/savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/1a0978cc14d6518520d15086e52d6d26/transformed/lifecycle-viewmodel-2.8.3/AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/9ef94dcd4978e20c40df4699e1bf967b/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/017e6250d6db855e619c34475973d5bc/transformed/lifecycle-livedata-core-ktx-2.8.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/4975f700c16a6b5c57efaf449e19bde1/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/dea4ae8d17fbf9a43a5aac9be23ffe63/transformed/lifecycle-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8564263c0877e21e6349fe5baaea34ab/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/de6a711ffe2af51d9079e87974edfda0/transformed/lifecycle-viewmodel-savedstate-2.8.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/003b6a6ea70c767979d0d00c37fb511e/transformed/lifecycle-viewmodel-ktx-2.8.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/d0ccde28a41cc14e021ff4e11f332364/transformed/lifecycle-livedata-core-2.8.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/243ecae8187217aab98e6005b182ff6b/transformed/lifecycle-livedata-2.8.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/b251014afde8ec4257a1ee8c8eddd9a5/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6461f0a5e6e7bd2526a83151c467a1ed/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/36d87483359145f2c3bef452806ec9ed/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/448f8db505dae014bcf9634866367519/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/50bc69174482a4a6cf7265b18e360cd1/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/130e85d9530dba5b7f8f1029a69c143f/transformed/firebase-installations-interop-17.1.1/AndroidManifest.xml:15:1-19:12
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/4720af277359ad1da97f582a306e280a/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/0917d6d5e55b878c23c7e3d8668fa91f/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:17:1-30:12
+MERGED from [com.google.android.gms:play-services-measurement-base:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/013b4b155e5bbb45cfa20098b3ac9bd4/transformed/play-services-measurement-base-22.2.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/4dfc5946701ad0c4039be43651cf5853/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-basement:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6bdb109ca83b47c3ea8cf7a9c362e203/transformed/play-services-basement-18.5.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/1bfde9ad42833f8f627bfccaa94ac7d5/transformed/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.8.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6285f94131f63ed03609331eafbf9d6b/transformed/activity-1.8.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.8.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3babefc679d584bb70fbec9bf1d7f1b5/transformed/activity-ktx-1.8.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-compose:1.8.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/1df92874ba45b464c3d0b153021a60a2/transformed/activity-compose-1.8.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/10e4051b322d87d7a6ff6e8983a96110/transformed/googleid-1.1.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/479ed57279085312d1b6a6e986c65542/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/398debad1465c858585d234d7a510df8/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/1a932b80b9cfbdb087956697750669b7/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/148fc6c5036012507b82cdb674dd7b75/transformed/firebase-components-18.0.0/AndroidManifest.xml:15:1-20:12
+MERGED from [androidx.databinding:viewbinding:7.4.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/944efea29ad0b6f07f63d1e0867ac4c0/transformed/viewbinding-7.4.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7fd51dd6a570f4475b7284f541c1ec3f/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/fbd9730c893490351bdcc642b7ca3434/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/96af9a0775a3fd761e8ba42cdefe483b/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/9f44acd0728967cd66551b04e52c7040/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/76cffe713951d0e8fe5ca91976aea1b8/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/d6a7f2b565604d4bdedc8dfe0be67aa4/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.play:core-common:2.0.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/319c5df3e83fb9b5e6b44b018db342a0/transformed/core-common-2.0.3/AndroidManifest.xml:2:1-21:12
+	package
+		INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:4:5-78
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:4:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:5:5-80
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:5:22-78
+uses-permission#android.permission.INTERNET
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:6:5-67
+MERGED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:25:5-67
+MERGED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/bc2086c877288bb7cff111082f58cd56/transformed/recaptcha-18.6.1/AndroidManifest.xml:7:5-67
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/bc2086c877288bb7cff111082f58cd56/transformed/recaptcha-18.6.1/AndroidManifest.xml:7:5-67
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:6:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/bc2086c877288bb7cff111082f58cd56/transformed/recaptcha-18.6.1/AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/bc2086c877288bb7cff111082f58cd56/transformed/recaptcha-18.6.1/AndroidManifest.xml:8:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:7:22-76
+uses-permission#android.permission.CAMERA
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:8:5-65
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:8:22-62
+uses-feature#android.hardware.camera
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:9:5-85
+	android:required
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:9:58-82
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:9:19-57
+application
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:11:5-44:19
+INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:11:5-44:19
+MERGED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:36:5-42:19
+MERGED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:36:5-42:19
+MERGED from [com.google.firebase:firebase-auth-ktx:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7c5d7630e132aaf9908e874e99a10e7f/transformed/firebase-auth-ktx-23.2.0/AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-auth-ktx:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7c5d7630e132aaf9908e874e99a10e7f/transformed/firebase-auth-ktx-23.2.0/AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.android.gms:play-services-location:21.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/400c3c9ee3bb028ccde3cef7872634ff/transformed/play-services-location-21.2.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:21.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/400c3c9ee3bb028ccde3cef7872634ff/transformed/play-services-location-21.2.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-analytics:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/87e6fd0ff3ea7e617db57125e1804aa3/transformed/firebase-analytics-22.2.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-analytics:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/87e6fd0ff3ea7e617db57125e1804aa3/transformed/firebase-analytics-22.2.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:28:5-44:19
+MERGED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:28:5-44:19
+MERGED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:29:5-37:19
+MERGED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:29:5-37:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ed6568ade3b5fceaedb947bf073b1f07/transformed/play-services-measurement-sdk-22.2.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ed6568ade3b5fceaedb947bf073b1f07/transformed/play-services-measurement-sdk-22.2.0/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:23:5-42:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:23:5-42:19
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.play:integrity:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8799b9c31e917297dc7ddb20dad7a671/transformed/integrity-1.3.0/AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.play:integrity:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8799b9c31e917297dc7ddb20dad7a671/transformed/integrity-1.3.0/AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/982306c13a07090d0e3d2593c0e5d667/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:23:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/982306c13a07090d0e3d2593c0e5d667/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:23:5-20
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/21d5d12a60e899fd6f24510f99839eb2/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/21d5d12a60e899fd6f24510f99839eb2/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6df355dcf990812c00bd10d1ccae3878/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6df355dcf990812c00bd10d1ccae3878/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:29:5-30:19
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:29:5-30:19
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/435df0207a2567c446019e094c33a31c/transformed/play-services-fido-20.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/435df0207a2567c446019e094c33a31c/transformed/play-services-fido-20.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a7009c845fbd401ba84a4bf59f1b5ea1/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a7009c845fbd401ba84a4bf59f1b5ea1/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6296f75232b7d3ba0596a43b2d23113f/transformed/play-services-stats-17.0.2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6296f75232b7d3ba0596a43b2d23113f/transformed/play-services-stats-17.0.2/AndroidManifest.xml:7:5-20
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c506d509b7b584b4e3541544ebc3eb4c/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c506d509b7b584b4e3541544ebc3eb4c/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a5316f53699c0443e432f57503663bb1/transformed/play-services-base-18.5.0/AndroidManifest.xml:4:5-6:19
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a5316f53699c0443e432f57503663bb1/transformed/play-services-base-18.5.0/AndroidManifest.xml:4:5-6:19
+MERGED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/37e4d2077523634fbce763383523a143/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/37e4d2077523634fbce763383523a143/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8564263c0877e21e6349fe5baaea34ab/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8564263c0877e21e6349fe5baaea34ab/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:23:5-33:19
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/4720af277359ad1da97f582a306e280a/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/4720af277359ad1da97f582a306e280a/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/0917d6d5e55b878c23c7e3d8668fa91f/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/0917d6d5e55b878c23c7e3d8668fa91f/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/013b4b155e5bbb45cfa20098b3ac9bd4/transformed/play-services-measurement-base-22.2.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/013b4b155e5bbb45cfa20098b3ac9bd4/transformed/play-services-measurement-base-22.2.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/4dfc5946701ad0c4039be43651cf5853/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/4dfc5946701ad0c4039be43651cf5853/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-basement:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6bdb109ca83b47c3ea8cf7a9c362e203/transformed/play-services-basement-18.5.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6bdb109ca83b47c3ea8cf7a9c362e203/transformed/play-services-basement-18.5.0/AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/398debad1465c858585d234d7a510df8/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/398debad1465c858585d234d7a510df8/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/fbd9730c893490351bdcc642b7ca3434/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/fbd9730c893490351bdcc642b7ca3434/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [com.google.android.play:core-common:2.0.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/319c5df3e83fb9b5e6b44b018db342a0/transformed/core-common-2.0.3/AndroidManifest.xml:11:5-19:19
+MERGED from [com.google.android.play:core-common:2.0.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/319c5df3e83fb9b5e6b44b018db342a0/transformed/core-common-2.0.3/AndroidManifest.xml:11:5-19:19
+	android:extractNativeLibs
+		INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:14:9-35
+	android:allowBackup
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:13:9-36
+	android:theme
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:15:9-40
+	android:networkSecurityConfig
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:16:9-69
+	android:usesCleartextTraffic
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:17:9-44
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:12:9-38
+activity#com.example.trail_tales_front_end_one.android.MainActivity
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:18:9-25:20
+	android:exported
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:20:13-36
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:19:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:21:13-24:29
+action#android.intent.action.MAIN
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:22:17-69
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:22:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:23:17-77
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:23:27-74
+meta-data#com.google.android.geo.API_KEY
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:38:9-40:71
+	android:value
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:40:13-68
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:39:13-58
+meta-data#com.google.android.gms.version
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:41:9-43:69
+MERGED from [com.google.android.gms:play-services-basement:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6bdb109ca83b47c3ea8cf7a9c362e203/transformed/play-services-basement-18.5.0/AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6bdb109ca83b47c3ea8cf7a9c362e203/transformed/play-services-basement-18.5.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:43:13-66
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:42:13-58
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:33:13-35:54
+	android:resource
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:35:17-51
+	android:name
+		ADDED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml:34:17-67
+uses-sdk
+INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml
+INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml
+MERGED from [:Trail-Tales-shared] /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales-shared/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:Trail-Tales-shared] /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales-shared/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5b3e28ccb6838d893191d19cc56c85cc/transformed/navigation-common-2.8.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5b3e28ccb6838d893191d19cc56c85cc/transformed/navigation-common-2.8.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/b7f2ab0a2b1ac172b22081b511c8da60/transformed/navigation-runtime-2.8.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/b7f2ab0a2b1ac172b22081b511c8da60/transformed/navigation-runtime-2.8.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/d6fe71478522bff407f43ececa94472d/transformed/navigation-common-ktx-2.8.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/d6fe71478522bff407f43ececa94472d/transformed/navigation-common-ktx-2.8.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a29e7fec273766d84c2f0ccdf55c1cd9/transformed/navigation-runtime-ktx-2.8.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a29e7fec273766d84c2f0ccdf55c1cd9/transformed/navigation-runtime-ktx-2.8.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5f2ca816b52ec3a3b94cff9dbb9ab902/transformed/navigation-compose-2.8.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.7] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5f2ca816b52ec3a3b94cff9dbb9ab902/transformed/navigation-compose-2.8.7/AndroidManifest.xml:5:5-44
+MERGED from [com.google.maps.android:maps-compose:4.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/e180053afe92f869a9e71ebda12d8fd9/transformed/maps-compose-4.3.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.maps.android:maps-compose:4.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/e180053afe92f869a9e71ebda12d8fd9/transformed/maps-compose-4.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a03826e1bc1512bb5c80c36769b332fd/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a03826e1bc1512bb5c80c36769b332fd/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [com.google.maps.android:maps-ktx:5.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/dc346beb4d0e2ad8117850598add6693/transformed/maps-ktx-5.0.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.maps.android:maps-ktx:5.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/dc346beb4d0e2ad8117850598add6693/transformed/maps-ktx-5.0.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-auth-ktx:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7c5d7630e132aaf9908e874e99a10e7f/transformed/firebase-auth-ktx-23.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-ktx:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7c5d7630e132aaf9908e874e99a10e7f/transformed/firebase-auth-ktx-23.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:21:5-23:151
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:21:5-23:151
+MERGED from [com.google.android.gms:play-services-location:21.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/400c3c9ee3bb028ccde3cef7872634ff/transformed/play-services-location-21.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:21.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/400c3c9ee3bb028ccde3cef7872634ff/transformed/play-services-location-21.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/87e6fd0ff3ea7e617db57125e1804aa3/transformed/firebase-analytics-22.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/87e6fd0ff3ea7e617db57125e1804aa3/transformed/firebase-analytics-22.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ed6568ade3b5fceaedb947bf073b1f07/transformed/play-services-measurement-sdk-22.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ed6568ade3b5fceaedb947bf073b1f07/transformed/play-services-measurement-sdk-22.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c2a3cd8568daa1f3940edc6deb9469a1/transformed/credentials-1.2.0-rc01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c2a3cd8568daa1f3940edc6deb9469a1/transformed/credentials-1.2.0-rc01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:21:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:21:5-44
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/68bb3aec6400f0bd9021e326b07bf010/transformed/play-services-auth-api-phone-18.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/68bb3aec6400f0bd9021e326b07bf010/transformed/play-services-auth-api-phone-18.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/bc2086c877288bb7cff111082f58cd56/transformed/recaptcha-18.6.1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/bc2086c877288bb7cff111082f58cd56/transformed/recaptcha-18.6.1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.play:integrity:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8799b9c31e917297dc7ddb20dad7a671/transformed/integrity-1.3.0/AndroidManifest.xml:4:5-44
+MERGED from [com.google.android.play:integrity:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8799b9c31e917297dc7ddb20dad7a671/transformed/integrity-1.3.0/AndroidManifest.xml:4:5-44
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/982306c13a07090d0e3d2593c0e5d667/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/982306c13a07090d0e3d2593c0e5d667/transformed/firebase-appcheck-interop-17.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/21d5d12a60e899fd6f24510f99839eb2/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/21d5d12a60e899fd6f24510f99839eb2/transformed/firebase-auth-interop-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6df355dcf990812c00bd10d1ccae3878/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6df355dcf990812c00bd10d1ccae3878/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/435df0207a2567c446019e094c33a31c/transformed/play-services-fido-20.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/435df0207a2567c446019e094c33a31c/transformed/play-services-fido-20.1.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/9d30bd93fb3c04031bdfac407d54694e/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/9d30bd93fb3c04031bdfac407d54694e/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/294f8b421dcb2cf3b7934f080215c6ad/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/294f8b421dcb2cf3b7934f080215c6ad/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c8e4b09caab1eecffea958602f7b76ef/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c8e4b09caab1eecffea958602f7b76ef/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5270f52af08e322268f6f7564e3b0bdb/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5270f52af08e322268f6f7564e3b0bdb/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ac34b64c340a047365254db0c594076e/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ac34b64c340a047365254db0c594076e/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5b4983f2a2504248682aa1f6627f8a49/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5b4983f2a2504248682aa1f6627f8a49/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8067d5fadb64a9b9ae1b370e21a2fa31/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8067d5fadb64a9b9ae1b370e21a2fa31/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/2880878e79c620397618323b74ea5ffe/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/2880878e79c620397618323b74ea5ffe/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/bc142aa12d1f08f62074dafd9c68ce9e/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/bc142aa12d1f08f62074dafd9c68ce9e/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f9dc51fbc9540c3245c12c2996d93297/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f9dc51fbc9540c3245c12c2996d93297/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-google-fonts:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/52115a032a251e4401b6db5279d998ca/transformed/ui-text-google-fonts-1.7.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-google-fonts:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/52115a032a251e4401b6db5279d998ca/transformed/ui-text-google-fonts-1.7.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a7009c845fbd401ba84a4bf59f1b5ea1/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a7009c845fbd401ba84a4bf59f1b5ea1/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.6.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ddc8087e0d1875b4202d4f00a73529d9/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.6.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ddc8087e0d1875b4202d4f00a73529d9/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/842981d8862a0a192c95a1fdfadf0bff/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/842981d8862a0a192c95a1fdfadf0bff/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.6.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/be850a002ebecd5a25cdf81830aac181/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.6.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/be850a002ebecd5a25cdf81830aac181/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/2c2e89eaec88bc29f47e4632053d8bd1/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/2c2e89eaec88bc29f47e4632053d8bd1/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6296f75232b7d3ba0596a43b2d23113f/transformed/play-services-stats-17.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6296f75232b7d3ba0596a43b2d23113f/transformed/play-services-stats-17.0.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ae4b7c30e0834afc771b6b7ec00b34f6/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/ae4b7c30e0834afc771b6b7ec00b34f6/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/2a2e0a68d4ac7c62f3076f6a159eff57/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/2a2e0a68d4ac7c62f3076f6a159eff57/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c506d509b7b584b4e3541544ebc3eb4c/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c506d509b7b584b4e3541544ebc3eb4c/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.browser:browser:1.4.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3206532b3a06a6aa29b56df03cc97f99/transformed/browser-1.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.4.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3206532b3a06a6aa29b56df03cc97f99/transformed/browser-1.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5c9b006208f0eacddb15bcffc883c78a/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5c9b006208f0eacddb15bcffc883c78a/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a3c02fa4c0052cf8b35aed168e965cf4/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a3c02fa4c0052cf8b35aed168e965cf4/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6f55fa4bff3c4e22b45041f1c8146eac/transformed/play-services-auth-base-18.0.4/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6f55fa4bff3c4e22b45041f1c8146eac/transformed/play-services-auth-base-18.0.4/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a5316f53699c0443e432f57503663bb1/transformed/play-services-base-18.5.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a5316f53699c0443e432f57503663bb1/transformed/play-services-base-18.5.0/AndroidManifest.xml:3:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7bb25d138476afb051a075d2a1d6fe9d/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7bb25d138476afb051a075d2a1d6fe9d/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/82ad6476e31cdd8250a054a26295872b/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/82ad6476e31cdd8250a054a26295872b/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8239ddbc9a0b411ab0b1d34dc5b7a5dc/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8239ddbc9a0b411ab0b1d34dc5b7a5dc/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.privacysandbox.ads:ads-adservices-java:1.0.0-beta05] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/651bb3e7e95b012903e35f909f2659f9/transformed/ads-adservices-java-1.0.0-beta05/AndroidManifest.xml:5:5-44
+MERGED from [androidx.privacysandbox.ads:ads-adservices-java:1.0.0-beta05] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/651bb3e7e95b012903e35f909f2659f9/transformed/ads-adservices-java-1.0.0-beta05/AndroidManifest.xml:5:5-44
+MERGED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/37e4d2077523634fbce763383523a143/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:20:5-44
+MERGED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/37e4d2077523634fbce763383523a143/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f7ab5153885c0cc8803e7d44430ebacf/transformed/core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f7ab5153885c0cc8803e7d44430ebacf/transformed/core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8faa15da290067cd3980fda33d4b14d0/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8faa15da290067cd3980fda33d4b14d0/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/67e953eecf47bd1022e87e3e8e4030be/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/67e953eecf47bd1022e87e3e8e4030be/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/1a0978cc14d6518520d15086e52d6d26/transformed/lifecycle-viewmodel-2.8.3/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/1a0978cc14d6518520d15086e52d6d26/transformed/lifecycle-viewmodel-2.8.3/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/9ef94dcd4978e20c40df4699e1bf967b/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/9ef94dcd4978e20c40df4699e1bf967b/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/017e6250d6db855e619c34475973d5bc/transformed/lifecycle-livedata-core-ktx-2.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/017e6250d6db855e619c34475973d5bc/transformed/lifecycle-livedata-core-ktx-2.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/4975f700c16a6b5c57efaf449e19bde1/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/4975f700c16a6b5c57efaf449e19bde1/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/dea4ae8d17fbf9a43a5aac9be23ffe63/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/dea4ae8d17fbf9a43a5aac9be23ffe63/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8564263c0877e21e6349fe5baaea34ab/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8564263c0877e21e6349fe5baaea34ab/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/de6a711ffe2af51d9079e87974edfda0/transformed/lifecycle-viewmodel-savedstate-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/de6a711ffe2af51d9079e87974edfda0/transformed/lifecycle-viewmodel-savedstate-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/003b6a6ea70c767979d0d00c37fb511e/transformed/lifecycle-viewmodel-ktx-2.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/003b6a6ea70c767979d0d00c37fb511e/transformed/lifecycle-viewmodel-ktx-2.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/d0ccde28a41cc14e021ff4e11f332364/transformed/lifecycle-livedata-core-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/d0ccde28a41cc14e021ff4e11f332364/transformed/lifecycle-livedata-core-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/243ecae8187217aab98e6005b182ff6b/transformed/lifecycle-livedata-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/243ecae8187217aab98e6005b182ff6b/transformed/lifecycle-livedata-2.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/b251014afde8ec4257a1ee8c8eddd9a5/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/b251014afde8ec4257a1ee8c8eddd9a5/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6461f0a5e6e7bd2526a83151c467a1ed/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6461f0a5e6e7bd2526a83151c467a1ed/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/36d87483359145f2c3bef452806ec9ed/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/36d87483359145f2c3bef452806ec9ed/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/448f8db505dae014bcf9634866367519/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/448f8db505dae014bcf9634866367519/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/50bc69174482a4a6cf7265b18e360cd1/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/50bc69174482a4a6cf7265b18e360cd1/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/130e85d9530dba5b7f8f1029a69c143f/transformed/firebase-installations-interop-17.1.1/AndroidManifest.xml:17:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/130e85d9530dba5b7f8f1029a69c143f/transformed/firebase-installations-interop-17.1.1/AndroidManifest.xml:17:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/4720af277359ad1da97f582a306e280a/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/4720af277359ad1da97f582a306e280a/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/0917d6d5e55b878c23c7e3d8668fa91f/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/0917d6d5e55b878c23c7e3d8668fa91f/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/013b4b155e5bbb45cfa20098b3ac9bd4/transformed/play-services-measurement-base-22.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/013b4b155e5bbb45cfa20098b3ac9bd4/transformed/play-services-measurement-base-22.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/4dfc5946701ad0c4039be43651cf5853/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/4dfc5946701ad0c4039be43651cf5853/transformed/firebase-measurement-connector-19.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6bdb109ca83b47c3ea8cf7a9c362e203/transformed/play-services-basement-18.5.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6bdb109ca83b47c3ea8cf7a9c362e203/transformed/play-services-basement-18.5.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/1bfde9ad42833f8f627bfccaa94ac7d5/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/1bfde9ad42833f8f627bfccaa94ac7d5/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.8.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6285f94131f63ed03609331eafbf9d6b/transformed/activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6285f94131f63ed03609331eafbf9d6b/transformed/activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3babefc679d584bb70fbec9bf1d7f1b5/transformed/activity-ktx-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3babefc679d584bb70fbec9bf1d7f1b5/transformed/activity-ktx-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.8.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/1df92874ba45b464c3d0b153021a60a2/transformed/activity-compose-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.8.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/1df92874ba45b464c3d0b153021a60a2/transformed/activity-compose-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/10e4051b322d87d7a6ff6e8983a96110/transformed/googleid-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/10e4051b322d87d7a6ff6e8983a96110/transformed/googleid-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/479ed57279085312d1b6a6e986c65542/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/479ed57279085312d1b6a6e986c65542/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/398debad1465c858585d234d7a510df8/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/398debad1465c858585d234d7a510df8/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/1a932b80b9cfbdb087956697750669b7/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/1a932b80b9cfbdb087956697750669b7/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/148fc6c5036012507b82cdb674dd7b75/transformed/firebase-components-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/148fc6c5036012507b82cdb674dd7b75/transformed/firebase-components-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [androidx.databinding:viewbinding:7.4.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/944efea29ad0b6f07f63d1e0867ac4c0/transformed/viewbinding-7.4.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:viewbinding:7.4.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/944efea29ad0b6f07f63d1e0867ac4c0/transformed/viewbinding-7.4.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7fd51dd6a570f4475b7284f541c1ec3f/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7fd51dd6a570f4475b7284f541c1ec3f/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/fbd9730c893490351bdcc642b7ca3434/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/fbd9730c893490351bdcc642b7ca3434/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/96af9a0775a3fd761e8ba42cdefe483b/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/96af9a0775a3fd761e8ba42cdefe483b/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/9f44acd0728967cd66551b04e52c7040/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/9f44acd0728967cd66551b04e52c7040/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/76cffe713951d0e8fe5ca91976aea1b8/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/76cffe713951d0e8fe5ca91976aea1b8/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/d6a7f2b565604d4bdedc8dfe0be67aa4/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/d6a7f2b565604d4bdedc8dfe0be67aa4/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.play:core-common:2.0.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/319c5df3e83fb9b5e6b44b018db342a0/transformed/core-common-2.0.3/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.play:core-common:2.0.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/319c5df3e83fb9b5e6b44b018db342a0/transformed/core-common-2.0.3/AndroidManifest.xml:7:5-9:41
+	tools:overrideLibrary
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:23:9-148
+	android:targetSdkVersion
+		INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/himathdesilva/Documents/TT FINAL BACKUPS/21st/Front-End/Trail-Tales/src/main/AndroidManifest.xml
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:28:9-32
+queries
+ADDED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:30:5-34:15
+package#com.google.android.apps.maps
+ADDED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:33:9-64
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:33:18-61
+uses-library#org.apache.http.legacy
+ADDED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:39:9-41:40
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:41:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:18.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8df5ab16cbb02b12a6bdf646d3bcbcf7/transformed/play-services-maps-18.2.0/AndroidManifest.xml:40:13-50
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-auth-ktx:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7c5d7630e132aaf9908e874e99a10e7f/transformed/firebase-auth-ktx-23.2.0/AndroidManifest.xml:8:9-14:19
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:30:9-36:19
+MERGED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:30:9-36:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6df355dcf990812c00bd10d1ccae3878/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6df355dcf990812c00bd10d1ccae3878/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:30:9-38:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7c5d7630e132aaf9908e874e99a10e7f/transformed/firebase-auth-ktx-23.2.0/AndroidManifest.xml:10:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:34:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+	android:name
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7c5d7630e132aaf9908e874e99a10e7f/transformed/firebase-auth-ktx-23.2.0/AndroidManifest.xml:9:13-84
+meta-data#com.google.firebase.components:com.google.firebase.auth.ktx.FirebaseAuthLegacyRegistrar
+ADDED from [com.google.firebase:firebase-auth-ktx:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7c5d7630e132aaf9908e874e99a10e7f/transformed/firebase-auth-ktx-23.2.0/AndroidManifest.xml:11:13-13:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7c5d7630e132aaf9908e874e99a10e7f/transformed/firebase-auth-ktx-23.2.0/AndroidManifest.xml:13:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/7c5d7630e132aaf9908e874e99a10e7f/transformed/firebase-auth-ktx-23.2.0/AndroidManifest.xml:12:17-119
+activity#com.google.firebase.auth.internal.GenericIdpActivity
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:29:9-46:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:31:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:33:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:32:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:34:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:30:13-80
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:genericidp
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:35:13-45:29
+action#android.intent.action.VIEW
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:36:17-69
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:36:25-66
+category#android.intent.category.DEFAULT
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:38:17-76
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:38:27-73
+category#android.intent.category.BROWSABLE
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:39:17-78
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:39:27-75
+data
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:41:17-44:51
+	android:path
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:43:21-37
+	android:host
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:42:21-49
+	android:scheme
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:44:21-48
+activity#com.google.firebase.auth.internal.RecaptchaActivity
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:47:9-64:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:49:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:51:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:50:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:52:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:48:13-79
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:recaptcha
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:53:13-63:29
+meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
+ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:69:13-71:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:71:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/073410d3c4bbbcb056992811242016d5/transformed/firebase-auth-23.2.0/AndroidManifest.xml:70:17-109
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:24:5-68
+MERGED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:24:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:25:5-68
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:25:22-65
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:26:5-110
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:26:22-107
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:29:9-33:20
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:31:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:30:13-85
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:35:9-38:40
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:38:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:36:13-84
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:39:9-43:72
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:41:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:42:13-37
+	android:permission
+		ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:43:13-69
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/28c51152d62aea693f92cd7c6d9496df/transformed/play-services-measurement-22.2.0/AndroidManifest.xml:40:13-87
+uses-permission#com.google.android.gms.permission.AD_ID
+ADDED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:27:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/5ed1bda211d0cddbff44d3aeee1abb75/transformed/play-services-measurement-impl-22.2.0/AndroidManifest.xml:27:5-79
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/0917d6d5e55b878c23c7e3d8668fa91f/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/0917d6d5e55b878c23c7e3d8668fa91f/transformed/play-services-ads-identifier-18.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:26:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:25:22-76
+uses-permission#android.permission.ACCESS_ADSERVICES_ATTRIBUTION
+ADDED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:26:5-88
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:27:5-88
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:27:5-88
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:26:22-85
+uses-permission#android.permission.ACCESS_ADSERVICES_AD_ID
+ADDED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:27:5-82
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:28:5-82
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/cbfa159a2b23af772d1dcb34b9165ef3/transformed/play-services-measurement-sdk-api-22.2.0/AndroidManifest.xml:28:5-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:27:22-79
+meta-data#com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar
+ADDED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:33:13-35:85
+	android:value
+		ADDED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:35:17-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:22.2.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c6d753a7ea9e25dd6f14ee8468d7991b/transformed/play-services-measurement-api-22.2.0/AndroidManifest.xml:34:17-139
+service#androidx.credentials.playservices.CredentialProviderMetadataHolder
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:24:9-32:19
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:26:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:28:13-60
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:25:13-94
+meta-data#androidx.credentials.CREDENTIAL_PROVIDER_KEY
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:29:13-31:104
+	android:value
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:31:17-101
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:30:17-76
+activity#androidx.credentials.playservices.HiddenActivity
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:34:9-41:20
+	android:fitsSystemWindows
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:39:13-45
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:38:13-37
+	android:configChanges
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:36:13-87
+	android:theme
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:40:13-48
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/3e6c8f61810ff2b40b0ec7b81a06b32b/transformed/credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:35:13-76
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:33:9-37:51
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:35:13-36
+	android:visibleToInstantApps
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:37:13-48
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/f151579a731e54233c28338f85679162/transformed/play-services-auth-20.7.0/AndroidManifest.xml:34:13-89
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/bc2086c877288bb7cff111082f58cd56/transformed/recaptcha-18.6.1/AndroidManifest.xml:9:5-98
+	android:name
+		ADDED from [com.google.android.recaptcha:recaptcha:18.6.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/bc2086c877288bb7cff111082f58cd56/transformed/recaptcha-18.6.1/AndroidManifest.xml:9:22-95
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar
+ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:15:13-17:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:17:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:16:17-130
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar
+ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:18:13-20:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:20:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6a55d04d720d9887bcdaac5e743885cc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:19:17-127
+meta-data#com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar
+ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6df355dcf990812c00bd10d1ccae3878/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6df355dcf990812c00bd10d1ccae3878/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/6df355dcf990812c00bd10d1ccae3878/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+meta-data#com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar
+ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/95d630e819f3b1efcd292fb23b210e78/transformed/firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a7009c845fbd401ba84a4bf59f1b5ea1/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a7009c845fbd401ba84a4bf59f1b5ea1/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a7009c845fbd401ba84a4bf59f1b5ea1/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c506d509b7b584b4e3541544ebc3eb4c/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8564263c0877e21e6349fe5baaea34ab/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8564263c0877e21e6349fe5baaea34ab/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/fbd9730c893490351bdcc642b7ca3434/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/fbd9730c893490351bdcc642b7ca3434/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c506d509b7b584b4e3541544ebc3eb4c/transformed/emoji2-1.3.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c506d509b7b584b4e3541544ebc3eb4c/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c506d509b7b584b4e3541544ebc3eb4c/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c506d509b7b584b4e3541544ebc3eb4c/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c506d509b7b584b4e3541544ebc3eb4c/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c506d509b7b584b4e3541544ebc3eb4c/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/c506d509b7b584b4e3541544ebc3eb4c/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a5316f53699c0443e432f57503663bb1/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:9-173
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a5316f53699c0443e432f57503663bb1/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a5316f53699c0443e432f57503663bb1/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/a5316f53699c0443e432f57503663bb1/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:19-85
+uses-library#android.ext.adservices
+ADDED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/37e4d2077523634fbce763383523a143/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:23:9-25:40
+	android:required
+		ADDED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/37e4d2077523634fbce763383523a143/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/37e4d2077523634fbce763383523a143/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:24:13-50
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+permission#com.example.trail_tales_front_end_one.android.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+uses-permission#com.example.trail_tales_front_end_one.android.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/99bbf3bc93180e83bf3777179f01502e/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8564263c0877e21e6349fe5baaea34ab/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8564263c0877e21e6349fe5baaea34ab/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/8564263c0877e21e6349fe5baaea34ab/transformed/lifecycle-process-2.8.3/AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/88f95f0a5483301d1564fafd43a87972/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+activity#com.google.android.play.core.common.PlayCoreDialogWrapperActivity
+ADDED from [com.google.android.play:core-common:2.0.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/319c5df3e83fb9b5e6b44b018db342a0/transformed/core-common-2.0.3/AndroidManifest.xml:14:9-18:65
+	android:stateNotNeeded
+		ADDED from [com.google.android.play:core-common:2.0.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/319c5df3e83fb9b5e6b44b018db342a0/transformed/core-common-2.0.3/AndroidManifest.xml:17:13-42
+	android:exported
+		ADDED from [com.google.android.play:core-common:2.0.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/319c5df3e83fb9b5e6b44b018db342a0/transformed/core-common-2.0.3/AndroidManifest.xml:16:13-37
+	android:theme
+		ADDED from [com.google.android.play:core-common:2.0.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/319c5df3e83fb9b5e6b44b018db342a0/transformed/core-common-2.0.3/AndroidManifest.xml:18:13-62
+	android:name
+		ADDED from [com.google.android.play:core-common:2.0.3] /Users/himathdesilva/.gradle/caches/8.10.2/transforms/319c5df3e83fb9b5e6b44b018db342a0/transformed/core-common-2.0.3/AndroidManifest.xml:15:13-93

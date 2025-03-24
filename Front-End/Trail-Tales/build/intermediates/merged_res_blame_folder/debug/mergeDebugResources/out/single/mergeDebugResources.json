@@ -1,0 +1,118 @@
+[
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_collectables.jpg.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/collectables.jpg"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_walking_character.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/walking_character.xml"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_ic_quest.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/ic_quest.xml"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_star.png.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/star.png"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/xml_network_security_config.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_login.jpeg.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/login.jpeg"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/xml_file_paths.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/xml/file_paths.xml"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/raw_map_style.json.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/raw/map_style.json"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_chest.png.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/chest.png"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_pink.png.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/pink.png"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_badge.png.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/badge.png"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_purpule.png.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/purpule.png"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_walking_character_frame2.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/walking_character_frame2.xml"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_heart.png.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/heart.png"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_ic_settings.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/ic_settings.xml"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_walking_character_frame3.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/walking_character_frame3.xml"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_key.png.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/key.png"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_ic_camera.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/ic_camera.xml"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_ic_social.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/ic_social.xml"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_footstep.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/footstep.xml"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_quest.jpg.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/quest.jpg"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_airforce_sitemap.jpeg.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/airforce_sitemap.jpeg"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_player_marker.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/player_marker.xml"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_green.png.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/green.png"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_walking_animation.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/walking_animation.xml"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_logo.jpeg.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/logo.jpeg"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_player_down_2.png.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/player_down_2.png"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_poi_marker.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/poi_marker.xml"
+    },
+    {
+        "merged": "com.example.trail_tales_front_end_one.android.Trail-Tales-debug-68:/drawable_ic_inventory.xml.flat",
+        "source": "com.example.trail_tales_front_end_one.android.Trail-Tales-main-70:/drawable/ic_inventory.xml"
+    }
+]

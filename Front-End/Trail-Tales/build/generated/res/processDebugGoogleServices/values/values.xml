@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">324587025006</string>
+    <string name="google_api_key" translatable="false">AIzaSyDLhLbiQ2jVj1mPrPm1_Y7LzVZ7TA_KNkU</string>
+    <string name="google_app_id" translatable="false">1:324587025006:android:4a9df42ab52624a3f6ac7f</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDLhLbiQ2jVj1mPrPm1_Y7LzVZ7TA_KNkU</string>
+    <string name="google_storage_bucket" translatable="false">trail-tales-auth.firebasestorage.app</string>
+    <string name="project_id" translatable="false">trail-tales-auth</string>
+</resources>
