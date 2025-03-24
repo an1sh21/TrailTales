@@ -1,10 +1,19 @@
 # ninja log v5
 310	4673	7632888254624811	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	64d423d40b5263e8
 218	4744	7632888254534122	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	165cbbdd64f5ad20
-488	4894	7632888257607985	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	63d768fd4bbb1519
-24	4916	7632888257441724	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	2b58cf64764320e4
-387	5137	7632888259549725	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	8b7059158b8dee19
 34	5542	7632888264356014	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	30f1eafb54b5e6fe
+488	4894	7632888257607985	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	63d768fd4bbb1519
+387	5137	7632888259549725	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	8b7059158b8dee19
+24	4916	7632888257441724	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	2b58cf64764320e4
+6551	6861	7632888277744980	C:/Users/Admin/Desktop/Project 1/TrailTales/Trail-Tales-Unity/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2a6n6wa6/obj/arm64-v8a/libgame.so	4af0b46b0e68111c
 121	6154	7632888270503270	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	a8e90c684a622cc1
 2	6550	7632888274683857	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	b54bbfbc5100c7a1
-6551	6861	7632888277744980	C:/Users/Admin/Desktop/Project 1/TrailTales/Trail-Tales-Unity/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2a6n6wa6/obj/arm64-v8a/libgame.so	4af0b46b0e68111c
+113	8857	7644499789303473	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	64d423d40b5263e8
+84	8950	7644499790921369	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	2b58cf64764320e4
+56	8986	7644499791978619	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	165cbbdd64f5ad20
+164	9246	7644499795406034	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	8b7059158b8dee19
+127	9371	7644499795967014	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	63d768fd4bbb1519
+68	9862	7644499801871453	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	30f1eafb54b5e6fe
+139	10309	7644499806486826	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	a8e90c684a622cc1
+20	10822	7644499812038404	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	b54bbfbc5100c7a1
+10823	11195	7644499815821539	C:/Users/Admin/Desktop/Project 1/TrailTales/Trail-Tales-Unity/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2a6n6wa6/obj/arm64-v8a/libgame.so	4af0b46b0e68111c
