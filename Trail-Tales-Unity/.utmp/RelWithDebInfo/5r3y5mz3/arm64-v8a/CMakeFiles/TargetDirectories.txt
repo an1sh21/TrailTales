@@ -1,5 +1,0 @@
-C:/Users/Admin/Documents/GitHub/TrailTales/Trail-Tales-Unity/.utmp/RelWithDebInfo/5r3y5mz3/arm64-v8a/CMakeFiles/edit_cache.dir
-C:/Users/Admin/Documents/GitHub/TrailTales/Trail-Tales-Unity/.utmp/RelWithDebInfo/5r3y5mz3/arm64-v8a/CMakeFiles/rebuild_cache.dir
-C:/Users/Admin/Documents/GitHub/TrailTales/Trail-Tales-Unity/.utmp/RelWithDebInfo/5r3y5mz3/arm64-v8a/GameActivity/CMakeFiles/game.dir
-C:/Users/Admin/Documents/GitHub/TrailTales/Trail-Tales-Unity/.utmp/RelWithDebInfo/5r3y5mz3/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
-C:/Users/Admin/Documents/GitHub/TrailTales/Trail-Tales-Unity/.utmp/RelWithDebInfo/5r3y5mz3/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

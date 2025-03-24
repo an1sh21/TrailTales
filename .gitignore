@@ -1,0 +1,101 @@
+# Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+.utmp/
+
+# Visual Studio / VS Code generated files
+.vs/
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Large asset files
+# Add your specific large files below
+*.unitypackage
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.exr
+*.tga
+*.mp4
+*.mov
+*.psd
+*.ai
+*.tif
+*.tiff
+*.fbx
+
+# Specific large binary files identified in your project
+**/libil2cpp.dbg.so
+**/libil2cpp.so
+**/libil2cpp.sym.so
+**/out.aar
+**/libburst-llvm-*.so
+**/libburst-llvm-*.dylib
+**/*.apk
+**/burst-llvm-*.dll
+**/data.unity3d
+**/data.unity3d.jar
+**/ArtifactDB
+**/SourceAssetDB
+**/*.o
+**/*.obj
+**/*.a
+**/*.dag
+**/Il2CppGenericMethodPointerTable.c
+**/Il2CppInvokerTable.cpp
+**/libunity.so
+**/dsymutil
+**/dsymutil.exe
+**/llvm-lipo
+
+# Unity-specific large files/directories
+**/FinalARImplementation/Library/
+**/FinalARImplementation/Temp/
+**/FinalARImplementation/Obj/
+**/FinalARImplementation/Build/
+**/FinalARImplementation/Builds/
+**/FinalARImplementation/Logs/
+**/FinalARImplementation/UserSettings/
+**/FinalARImplementation/.utmp/
+
+# Unity packages
+*.asset
+**/AssetBundling/
+
+# Database files
+*.mdb
+*.ldb
+*.sqlite
+*.db
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Uncomment specific files you want to force ignore (put the exact path below)
+# For example:
+# Assets/BigFile.fbx 
